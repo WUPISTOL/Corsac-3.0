@@ -1,0 +1,22 @@
+{
+  "name": "corsac",
+  "version": "3.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "W.U. PISTOL",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {},
+  "description": "Jari's first bot",
+  "repository": {
+    "type": "git",
+    "url": "E"
+  },
+  "keywords": [
+    "Corsac"
+  ]
+}
