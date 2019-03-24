@@ -153,10 +153,11 @@ dUser.send(`${dUser} A member from ${dUser.guild.name} sent you a message: ${dMe
 message.author.send(`${message.author} You have sent your message to ${dUser}`)
 
 }
-  if(command === "watch"){
+if(command === "watch"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
-    const sayMessage = args.join(" ");
-    client.user.setActivity(sayMessage, {type: 3});
+    let watchmessage = args.join(" ");
+    
+    client.user.setActivity(watchmessage, {type: 3});
 }
 });
 
