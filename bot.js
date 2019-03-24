@@ -161,11 +161,17 @@ if(command === "watching"){
     
     client.user.setActivity(watchmessage, {type: 3});
 }
-  if(command === "playing"){
+  if(command === "streaming"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
     return message.reply("Nice try.");
     
     client.user.setActivity(watchmessage, {type: 1});
+}
+  if(command === "playing"){
+    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
+    return message.reply("Nice try.");
+    
+    client.user.setActivity(watchmessage, {type: 0});
 }
 if(command === "listeningto"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
