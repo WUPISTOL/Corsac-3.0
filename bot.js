@@ -1,199 +1,73 @@
-const Discord = require("discord.js");
-
-const client = new Discord.Client();
-
 const config = require("./config.json");
+const Discord = require("discord.js");
+const fs = require("fs");
+const client = new Discord.Client({disableEveryone: true});
+client.commands = new Discord.Collection();
 
-client.on("ready", () => {
-  console.log(`Corsac has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setActivity("over the Echo", {type: 3});
+fs.readdir("./commands/", (err, files) => {
+
+  if(err) console.log(err);
+
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
+  }
+
+  jsfile.forEach((f, i) =>{
+    let props = require(`./commands/${f}`);
+    console.log(`${f} loaded!`);
+    client.commands.set(props.help.name, props);
+  });
+
 });
 
-client.on("guildCreate", guild => {
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-});
 
-client.on("guildDelete", guild => {
-  console.log(`Corsac has been removed from: ${guild.name} (id: ${guild.id}) at ${new Date()}`);
-});
+client.on("ready", async () => {
+  console.log(`${client.user.username} is online on ${client.guilds.size} servers!`);
 
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome-leave');
-    let memberavatar = member.user.avatarURL
-        if (!channel) return;
-        let embed = new Discord.RichEmbed ()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField(':bust_in_silhouette: | name : ', `${member}`)
-        .addField(':microphone2: | Welcome!', `Welcome to the server, ${member}`)
-        .addField(':id: | User :', "**[" + `${member.id}` + "]**")
-        .addField('You are member #', `${member.guild.memberCount}`)
-        .addField('Server', `${member.guild.name}`, true )
-        .setFooter(`**__${member.guild.name}__**`)
-        .setTimestamp()
-        
-        channel.sendEmbed(embed);
-});
+  client.user.setActivity("tutorials because Grey is confused", {type: "WATCHING"});
 
-client.on('guildMemberRemove', member => {
-    let channel = member.guild.channels.find('name', 'welcome-leave');
-    let memberavatar = member.user.avatarURL
-        if (!channel) return
-        let embed = new Discord.RichEmbed()
-            .setColor('RANDOM')
-            .setThumbnail(memberavatar)
-            .addField('Oh no!', `${member}`)
-            .addField('Has been yeeted out the airlock', ';(')
-            .addField('See ya', ':wave:')
-            .addField('The server now has', `${member.guild.memberCount}` + " members")
-            .setFooter(`${member.guild.name}`)
-            .setTimestamp()
-    
-    channel.sendEmbed(embed)
+  //bot.user.setGame("on SourceCade!");
 });
-
 
 client.on("message", async message => {
   if(message.author.bot) return;
-  if(message.content.indexOf(config.prefix) !== 0) return;
-  
-
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-
-    if(!command) return message.channel.send("Please use an actual command.")
+  if(message.channel.type === "dm") return;
     
-  if(command === "ping") {
+  let prefix = config.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  let commandfile = client.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(client, message, args);
+    
+    const blargs = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const pcommand = blargs.shift().toLowerCase();
+
+    if(message.content.indexOf(prefix) !== 0) return;
+    if(!pcommand) return message.channel.send("Please use an actual command.")
+    
+    if(pcommand === "ping") {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! The latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms.`);
   }
-  
-  if(command === "say") {
-    if(!message.member.roles.some(r=>["Commanding Officer"].includes(r.name)) )
-      return message.reply("I'm not saying that.");
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{}); 
-    message.channel.send(sayMessage);
-  }
-  
-  if(command === "kick") {
-    if(!message.member.roles.some(r=>["HIGH COMMAND", "Commanding Officer"].includes(r.name)) )
-      return message.reply("Nice try.");
- 
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!member)
-      return message.reply("Kick who?");
-    if(!member.kickable) 
-      return message.reply("Negative.");
+    if(pcommand === "purge") {
 
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided.";
-    
-    await member.kick(reason)
-      .catch(error => message.reply(`${message.author}, I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} has been yeeted out the airlock by ${message.author.tag} because: ${reason}`);
-
-  }
-  
-  if(command === "ban") {
- 
-    if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
-      return message.reply("Nice try.");
-    
-    let member = message.mentions.members.first();
-    if(!member)
-      return message.reply("excuse me, ban who?");
-    if(!member.bannable) 
-      return message.reply("I can't ban this user.");
-
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided.";
-    
-    await member.ban(reason)
-      .catch(error => message.reply(`${message.author}, I couldn't ban because of : ${error}`));
-    message.reply(`${message.author.tag} summoned ***PROHIBITION HAMMER*** and banned ${member.user.tag} because: ${reason}`);
-  }
-  
-if(command === "purge") {
-
-    if(!message.member.roles.some(r=>["HIGH COMMAND", "LVL 35 MAFIA BOSS"].includes(r.name)) )
-        return message.reply("Nice try.");
-       
+        if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
+            return message.reply("Nice try.");
+        //Get the delete count as a number.
         const numvar = parseInt(args[0], 10);
     
-    if(!numvar || numvar < 2 || numvar > 100)
-        return message.reply("Please choose a number between 2 and 100 to purge.");
+        if(!numvar || numvar < 2 || numvar > 100)
+            return message.reply("Please choose a number between 2 and 100 to purge.");
     
         const fetched = await message.channel.fetchMessages({limit: numvar});
         message.channel.bulkDelete(fetched)
-        .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+            .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-
-if(command === "avatar") {
-      let embed = new Discord.RichEmbed()
-    .setImage(message.author.avatarURL)
-    .setColor('#275BF1')
-      message.channel.send(embed)
-}
-    if(command === "dm"){
-  dUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-if (!dUser) return message.channel.send("Can't find user!")
-if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No.")
-let dMessage = args.join(" ").slice(22);
-if(dMessage.length < 1) return message.reply('You must supply a message!')
-
-dUser.send(`${dUser} A member from ${dUser.guild.name} sent you a message: ${dMessage}`)
-
-message.author.send(`${message.author} You have sent your message to ${dUser}`)
-
-}
-  
-    const watchmessage = args.join(" ");
-if(command === "watching"){
-    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
-    return message.reply("Nice try.");
     
-    client.user.setActivity(watchmessage, {type: 3});
-}
-  if(command === "streaming"){
-    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
-    return message.reply("Nice try.");
-    
-    client.user.setActivity(watchmessage, {type: 1});
-}
-  if(command === "playing"){
-    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
-    return message.reply("Nice try.");
-    
-    client.user.setActivity(watchmessage, {type: 0});
-}
-if(command === "listeningto"){
-    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
-    return message.reply("Nice try.");
-    
-    client.user.setActivity(watchmessage, {type: 2});
-}
-  
-  if(command === "join") {
-//voice channel
-    const vchannel = message.member.voiceChannel;
-    if(!vchannel) return message.reply('You must be in a voice channel for this command to work.')
-    
-    vchannel.join()
-    .then(connection => console.log('Connected!'))
-    .catch(error => message.channel.send(error));
-}
-     if(command === "roll") {
-        let enumvar = parseInt(args[0], 10);
-        if(!enumvar || enumvar < 6 || enumvar > 100)
-            return message.reply("Please choose a number from 6 to 100 to roll.")
-        let embed = new Discord.RichEmbed ()
-        .setColor('#FFA62B')
-        .setTitle('Die Roller')
-        .setDescription(':game_die: You rolled a ' + Math.floor((Math.random() * enumvar) + 1) + ' :game_die:')
-        .setTimestamp()
-        message.channel.send(embed);
-  }
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(config.token);
