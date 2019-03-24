@@ -189,6 +189,17 @@ if(command === "listeningto"){
     .then(connection => console.log('Connected!'))
     .catch(error => message.channel.send(error));
 }
+     if(command === "rollembed") {
+        let enumvar = parseInt(args[0], 10);
+        if(!enumvar || enumvar < 6 || enumvar > 100)
+            return message.reply("Please choose a number from 6 to 100 to roll.")
+        let embed = new Discord.RichEmbed ()
+        .setColor('#FFA62B')
+        .setTitle('Die Roller')
+        .setDescription(':game_die: You rolled a ' + Math.floor((Math.random() * enumvar) + 1) + ' :game_die:')
+        .setTimestamp()
+        message.channel.send(embed);
+  }
 });
 
 client.login(process.env.BOT_TOKEN);
