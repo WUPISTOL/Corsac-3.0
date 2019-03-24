@@ -153,11 +153,26 @@ dUser.send(`${dUser} A member from ${dUser.guild.name} sent you a message: ${dMe
 message.author.send(`${message.author} You have sent your message to ${dUser}`)
 
 }
-if(command === "watch"){
+if(command === "SetWatch"){
+    const watchmessage = args.join(" ");
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
-    let watchmessage = args.join(" ");
+    return message.reply("Nice try.");
     
     client.user.setActivity(watchmessage, {type: 3});
+}
+  if(command === "SetPlaying"){
+    const watchmessage = args.join(" ");
+    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
+    return message.reply("Nice try.");
+    
+    client.user.setActivity(watchmessage, {type: 1});
+}
+  if(command === "SetListeningTo"){
+    const watchmessage = args.join(" ");
+    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
+    return message.reply("Nice try.");
+    
+    client.user.setActivity(watchmessage, {type: 2});
 }
 });
 
