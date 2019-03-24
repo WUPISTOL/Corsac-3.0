@@ -11,12 +11,10 @@ client.on("ready", () => {
 
 client.on("guildCreate", guild => {
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
 client.on("guildDelete", guild => {
   console.log(`Corsac has been removed from: ${guild.name} (id: ${guild.id}) at ${new Date()}`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
 client.on('guildMemberAdd', member => {
@@ -154,6 +152,11 @@ dUser.send(`${dUser} A member from ${dUser.guild.name} sent you a message: ${dMe
 
 message.author.send(`${message.author} You have sent your message to ${dUser}`)
 
+}
+  if(command === "watch"){
+    if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
+    const sayMessage = args.join(" ");
+    client.user.setActivity(sayMessage, {type: 3});
 }
 });
 
