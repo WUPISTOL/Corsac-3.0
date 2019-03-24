@@ -128,13 +128,7 @@ if(command === "purge") {
         message.channel.bulkDelete(fetched)
         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-if(command === "roll") {
-    const numvar = parseInt(args[0], 10);
-    if(!numvar || numvar < 6 || numvar > 100)
-    return message.reply("Please choose a number between 6 and 100 to roll.");
-    message.reply(":game_die: You rolled a " + Math.floor((Math.random() * numvar) + 1) + " :game_die:")
-        .catch(error => message.reply(`Couldn't roll die because of: ${error}`));
-  }
+
 if(command === "avatar") {
       let embed = new Discord.RichEmbed()
     .setImage(message.author.avatarURL)
@@ -189,7 +183,7 @@ if(command === "listeningto"){
     .then(connection => console.log('Connected!'))
     .catch(error => message.channel.send(error));
 }
-     if(command === "rollembed") {
+     if(command === "roll") {
         let enumvar = parseInt(args[0], 10);
         if(!enumvar || enumvar < 6 || enumvar > 100)
             return message.reply("Please choose a number from 6 to 100 to roll.")
