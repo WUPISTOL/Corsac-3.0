@@ -167,7 +167,7 @@ if(command === "watching"){
     
     client.user.setActivity(watchmessage, {type: 1});
 }
-  if(command === "listeningTo"){
+if(command === "listeningto"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
     return message.reply("Nice try.");
     
