@@ -155,19 +155,19 @@ message.author.send(`${message.author} You have sent your message to ${dUser}`)
 }
   
     const watchmessage = args.join(" ");
-if(command === "activity3"){
+if(command === "watching"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
     return message.reply("Nice try.");
     
     client.user.setActivity(watchmessage, {type: 3});
 }
-  if(command === "activity1"){
+  if(command === "playing"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
     return message.reply("Nice try.");
     
     client.user.setActivity(watchmessage, {type: 1});
 }
-  if(command === "activity2"){
+  if(command === "listeningTo"){
     if(!message.member.roles.some(r=>["Commanding Officer", "HIGH COMMAND"].includes(r.name)) )
     return message.reply("Nice try.");
     
