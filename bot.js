@@ -173,6 +173,16 @@ if(command === "listeningto"){
     
     client.user.setActivity(watchmessage, {type: 2});
 }
+  
+  if(command === "join") {
+//voice channel
+    const vchannel = message.member.voiceChannel;
+    if(!vchannel) return message.reply('You must be in a voice channel for this command to work.')
+    
+    vchannel.join()
+    .then(connection => console.log('Connected!'))
+    .catch(error => message.channel.send(error));
+}
 });
 
 client.login(process.env.BOT_TOKEN);
