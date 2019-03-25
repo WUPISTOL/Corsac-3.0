@@ -8,7 +8,6 @@ exports.run = (client, message, args) => {
     let embed = new Discord.RichEmbed ()
         .setColor('#FFA62B')
         .setDescription(sayMessage)
-        .setTimestamp()
         message.channel.send(embed);
 }
 
