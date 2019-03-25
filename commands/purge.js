@@ -1,4 +1,4 @@
-exports.run(message, client, args) => {
+exports.run = async (message, client, args) => {
 
         if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
             return message.reply("Nice try.");
@@ -12,3 +12,7 @@ exports.run(message, client, args) => {
         message.channel.bulkDelete(fetched)
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
+
+module.exports.help = {
+  name: "purge"
+}
