@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     let embed = new Discord.RichEmbed ()
-        .setColor('RANDOM')
+        .setColor('#0964f7')
         .setDescription(sayMessage)
         message.channel.send(embed);
 }
