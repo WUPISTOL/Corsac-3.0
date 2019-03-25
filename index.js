@@ -47,7 +47,7 @@ client.on("message", async message => {
     const pcommand = blargs.shift().toLowerCase();
 
     if(message.content.indexOf(prefix) !== 0) return;
-    if(!pcommand) return message.channel.send("Please use an actual command.")
+    if(!cmd) return message.channel.send("Please use an actual command.")
     
 });
 
