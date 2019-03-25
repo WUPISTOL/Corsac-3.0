@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
 
     let dmessage = args.slice(1).join(' ');
     if(!dmessage) return message.reply("You must supply a message!");
-      dmember.send("A member from " + guildname + " sent you a message: ${dmessage}")
+    dmember.send(`${dmember} A member from: ${dmember.guild.name} sent you a message: ${dmessage}`)
 }
 
 module.exports.help = {
