@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
 
     let dmessage = args.slice(1).join(' ');
     if(!dmessage) return message.reply("You must supply a message!");
-      dmember.send(`A member from ${message.author.guild.name} sent you a message: ${dms}`)
+      dmember.send(`A member from ${message.author.guild.name} sent you a message: ${dmessage}`)
 }
 
 module.exports.help = {
