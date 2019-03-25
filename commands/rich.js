@@ -1,7 +1,7 @@
 
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    if(!message.member.roles.some(r=>["bot-dev"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["bot-dev", "Commanding Officer"].includes(r.name)) )
         return message.reply("I'm not saying that.");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
@@ -12,5 +12,5 @@ exports.run = (client, message, args) => {
 }
 
 module.exports.help = {
-  name: "sayembed"
+  name: "rich"
 }
