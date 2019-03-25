@@ -26,8 +26,6 @@ fs.readdir("./commands/", (err, files) => {
 client.on("ready", async () => {
   console.log(`${client.user.username} is online on ${client.guilds.size} servers!`);
 
-  client.user.setActivity("tutorials because Grey is confused", {type: "WATCHING"});
-
   //bot.user.setGame("on SourceCade!");
 });
 
