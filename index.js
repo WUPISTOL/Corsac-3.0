@@ -49,10 +49,7 @@ client.on("message", async message => {
     if(message.content.indexOf(prefix) !== 0) return;
     if(!pcommand) return message.channel.send("Please use an actual command.")
     
-    if(pcommand === "ping") {
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! The latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms.`);
-  }
+
     if(pcommand === "purge") {
 
         if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
