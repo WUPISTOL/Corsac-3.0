@@ -12,5 +12,5 @@ exports.run = (client, message, args) => {
 }
 
 module.exports.help = {
-  name: "say"
+  name: "rich"
 }
