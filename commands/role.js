@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
 
   //!addrole @Jackson contributor
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Sorry pal, you can't do that.");
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("You don't have the Manage Members permission.");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!rMember) return message.reply("Couldn't find user/please mention somebody to give the role.");
   let role = args.join(" ").slice(22);
@@ -23,5 +23,5 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-  name: "giverole"
+  name: "role"
 }
