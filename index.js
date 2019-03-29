@@ -28,10 +28,7 @@ client.on("ready", async () => {
 
   //bot.user.setGame("on SourceCade!");
 });
-client.on("message", message => {
-  if(message.content === 'pokecordspamstart13') {
-  message.channel.send('pokecordspamstart13');
-  }
+
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
