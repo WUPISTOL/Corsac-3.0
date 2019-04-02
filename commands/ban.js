@@ -11,10 +11,23 @@ exports.run = (client, message, args) => {
 
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided.";
-      member.send(`${member} You've been banned from: ${member.guild.name} because: ${reason}`)
+    let embed = new Discord.richEmbed();
+    .setColor(#ff0400)
+    .setTitle('BAN REPORT');
+    .setDescription(`A member has been banned from ${member.guild.name}`)
+    .addField('User banned:', `${member.id}`)
+    .setTimestamp()
+    
+    let reportchannel = client.channels.find("name", "incidents")
+    
+    if(!reportchannel) return message.reply("Could not find the incidents channel.")
+    
+    message.reply(`${message.author.tag} summoned ***PROHIBITION HAMMER*** and banned ${member.user.tag} because: ${reason}`);
+    reportchannel.send(embed)
+    member.send(`${member} You've been banned from: ${member.guild.name} because: ${reason}`)
     member.ban(reason)
       .catch(error => message.reply(`${message.author}, I couldn't ban because of : ${error}`));
-    message.reply(`${message.author.tag} summoned ***PROHIBITION HAMMER*** and banned ${member.user.tag} because: ${reason}`);
+    
 }
 
 module.exports.help = {
