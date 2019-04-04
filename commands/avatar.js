@@ -11,6 +11,7 @@ exports.run = (client, message, args) => {
   .setImage(amember.avatarURL)
   .setColor('#275BF0')
     message.channel.send(uembed)
+    }
 }
     module.exports.help = {
   name: "avatar"
