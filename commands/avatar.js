@@ -7,10 +7,10 @@ exports.run = (client, message, args) => {
   .setColor('#275BF0')
     message.channel.send(embed)
     } else {
-      let embed = new Discord.RichEmbed()
+      let uembed = new Discord.RichEmbed()
   .setImage(amember.avatarURL)
   .setColor('#275BF0')
-    message.channel.send(embed)
+    message.channel.send(uembed)
 }
     module.exports.help = {
   name: "avatar"
