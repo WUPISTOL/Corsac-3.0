@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-  let amember = message.mentions.members.first();
+  var amember = message.mentions.users.first();
     if(!amember){
   let embed = new Discord.RichEmbed()
   .setImage(message.author.avatarURL)
