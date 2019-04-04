@@ -1,12 +1,17 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-  var auser = message.mentions.users.first();
+  let amember = message.mentions.members.first();
+    if(!amember){
   let embed = new Discord.RichEmbed()
-  .setImage(auser.avatarURL)
+  .setImage(message.author.avatarURL)
   .setColor('#275BF0')
     message.channel.send(embed)
-    
+    } else {
+      let embed = new Discord.RichEmbed()
+  .setImage(amember.avatarURL)
+  .setColor('#275BF0')
+    message.channel.send(embed)
 }
     module.exports.help = {
-  name: "ban"
+  name: "avatar"
 }
