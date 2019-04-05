@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     .addField('**ban, kick**', 'Simple. Bans or kicks heretics.')
     .addField('**purge**', 'deletes up to 100 messages.')
     .addField('**play, listento, watch, stream**', 'Changes my current status.')
-    .addField('**dm**', DMs a user with a message.)
+    .addField('**dm**', 'DMs a user with a message.')
     .addField('~~giverole~~', '*Supposed to give someone a role. Doesn\'t work yet.*')
     .setFooter('All commands have the prefix (c!)')
     .setTimestamp()
