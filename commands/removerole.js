@@ -1,5 +1,5 @@
 exports.run = async (client, message, args) => {
-  let norole = message.guild.member(message.mentions.users.first());
+  let norole = message.mentions.members.first();
   if(!norole) return message.reply("Couldn't find user.");
   if(!message.author.hasPermission("MANAGE_MEMBERS")) return message.reply("You don't have permission to Manage Members.");
   let nargs = args.slice(1).join(" ");
