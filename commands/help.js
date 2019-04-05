@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     .addField('**reload**', 'Reloads an outdated command.')
     .addField('**ping**', 'Self explanatory. Tells you the bot\'s current ping.')
     .addField('**avatar**, 'Displays you or someone else\'s avatar. \(Example: c!avatar @user\)')
-    .setFooter('All commands have the prefix \(c!\)')
+    .setFooter('All commands have the prefix \(c!\). For Admin commands, use c!adminhelp')
     .setTimestamp()
         message.channel.send(embed);
 }
