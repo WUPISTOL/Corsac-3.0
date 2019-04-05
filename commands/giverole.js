@@ -1,17 +1,21 @@
+    
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
-  let rargs = args.slice(1).join(" ");
-  let grole = message.guild.roles.find(`name`, rargs);
-  let torole = message.mentions.members.first();
-  if(!torole) return message.reply("Couldn't find user.");
-  if(!message.author.hasPermission("MANAGE_MEMBERS")) return message.reply("You don't have permission to Manage Members.");
+module.exports.run = async (bot, message, args) => {
 
+    if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
+      return message.reply("Nice try.");
+    
+  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if(!rMember) return message.reply("Couldn't find user.");
+  let role = args.join(" ").slice(22);
+  if(!role) return message.reply("You must provide a role to give.");
+  let gRole = message.guild.roles.find(`name`, role);
+  if(!gRole) return message.reply("Couldn't find role.");
 
-  if(!grole) return message.reply("There was an error with the role. Perhaps you spelled it incorrectly.");
-
-  await(torole.addRole(grole.id));
-  message.reply(`<@${torole.id}> has been given the ${grole.id} role.`);
+  if(rMember.roles.has(gRole.id)) return message.reply("This user already has that role.");
+  rMember.addRole(gRole.id);
+    message.reply("User has been given the role.");
 }
 
 module.exports.help = {
