@@ -31,7 +31,6 @@ client.on("ready", async () => {
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
-  if(message.content.startsWith("s") return;
     
   let prefix = config.prefix;
   let messageArray = message.content.split(" ");
