@@ -26,12 +26,12 @@ fs.readdir("./commands/", (err, files) => {
 client.on("ready", async () => {
   console.log(`${client.user.username} is online on ${client.guilds.size} servers!`);
 
-  //bot.user.setGame("on SourceCade!");
 });
 
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
+  if(message.content.startsWith("sc") return;
     
   let prefix = config.prefix;
   let messageArray = message.content.split(" ");
@@ -49,7 +49,7 @@ client.on("message", async message => {
   
         if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
             return message.reply("Nice try.");
-        //Get the delete count as a number.
+
         const numvar = parseInt(args[0], 10);
     if(pcommand === "purge") {
         if(!numvar || numvar < 2 || numvar > 100)
