@@ -36,8 +36,6 @@ client.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-  
-  if(!message.content.startsWith(config.prefix) return;
                                 
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
