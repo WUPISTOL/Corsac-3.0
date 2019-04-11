@@ -27,6 +27,7 @@ client.on("ready", async () => {
   console.log(`${client.user.username} is online on ${client.guilds.size} servers!`);
 
 });
+process.on("unhandledRejection", console.error);
 
 client.on("message", async message => {
   if(message.author.bot) return;
