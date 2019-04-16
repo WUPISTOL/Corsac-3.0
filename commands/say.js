@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     if(!message.member.roles.some(r=>["Commanding Officer", "LVL. 100 GODFATHER"].includes(r.name)) )
-        return message.reply("err");
+        return message.reply("I'm not saying that.");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     message.channel.send(sayMessage);
