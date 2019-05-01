@@ -13,6 +13,7 @@ exports.run = (client, message, args) => {
     if(!dmessage) return message.reply("You must supply a message!");
     dmember.send(`**${dauthor} from ${dmember.guild.name} sent you a message:** ${dmessage}`)
     dauthor.send(`You've sent your message to ${dmember}.`)
+    message.delete().catch(O_o=>{}); 
 }
 
 module.exports.help = {
