@@ -9,7 +9,6 @@ exports.run = (client, message, args) => {
     .addField('**purge**', 'deletes up to 100 messages.')
     .addField('**play\, listento\, watch\, & stream**', 'Changes my current status.')
     .addField('**dm**', 'DMs a user with a message.')
-    .addField('giverole', 'Gives a user a specified role.')
     .setFooter('All commands have the prefix (c!).')
     .setTimestamp()
         message.channel.send(embed);
