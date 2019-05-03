@@ -1,4 +1,4 @@
-exports.run = (message, client, args) => {
+exports.run = async (message, client, args) => {
             if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
       return message.reply("Nice try.");
 
