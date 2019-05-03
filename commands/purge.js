@@ -1,16 +1,20 @@
-exports.run = async (message, client, args) => {
+exports.run = (message, client, args) => {
 
         if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
             return message.reply("Nice try.");
-        
-        const numvar = parseInt(args[0], 10);
-    
-        if(!numvar || numvar < 2 || numvar > 100) return message.reply("Choose a number between 2 and 100 to purge.");
-    
-        const fetched = await message.channel.fetchMessages({limit: numvar});
-        message.channel.bulkDelete(fetched)
-            .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+        async function purge() {
+                message.delete();
+                
+                if(isNaN(args[0])) {
+                        message.channel.send("You must supply a number as your argument. *Example:* \`c!purge 10\`");
+                }
+
+                const fetched = await message.channel.fetchMessages({limit: args[0]});
+            console.log(fetched.size + 'messages found and currently deleting.');
+            message.channel.bulkDelete(fetched)
+            .catch(error => message.channel.send(`Could not delete messages because: ${error}`));
   }
+    purge();
 
 module.exports.help = {
   name: "purge"
