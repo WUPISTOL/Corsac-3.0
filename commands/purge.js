@@ -1,7 +1,4 @@
 exports.run = (message, client, args) => {
-
-        if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
-            return message.reply("Nice try.");
         async function purge() {
                 message.delete();
                 
