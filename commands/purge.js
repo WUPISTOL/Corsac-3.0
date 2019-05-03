@@ -15,6 +15,7 @@ exports.run = (message, client, args) => {
             .catch(error => message.channel.send(`Could not delete messages because: ${error}`));
   }
     purge();
+}
 
 module.exports.help = {
   name: "purge"
