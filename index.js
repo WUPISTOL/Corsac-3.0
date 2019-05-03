@@ -68,6 +68,7 @@ setTimeout(() => {
             return message.reply("Please choose a number between 2 and 100 to purge.");
 
         const fetched = await message.channel.fetchMessages({limit: numvar});
+        message.delete().catch(O_o=>{});
         message.channel.bulkDelete(fetched)
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
