@@ -52,6 +52,25 @@ setTimeout(() => {
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
    if(!cmd) return message.channel.send("...?");
+  
+    const blargs = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const pcommand = blargs.shift().toLowerCase();
+
+    if(message.content.indexOf(prefix) !== 0) return;
+    if(!cmd) return message.channel.send("Please use an actual command.")
+
+        if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
+            return message.reply("Nice try.");
+
+        const numvar = parseInt(args[0], 10);
+    if(pcommand === "purge") {
+        if(!numvar || numvar < 2 || numvar > 100)
+            return message.reply("Please choose a number between 2 and 100 to purge.");
+
+        const fetched = await message.channel.fetchMessages({limit: numvar});
+        message.channel.bulkDelete(fetched)
+            .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+  }
 });
 
 
