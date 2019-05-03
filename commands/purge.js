@@ -1,6 +1,8 @@
 exports.run = (message, client, args) => {
+            if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
+      return message.reply("Nice try.");
+
         async function purge() {
-                message.delete();
                 
                 if(isNaN(args[0])) {
                         message.channel.send("You must supply a number as your argument. *Example:* \`c!purge 10\`");
@@ -11,6 +13,7 @@ exports.run = (message, client, args) => {
             message.channel.bulkDelete(fetched)
             .catch(error => message.channel.send(`Could not delete messages because: ${error}`));
   }
+    message.delete().catch(O_o=>{}); 
     purge();
 }
 
