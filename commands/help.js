@@ -5,6 +5,7 @@ exports.run = (client, message, args) => {
     .setTitle('COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
     .addField('**roll**', 'Rolls dice. Nothing too complicated.')
+    .addField('**flip**', 'Flips a coin.')
     .addField('**reload**', 'Reloads an outdated command.')
     .addField('**ping**', 'Self explanatory. Tells you the bot\'s current ping.')
     .addField('**avatar**', 'Displays your or somebody else\'s avatar. \(Example: c!avatar @user\)')
