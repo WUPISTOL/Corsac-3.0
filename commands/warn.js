@@ -18,8 +18,8 @@ module.exports.run = async (client, message, args) => {
     if (err) console.log(err)
   });
 
-  let warnchannel = message.guild.channels.find(`name`, "log");
-  if(!warnchannel) return message.reply("Create a \`log\` channel so I can log the incident.");
+  let warnchannel = message.guild.channels.find(`name`, "mod-log");
+  if(!warnchannel) return message.reply("Create a \`mod-log\` channel so I can log the incident.");
   
     let wembed = new Discord.RichEmbed()
     .setColor('#FF0000')
