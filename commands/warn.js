@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription('*USER HAS BEEM WARNED*')
     .addField('**User warned:**', `${wuser.user.tag}`)
     .addField('**Warned in:**', `${message.channel}`)
-    .addField('**Number of warnings:**', `${warnings[wUser.id].warnings}`)
+    .addField('**Number of warnings:**', `${warnings[wuser.id].warnings}`)
     .setFooter(`Reason: ${reason}`)
     .setTimestamp()
     warnchannel.send(wembed);
