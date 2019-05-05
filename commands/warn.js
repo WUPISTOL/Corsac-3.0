@@ -22,9 +22,9 @@ module.exports.run = async (client, message, args) => {
   .setDescription("User has been warned")
   .setColor("#ff0000")
   .addField("Warned User", `<@${user.id}>`)
-  .addField("Warned In", message.channel)
-  .addField("Current Number of Warnings", warnings[user.id].warnings)
-  .addField("Reason", reason);
+  .addField("Warned In", `${message.channel}`)
+  .addField("Current Number of Warnings", `${warnings[user.id].warnings}`)
+  .addField("Reason", `${reason}`);
 
   let warnchannel = message.guild.channels.find(`name`, "log");
   if(!warnchannel) return message.reply("Create a \`log\` channel so I can log the incident.");
