@@ -9,7 +9,8 @@ exports.run = (client, message, args) => {
     .addField('**purge**', 'deletes up to 100 messages.')
     .addField('**play\, listento\, watch\, & stream**', 'Changes my current status.')
     .addField('**dm**', 'DMs a user with a message.')
-    .setFooter('All commands have the prefix (c!).')
+    .addField('**warn**', 'Warns a user \(W.I.P\)'
+    .setFooter('All commands have the prefix \(c!\).')
     .setTimestamp()
         message.channel.send(embed);
 }
