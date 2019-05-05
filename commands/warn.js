@@ -18,9 +18,8 @@ module.exports.run = async (client, message, args) => {
     if (err) console.log(err)
   });
 
-  let warnEmbed = new Discord.RichEmbed()
+  let warnEmbed embed = new Discord.RichEmbed ()
   .setDescription("User has been warned")
-  .setAuthor(message.author.username)
   .setColor("#ff0000")
   .addField("Warned User", `<@${user.id}>`)
   .addField("Warned In", message.channel)
