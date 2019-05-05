@@ -47,7 +47,7 @@ client.on("message", async message => {
 cooldown.add(message.author.id);
 setTimeout(() => {
   cooldown.delete(message.author.id);
-}, 500);
+}, 700);
                                 
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
