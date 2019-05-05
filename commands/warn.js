@@ -4,15 +4,15 @@ let warnings = JSON.parse(fs.readFileSync("./warnlist.json", "utf8"));
 
 module.exports.run = async (client, message, args) => {
 
-  let user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!user) return message.reply("Specify a user to warn.");
+  let wuser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+  if(!wuser) return message.reply("Specify a user to warn.");
   let reason = args.join(" ").slice(22);
 
-  if(!warnings[user.id]) warnings[user.id] = {
+  if(!warnings[wuser.id]) warnings[wuser.id] = {
     warnings: 0
   };
 
-  warnings[user.id].warnings++;
+  warnings[wuser.id].warnings++;
 
   fs.writeFile("./warnlist.json", JSON.stringify(warnings), (err) => {
     if (err) console.log(err)
@@ -21,9 +21,9 @@ module.exports.run = async (client, message, args) => {
   let warnEmbed = new Discord.RichEmbed ()
   .setDescription("User has been warned")
   .setColor("#ff0000")
-  .addField("Warned User", `<@${user.id}>`)
+  .addField("Warned User", `${wuser.user.tag}`)
   .addField("Warned In", `${message.channel}`)
-  .addField("Current Number of Warnings", `${warnings[user.id].warnings}`)
+  .addField("Current Number of Warnings", `${warnings[wuser.id].warnings}`)
   .addField("Reason", `${reason}`);
 
   let warnchannel = message.guild.channels.find(`name`, "log");
