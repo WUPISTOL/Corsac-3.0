@@ -18,18 +18,17 @@ module.exports.run = async (client, message, args) => {
     if (err) console.log(err)
   });
 
-  let warnEmbed = new Discord.RichEmbed ()
-  .setDescription("User has been warned")
-  .setColor("#ff0000")
-  .addField("Warned User", `${wuser.user.tag}`)
-  .addField("Warned In", `${message.channel}`)
-  .addField("Current Number of Warnings", `${warnings[wuser.id].warnings}`)
-  .addField("Reason", `${reason}`);
-
   let warnchannel = message.guild.channels.find(`name`, "log");
   if(!warnchannel) return message.reply("Create a \`log\` channel so I can log the incident.");
-
-  warnchannel.send(warnEmbed);
+  
+    let wembed = new Discord.RichEmbed()
+    .setColor('#FF0000')
+    .setDescription('*USER HAS BEEM WARNED*')
+    .addField('**User warned:**', `${wuser.user.tag}`)
+    .addField('**Warned in:**', `${message.channel}`)
+    .setFooter(`Reason: ${reason}`)
+    .setTimestamp()
+    warnchannel.send(wembed);
 }
 
 module.exports.help = {
