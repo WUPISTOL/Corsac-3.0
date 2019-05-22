@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
+    if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.reply("Nice try.");
     
     let member = message.mentions.members.first();
