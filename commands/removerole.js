@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
+    if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.reply("Nice try.");
     
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
