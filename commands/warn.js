@@ -3,7 +3,8 @@ const fs = require("fs");
 let warnings = JSON.parse(fs.readFileSync("./warnlist.json", "utf8"));
 
 module.exports.run = async (client, message, args) => {
-
+  if (!message.member.hasPermission("ADMINISTRATOR"))
+    return message.reply("Nice try. Actually wait, there's no point in not allowing other people to use this command because damn Heroku resets the warning file every 24 hours so warnings get wiped every day, so why tf did I make it this way lma0");
   let wuser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wuser) return message.reply("Specify a user to warn.");
   let reason = args.join(" ").slice(22);
