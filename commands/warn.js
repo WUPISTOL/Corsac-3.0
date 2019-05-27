@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
   
     let wembed = new Discord.RichEmbed()
     .setColor('#FF0000')
-    .setDescription('*USER HAS BEEM WARNED*')
+    .setDescription('*USER HAS BEEN WARNED*')
     .addField('**User warned:**', `${wuser.user.tag}`)
     .addField('**Warned in:**', `${message.channel}`)
     .addField('**Number of warnings:**', `${warnings[wuser.id].warnings}`)
