@@ -31,11 +31,9 @@ exports.run = (client, message, args) => {
       return message.reply(`[${rollResults.toString()}] ${rollFlavor}`);
     } else {
       return message.reply(
-        (Math.floor(Math.random() * sides) + 1) + ' ' + rollFlavor
-      );
+        (Math.floor(Math.random() * sides) + 1) + ' ' + rollFlavor);
   }
-});
-}
+};
 
 module.exports.help = {
   name: "dice"
