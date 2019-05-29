@@ -9,14 +9,16 @@ exports.run = (client, message, args) => {
     let sides = messageWords[1]; // !roll 20
     let rolls = 1;
           if(sides > 100) return message.reply("The maximum number of sides is 100.");
-        if(rolls > 23) return message.reply("We don't have that many dice!");
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
       // !roll 4d20
       rolls = messageWords[1].split('d')[0] / 1;
       sides = messageWords[1].split('d')[1];
+      if(sides > 100) return message.reply("The maximum number of sides is 100.");
+      if(rolls > 23) return message.reply("We don't have that many dice!");
     } else if (messageWords[1][0] == 'd') {
       // !roll d20
       sides = sides.slice(1);
+      if(sides > 100) return message.reply("The maximum number of sides is 100.");
     }
     sides = sides / 1; // convert to number
     if (isNaN(sides) || isNaN(rolls)) {
