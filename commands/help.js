@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     .setTitle('COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
     .addField('**foo**', 'Very simple command that I use to check if the bot is working.')
-    .addField('**roll**', 'Rolls dice. Nothing too complicated.')
+    .addField('**roll**', 'Rolls dice. Now with modifiers! \(Example: c!roll 1d20 + 4\)')
     .addField('**flip**', 'Flips a coin.')
     .addField('**reload**', 'Reloads an outdated command. \(Example: c!reload help\)')
     .addField('**ping**', 'Tells you the bot\'s current ping.')
