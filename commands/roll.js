@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   const rollMod = messageWords.slice(2).join(' ');
     if (messageWords.length === 1) {
     
-      return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*);
+      return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
     }
 
     let sides = messageWords[1]; // !roll 20
