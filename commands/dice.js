@@ -31,10 +31,11 @@ exports.run = (client, message, args) => {
       return message.reply(`${rollResults.toString()} ${rollFlavor}`);
     } else {
       let roll = Math.floor(Math.random() * sides) + 1
+      let rollsum = roll + (rollFlavor / 1)
       let embed = new Discord.RichEmbed ()
     .setColor('#FFAA00')
     .setTitle('Die Roller')
-    .setDescription(`**Total: ${(roll + rollFlavor) / 1}**`)
+    .setDescription(`**Total: ${rollsum}**`)
     .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollFlavor}`)
     .setFooter('All commands have the prefix (c!).')
     .setTimestamp()
