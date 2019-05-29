@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
   const messageWords = message.content.split(' ');
-  const rollFlavor = messageWords.slice(2).join(' ');
+  const rollMod = messageWords.slice(2).join(' ');
     if (messageWords.length === 1) {
     
       return message.reply(
-        (Math.floor(Math.random() * 6) + 1) + ' ' + rollFlavor);
+        (Math.floor(Math.random() * 6) + 1) + ' ' + rollMod);
     }
 
     let sides = messageWords[1]; // !roll 20
@@ -28,15 +28,23 @@ exports.run = (client, message, args) => {
         rollResults.push(Math.floor(Math.random()*sides)+1);
       }
       const sum = rollResults.reduce((a,b) => a + b);
-      return message.reply(`${rollResults.toString()} ${rollFlavor}`);
-    } else {
-      let roll = Math.floor(Math.random() * sides) + 1
-      let rollsum = roll + (rollFlavor / 1)
+      let dicesum = sum + (rollMod / 1)
       let embed = new Discord.RichEmbed ()
     .setColor('#FFAA00')
     .setTitle('Die Roller')
-    .setDescription(`**Total: ${rollsum}**`)
-    .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollFlavor}`)
+    .setDescription(`**Total: ${dicesum}**`)
+    .addField(`*${messageWords[1]} result*`, `You rolled: ${rollResults.toString()} | Modifier: ${rollMod}`)
+    .setFooter('All commands have the prefix (c!).')
+    .setTimestamp()
+        message.channel.send(embed);
+    } else {
+      let roll = Math.floor(Math.random() * sides) + 1
+      let diesum = roll + (rollMod / 1)
+      let embed = new Discord.RichEmbed ()
+    .setColor('#FFAA00')
+    .setTitle('Die Roller')
+    .setDescription(`**Total: ${diesum}**`)
+    .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
     .setFooter('All commands have the prefix (c!).')
     .setTimestamp()
         message.channel.send(embed);
