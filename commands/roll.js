@@ -4,8 +4,7 @@ exports.run = (client, message, args) => {
   const rollMod = messageWords.slice(2).join(' ');
     if (messageWords.length === 1) {
     
-      return message.reply(
-        (Math.floor(Math.random() * 6) + 1) + ' ' + rollMod);
+      return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*);
     }
 
     let sides = messageWords[1]; // !roll 20
@@ -38,6 +37,18 @@ exports.run = (client, message, args) => {
     .setTimestamp()
         message.channel.send(embed);
     } else {
+      if(!messageWords[1].includes('d')) {
+      let roll = Math.floor(Math.random() * sides) + 1
+      let diesum = roll + (rollMod / 1)
+      let embed = new Discord.RichEmbed ()
+    .setColor('#FFAA00')
+    .setTitle('Die Roller')
+    .setDescription(`**Total: ${diesum}**`)
+    .addField(`*d${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
+    .setFooter('All commands have the prefix (c!).')
+    .setTimestamp()
+        message.channel.send(embed);
+      } else {
       let roll = Math.floor(Math.random() * sides) + 1
       let diesum = roll + (rollMod / 1)
       let embed = new Discord.RichEmbed ()
@@ -48,8 +59,9 @@ exports.run = (client, message, args) => {
     .setFooter('All commands have the prefix (c!).')
     .setTimestamp()
         message.channel.send(embed);
-  }
-};
+      }
+    }
+ };
 
 module.exports.help = {
   name: "roll"
