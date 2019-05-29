@@ -28,10 +28,17 @@ exports.run = (client, message, args) => {
         rollResults.push(Math.floor(Math.random()*sides)+1);
       }
       const sum = rollResults.reduce((a,b) => a + b);
-      return message.reply(`[${rollResults.toString()}] ${rollFlavor}`);
+      return message.reply(`${rollResults.toString()} ${rollFlavor}`);
     } else {
-      return message.reply(
-        (Math.floor(Math.random() * sides) + 1) + ' ' + rollFlavor);
+      let roll = Math.floor(Math.random() * sides) + 1
+      let embed = new Discord.RichEmbed ()
+    .setColor('#FFAA00')
+    .setTitle('Die Roller')
+    .setDescription(`**Total: ${(roll + rollFlavor) / 1}**`)
+    .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollFlavor}`)
+    .setFooter('All commands have the prefix (c!).')
+    .setTimestamp()
+        message.channel.send(embed);
   }
 };
 
