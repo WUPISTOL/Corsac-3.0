@@ -3,12 +3,13 @@ exports.run = (client, message, args) => {
   const messageWords = message.content.split(' ');
   const rollMod = messageWords.slice(2).join(' ');
     if (messageWords.length === 1) {
-    
       return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
     }
 
     let sides = messageWords[1]; // !roll 20
     let rolls = 1;
+          if(sides > 100) return message.reply("The maximum number of sides is 100.");
+        if(rolls > 23) return message.reply("We don't have that many dice!");
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
       // !roll 4d20
       rolls = messageWords[1].split('d')[0] / 1;
