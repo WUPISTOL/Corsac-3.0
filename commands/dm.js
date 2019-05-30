@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-
+      if(message.channel.type === "dm") return message.author.send("You can't use this command in DMs!");
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Nice try.");
     
     let dauthor = message.author;
