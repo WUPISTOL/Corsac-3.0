@@ -1,5 +1,5 @@
 exports.run = async (client, message, args) => {
-  message.channel.send("<:chiefthonk:571072527741485068>");
+  message.channel.send("test: <:chiefthonk:571072527741485068>");
 
   }
 
