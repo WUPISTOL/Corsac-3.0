@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     authors.send(`${message.author.id}`);
     } else {
     message.delete().catch(O_o=>{}); 
-    imember.send(`${imember.id}`);
+    authors.send(`${imember.id}`);
     }
 }
 
