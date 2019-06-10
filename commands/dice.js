@@ -24,7 +24,10 @@ exports.run = (client, message, args) => {
     if (isNaN(sides) || isNaN(rolls)) {
       return;
     }
-     let embed = new Discord.RichEmbed ()
+     var embed = new Discord.RichEmbed ()
+     
+     let roll = Math.floor(Math.random() * sides) + 1
+     let diesum = roll + (rollMod / 1);
     .setColor('#FFAA00')
     .setTitle('Die Roller')
     .setFooter('All commands have the prefix (c!).')
@@ -42,14 +45,10 @@ exports.run = (client, message, args) => {
      message.channel.send(embed);
     } else {
       if(!messageWords[1].includes('d')) {
-      let roll = Math.floor(Math.random() * sides) + 1
-      let diesum = roll + (rollMod / 1)
     .setDescription(`**Total: ${diesum}**`)
     .addField(`*d${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
     message.channel.send(embed);
       } else {
-      let roll = Math.floor(Math.random() * sides) + 1
-      let diesum = roll + (rollMod / 1)
     .setDescription(`**Total: ${diesum}**`)
     .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
     message.channel.send(embed);
