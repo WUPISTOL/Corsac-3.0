@@ -54,6 +54,7 @@ exports.run = (client, message, args) => {
     .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
     message.channel.send(embed);
     }
+    }
  };
 
 module.exports.help = {
