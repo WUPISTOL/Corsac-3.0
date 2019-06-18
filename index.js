@@ -60,8 +60,8 @@ setTimeout(() => {
 
         const numvar = parseInt(args[0], 10);
     if(pcommand === "purge") {
-        if(!message.member.roles.some(r=>["HIGH COMMAND"].includes(r.name)) )
-            return message.reply("Nice try.");
+    if (!message.member.hasPermission("ADMINISTRATOR"))
+    return message.reply("Nice try.");
 
         if(!numvar || numvar < 2 || numvar > 100)
             return message.reply("Please choose a number between 2 and 100 to purge.");
