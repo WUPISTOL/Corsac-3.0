@@ -71,19 +71,5 @@ setTimeout(() => {
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
 });
-client.on("message", async message => {
-  if(message.content.includes('Hi done, I\'m OJ')) { 
-      message.channel.send("Hi OJ, I\'m Dad");
-  }
-  });
-  client.on("message", async message => {
-  if(message.content.includes('Hi Dad, I hope you have a nice day.')) { 
-      message.channel.send("Thanks OJ");
-  }
-  });
-    client.on("message", async message => {
-  if(message.content.includes('No problem.')) { 
-      message.channel.send("Cya.");
-  }
-  });
+
 client.login(process.env.BOT_TOKEN);
