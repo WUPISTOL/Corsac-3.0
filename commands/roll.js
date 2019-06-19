@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
       return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
     }
 
-    let sides = messageWords[1]; // !roll 20
+    let sides = messageWords[1];
     let rolls = 1;
           if(sides > 100) return message.reply("The maximum number of sides is 100.");
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
@@ -20,10 +20,11 @@ exports.run = (client, message, args) => {
       sides = sides.slice(1);
       if(sides > 100) return message.reply("The maximum number of sides is 100.");
     }
-    sides = sides / 1; // convert to number
+    sides = sides / 1; //Darn isNaN messing up meh commands
     if (isNaN(sides) || isNaN(rolls)) {
       return;
     }
+  //I'm out of Kelloggs Frosted Flakes.
     if (rolls > 1) {
       const rollResults = [];
       for (let i = 0; i < rolls; i++) {
