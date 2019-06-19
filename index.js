@@ -73,7 +73,7 @@ setTimeout(() => {
 });
 client.on("message", async message => {
   if(message.content.includes('Hi done, I\'m OJ')) { 
-      message.channel.send("Hi OJ, I'm Dad");
+      message.channel.send("Hi OJ, I\'m Dad");
   }
   });
   client.on("message", async message => {
