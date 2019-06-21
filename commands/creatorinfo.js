@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-  let embed = new Discord.richEmbed()
+    let embed = new Discord.RichEmbed()
   .setColor('##FCAA53')
   .setTitle('Creator Info')
   .setDescription('~~Why did I make this my hobby~~')
