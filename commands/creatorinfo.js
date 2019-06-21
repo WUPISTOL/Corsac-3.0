@@ -6,7 +6,6 @@ exports.run = (client, message, args) => {
   .setDescription('~~Why did I make this my hobby~~')
   .addField('Well, you probably know that the creator of this bot is **Jari/WUPISTOL**.', 'You know, the guy that likes birbs?')
   .setFooter(`Sorry for being oddly specific but I was bored and created this bot version on ${client.user.createdAt}`)
-  .setTimestamp()
   message.channel.send(embed);
 }
 
