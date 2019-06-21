@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
     .setColor('#FFEE00')
     .setTitle('COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
-    .setThumbnail(client.avatarURL)
+    .setThumbnail(client.user.avatarURL)
     .addField('**foo**', 'Just responds \'foo\'.', true)
     .addField('**roll**', 'Rolls dice w/ modifiers.\(Example: c!roll 1d20 + 4\)', true)
     .addField('**flip**', 'Flips a coin.', true)
