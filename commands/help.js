@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     .setTitle('COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
     .setThumbnail(client.user.avatarURL)
-    .addField('**foo**', 'Just responds \'foo\'.', true)
+    .addField('**foo**', 'Just responds \'bar\'.', true)
     .addField('**roll**', 'Rolls dice w/ modifiers.\(Example: c!roll 1d20 + 4\)', true)
     .addField('**flip**', 'Flips a coin.', true)
     .addField('**reload**', 'Updates outdated commands. \(Example: c!reload help\)', true)
