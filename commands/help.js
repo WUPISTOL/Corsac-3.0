@@ -10,6 +10,7 @@ exports.run = (client, message, args) => {
     .addField('**reload**', 'Reloads an outdated command. \(Example: c!reload help\)')
     .addField('**ping**', 'Tells you the bot\'s current ping.')
     .addField('**avatar**', 'Displays your or somebody else\'s avatar. \(Example: c!avatar @user\)')
+    .addField('**servericon**', 'Displays the server\'s icon.')
     .addField('**id**', 'Grabs someone\'s user ID. Not sure why you\'d use it, though.')
     .addField('**creatorinfo**', 'Tells you a little about the bot\'s creator.')
     .addField('**link**', 'Simply gives you the link to invite this bot.')
