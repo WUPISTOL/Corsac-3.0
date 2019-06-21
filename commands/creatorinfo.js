@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     let embed = new Discord.RichEmbed()
-  .setColor('##FCAA53')
+  .setColor('##FFEE00')
   .setTitle('Creator Info')
   .setDescription('~~Why did I make this my hobby~~')
   .addField('Well, you probably know that the creator of this bot is Jari.', 'You know, the guy that likes birbs?')
