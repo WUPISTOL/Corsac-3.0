@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
     .addField('**id**', 'Grabs someone\'s user ID. Not sure why you\'d use it, though.', true)
     .addField('**creatorinfo**', 'Tells you a little about the bot\'s creator.', true)
     .addField('**link**', 'Simply gives you the link to invite this bot.', true)
-    .setFooter('All commands have the prefix \(c!\). For Admin commands, use c!adminhelp.', true)
+    .setFooter('All commands have the prefix \(c!\). For Admin commands, use c!adminhelp.')
     .setTimestamp()
         message.channel.send(embed);
 }
