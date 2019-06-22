@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
   let embed = new Discord.RichEmbed()
   .setThumbnail(message.author.avatarURL)
   .setColor('#9900CC')
-  .setDescription(`${message.author} joined ${message.author.guild} at ${message.author.guild.joinedAt}`)
+  .setDescription(`${message.author} joined ${message.author.guild} at ${message.author.joinedAt}`)
   .addField('**User ID**', `${message.author.id}`)
   .addField('**Account Creation Date**', `${message.author} joined Discord on ${message.author.createdAt}`)
     message.channel.send(embed);
