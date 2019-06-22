@@ -2,11 +2,12 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
   var amember = message.mentions.users.first();
   var auser = message.guild.member(message.mentions.users.first())
+  var abruh = message.guild.member(message.author)
     if(!amember){
   let embed = new Discord.RichEmbed()
   .setThumbnail(message.author.avatarURL)
   .setColor('#9900CC')
-  .setDescription(`${message.author} joined ${message.author.guild} at ${message.author.joinedAt}`)
+  .setDescription(`${message.author} joined ${abruh.guild} at ${abruh.joinedAt}`)
   .addField('**User ID**', `${message.author.id}`)
   .addField('**Account Creation Date**', `${message.author} joined Discord on ${message.author.createdAt}`)
     message.channel.send(embed);
