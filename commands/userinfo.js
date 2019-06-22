@@ -5,6 +5,7 @@ exports.run = (client, message, args) => {
   var abruh = message.guild.member(message.author)
     if(!amember){
   let embed = new Discord.RichEmbed()
+  .setTitle("User info")
   .setThumbnail(message.author.avatarURL)
   .setColor('#9900CC')
   .setDescription(`${message.author} joined ${abruh.guild} at ${abruh.joinedAt}`)
@@ -13,6 +14,7 @@ exports.run = (client, message, args) => {
     message.channel.send(embed);
     } else {
       let uembed = new Discord.RichEmbed()
+  .setTitle("User info")
   .setThumbnail(amember.avatarURL)
   .setColor('#9900CC')
   .setDescription(`${amember} joined ${auser.guild} on ${auser.joinedAt}`)
