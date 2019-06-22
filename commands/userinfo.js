@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
       let uembed = new Discord.RichEmbed()
   .setThumbnail(amember.avatarURL)
   .setColor('#9900CC')
-  .setDescription(`${amember} joined ${amember.guild} at ${amember.guild.joinedAt}`)
+  .setDescription(`${amember} joined ${amember.guild} at ${amember.joinedAt}`)
   .addField('**User ID**', `${amember.id}`)
   .addField('**Account Creation Date**', `${amember} joined Discord on ${amember.createdAt}`)
     message.channel.send(uembed);
