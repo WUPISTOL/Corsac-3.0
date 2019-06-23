@@ -5,8 +5,14 @@ exports.run = (client, message, args) => {
   .setThumbnail(servericon)
   .setColor('#9900CC')
   .setTitle("Server Info")
+  .setDescription(`This server was made on ${message.guild.createdAt}`)
+  .addField("*Number of Members*:", `**${message.guild.memberCount}**`, true)
+  .addField("*Server Owner*:", `\`${message.guild.owner}\` `, true)
+  .addBlankField()
+  .addField("*Verification Level:*", `**${message.guild.verificationLevel}**`, true)
+  .addField("*Region*:", `**${message.guild}**`, true)
     message.channel.send(embed)
 }
     module.exports.help = {
-  name: "servericon"
+  name: "serverinfo"
 }
