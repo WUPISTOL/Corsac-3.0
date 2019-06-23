@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
     .addField('**roll**', 'Rolls dice w/ modifiers.\(Example: c!roll 1d20 + 4\)')
     .addField('**flip**', 'Flips a coin.')
     .addField('**ping**', 'Bot\'s current ping.')
-    .addField('**reload**', 'Updates outdated commands. \(Example: c!reload help\)')
+    .addField('**update**', 'Updates outdated commands. \(Example: c!update help\)')
     .addField('**id**', 'Grabs someone\'s user ID.')
     .addField('**link**', 'Gives you the link to invite Corsac.')
     .addField('**userinfo**', 'Tells you info about someone. \(Example: c!userinfo @user\)')
