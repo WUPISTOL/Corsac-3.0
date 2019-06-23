@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     let embed = new Discord.RichEmbed()
-    .setColor('#FFEE00')
+    .setColor('#FFFF33')
     .setTitle('COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
     .addField('**avatar**', 'Displays a user\'s avatar. \(Example: c!avatar @user\)')
