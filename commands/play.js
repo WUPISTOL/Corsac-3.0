@@ -7,5 +7,5 @@ exports.run = (client, message, args) => {
         if (!message.member.hasPermission("ADMINISTRATOR"))
     return message.reply("Nice try.");
     
-    client.user.setActivity(watchmessage, {type: 1});
+    client.user.setActivity(`${watchmessage}`);
 }
