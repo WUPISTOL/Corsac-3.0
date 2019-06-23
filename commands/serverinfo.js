@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
   .addField("*Server Owner*:", `\`${message.guild.owner}\` `, true)
   .addBlankField()
   .addField("*Verification Level:*", `**${message.guild.verificationLevel}**`, true)
-  .addField("*Region*:", `**${message.guild}**`, true)
+  .addField("*Region*:", `**${message.guild.region}**`, true)
     message.channel.send(embed)
 }
     module.exports.help = {
