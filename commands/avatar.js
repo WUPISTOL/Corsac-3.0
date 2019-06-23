@@ -4,12 +4,12 @@ exports.run = (client, message, args) => {
     if(!amember){
   let embed = new Discord.RichEmbed()
   .setImage(message.author.avatarURL)
-  .setColor('#275BF0')
+  .setColor('#FFFFFF')
     message.channel.send(embed)
     } else {
       let uembed = new Discord.RichEmbed()
   .setImage(amember.avatarURL)
-  .setColor('#275BF0')
+  .setColor('#FFFFFF')
     message.channel.send(uembed)
     }
 }
