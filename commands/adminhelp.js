@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     let embed = new Discord.RichEmbed ()
-    .setColor('#00FF99')
+    .setColor('#00FF33')
     .setTitle('ADMIN COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
     .addField('**ban & kick**', 'Simple. Bans or kicks heretics.')
