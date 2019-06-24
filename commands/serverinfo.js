@@ -4,13 +4,13 @@ exports.run = (client, message, args) => {
   let embed = new Discord.RichEmbed()
   .setThumbnail(servericon)
   .setColor('#9900CC')
-  .setTitle("Server Info")
+  .setTitle("**Server Info**")
   .setDescription(`This server was made on ${message.guild.createdAt}`)
-  .addField("*Number of Members*:", `**${message.guild.memberCount}**`, true)
-  .addField("*Server Owner*:", `${message.guild.owner.displayName}`, true)
+  .addField("*Number of Members:*", `**${message.guild.memberCount}**`, true)
+  .addField("*Server Owner:*", `${message.guild.owner.displayName}`, true)
   .addBlankField()
   .addField("*Verification Level:*", `**${message.guild.verificationLevel}**`, true)
-  .addField("*Region*:", `**${message.guild.region}**`, true)
+  .addField("*Region:*", `**${message.guild.region}**`, true)
     message.channel.send(embed)
 }
     module.exports.help = {
