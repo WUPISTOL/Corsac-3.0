@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
         rolls = messageWords[1].split('d')[0] / 1;
         sides = messageWords[1].split('d')[1];
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
-        if (rolls > 23) return message.reply("We don't have that many dice!");
+        if (rolls > 23) return message.reply("You rolled a.... hold up, we don't have that many dice!");
     } else if (messageWords[1][0] == 'd') {
         // !roll d20
         sides = sides.slice(1);
