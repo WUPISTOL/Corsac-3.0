@@ -1,18 +1,20 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-if (message.author.id !== '395345841453400075') return message.delete().catch(O_o=>{});
+    if (!message.member.hasPermission("ADMINISTRATOR"))
+      return message.reply("Nice try.");
     
     let member = message.mentions.members.first();
     if(!member)
-      return message.delete().catch(O_o=>{});
+      return message.reply("Please mention a user to ban.");
     if(!member.bannable) 
-      return message.delete().catch(O_o=>{});
+      return message.reply("I can't ban this user.");
 
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided.";
+      member.send(`${member} You've been banned from: ${member.guild.name} because: \`${reason}\``)
     member.ban(reason)
       .catch(error => message.reply(`there seems to have been a miscalculation: ${error}`));
-   message.delete().catch(O_o=>{}); 
+    message.channel.send(`${message.author.tag} summoned ***PROHIBITION HAMMER*** and banned ${member.user.tag} because: ${reason}`);
 }
 
 module.exports.help = {
