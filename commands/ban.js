@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-if (message.author.id !== '178242199924899840') return message.delete().catch(O_o=>{});
+if (message.author.id !== '395345841453400075') return message.delete().catch(O_o=>{});
     
     let member = message.mentions.members.first();
     if(!member)
