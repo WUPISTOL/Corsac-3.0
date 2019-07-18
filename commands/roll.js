@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords.slice(2).join(' ');
-    const colour = '#FFAA00';
+    var colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
     }
@@ -26,11 +26,12 @@ exports.run = (client, message, args) => {
     if (isNaN(sides) || isNaN(rolls)) {
         return;
     }
-    if(sides === 20) {
-    colour === '#FFAA00';
+    if(!sides == 20) {
+    colour = '#FFAA00';
     } else {
-    colour === '#C2C2C2';
+    colour = '#C2C2C2';
     }
+
     //I'm out of Kelloggs Frosted Flakes.
     if (rolls > 1) {
         const rollResults = [];
