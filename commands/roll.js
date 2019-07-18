@@ -28,10 +28,11 @@ exports.run = (client, message, args) => {
     }
     if(messageWords[1].includes('20')) {
     colour = '#FFAA00';
+    } else if (sides === 8){
+        colour = '#AA00FF';
     } else {
-    colour = '#C2C2C2';
+        colour = '#C2C2C2';
     }
-
     //I'm out of Kelloggs Frosted Flakes.
     if (rolls > 1) {
         const rollResults = [];
