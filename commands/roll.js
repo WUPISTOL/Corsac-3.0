@@ -28,8 +28,14 @@ exports.run = (client, message, args) => {
     }
     if(messageWords[1].includes('20')) {
     colour = '#FFAA00';
-    } else if (sides === 8){
-        colour = '#AA00FF';
+    } else if (sides === 12){
+        colour = '#000000';
+    } else if (sides === 10){
+        colour = '#003CFF';
+    } else if (sides = 8) {
+        colour = '#AA00FF'
+    } else if (sides = 6) {
+        colour = '#FFEE00'
     } else {
         colour = '#C2C2C2';
     }
