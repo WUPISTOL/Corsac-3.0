@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords.slice(2).join(' ');
+    const colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
     }
@@ -9,6 +10,8 @@ exports.run = (client, message, args) => {
     let sides = messageWords[1];
     let rolls = 1;
     if (sides > 100) return message.reply("The maximum number of sides is 100.");
+    if(sides = 20) {
+        
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
         // !roll 4d20
         rolls = messageWords[1].split('d')[0] / 1;
@@ -24,6 +27,11 @@ exports.run = (client, message, args) => {
     if (isNaN(sides) || isNaN(rolls)) {
         return;
     }
+    if(sides = 20) {
+        colour = '#FFAA00';
+    } else {
+    colour = '#C2C2C2';
+    }
     //I'm out of Kelloggs Frosted Flakes.
     if (rolls > 1) {
         const rollResults = [];
@@ -33,7 +41,7 @@ exports.run = (client, message, args) => {
         const sum = rollResults.reduce((a, b) => a + b);
         let dicesum = sum + (rollMod / 1)
         let embed = new Discord.RichEmbed()
-            .setColor('#FFAA00')
+            .setColor(colour)
             .setTitle('Die Roller')
             .setDescription(`**Total: ${dicesum}**`)
             .addField(`*${messageWords[1]} result*`, `You rolled: ${rollResults.toString()} | Modifier: ${rollMod}`)
@@ -45,7 +53,7 @@ exports.run = (client, message, args) => {
             let roll = Math.floor(Math.random() * sides) + 1
             let diesum = roll + (rollMod / 1)
             let embed = new Discord.RichEmbed()
-                .setColor('#FFAA00')
+                .setColor(colour)
                 .setTitle('Die Roller')
                 .setDescription(`**Total: ${diesum}**`)
                 .addField(`*d${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
@@ -56,7 +64,7 @@ exports.run = (client, message, args) => {
             let roll = Math.floor(Math.random() * sides) + 1
             let diesum = roll + (rollMod / 1)
             let embed = new Discord.RichEmbed()
-                .setColor('#FFAA00')
+                .setColor(colour)
                 .setTitle('Die Roller')
                 .setDescription(`**Total: ${diesum}**`)
                 .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
