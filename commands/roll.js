@@ -26,7 +26,7 @@ exports.run = (client, message, args) => {
     if (isNaN(sides) || isNaN(rolls)) {
         return;
     }
-    if(!sides == 20) {
+    if(messageWords[1].includes('20')) {
     colour = '#FFAA00';
     } else {
     colour = '#C2C2C2';
