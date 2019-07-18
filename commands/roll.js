@@ -28,9 +28,9 @@ exports.run = (client, message, args) => {
         return;
     }
     if(sides = 20) {
-        colour = '#FFAA00';
+        colour === '#FFAA00';
     } else {
-    colour = '#C2C2C2';
+    colour === '#C2C2C2';
     }
     //I'm out of Kelloggs Frosted Flakes.
     if (rolls > 1) {
