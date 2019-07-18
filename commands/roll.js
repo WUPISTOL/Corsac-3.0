@@ -32,9 +32,9 @@ exports.run = (client, message, args) => {
         colour = '#000000';
     } else if (sides === 10){
         colour = '#003CFF';
-    } else if (sides = 8) {
+    } else if (sides === 8) {
         colour = '#AA00FF'
-    } else if (sides = 6) {
+    } else if (sides === 6) {
         colour = '#FFEE00'
     } else {
         colour = '#C2C2C2';
