@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords.slice(2).join(' ');
+    if(isNaN(rollMod) || !rollMod) {
+        rollMod == 0
+    }
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
@@ -61,10 +64,9 @@ exports.run = (client, message, args) => {
             let diesum = roll + (rollMod / 1)
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setTitle('Die Roller')
-                .setDescription(`**Total: ${diesum}**`)
-                .addField(`*d${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
-                .setFooter('All commands have the prefix (c!).')
+                .setTitle('**__Die Roller__**')
+                .addField(`*${message.author.username}\'s ${rolls}d${messageWords[1]}*`, `Result: **${diesum}**`)
+                .setFooter(`\`[${roll}\] + ${rollMod} = ${diesum}\``)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -72,10 +74,9 @@ exports.run = (client, message, args) => {
             let diesum = roll + (rollMod / 1)
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setTitle('Die Roller')
-                .setDescription(`**Total: ${diesum}**`)
-                .addField(`*${messageWords[1]} result*`, `You rolled a: ${roll} | Modifier: ${rollMod}`)
-                .setFooter('All commands have the prefix (c!).')
+                .setTitle('**__Die Roller__**')
+                .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${diesum}**`)
+                .setFooter(`\`[${roll}] + ${rollMod} = ${diesum}\``)
                 .setTimestamp()
             message.channel.send(embed);
         }
