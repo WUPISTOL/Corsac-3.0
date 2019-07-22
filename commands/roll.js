@@ -71,8 +71,8 @@ exports.run = (client, message, args) => {
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author.username}\'s** **__${rolls}d${messageWords[1]}__**`)
-                .addField(`Result: **${diesum}**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .setDescription(`**${message.author.username}\'s ${rolls}d${messageWords[1]}**`)
+                .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -83,8 +83,8 @@ exports.run = (client, message, args) => {
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author.username}\'s** **__${messageWords[1]}__**`)
-                .addField(`Result: **${diesum}**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .setDescription(`**${message.author.username}\'s ${messageWords[1]}**`)
+                .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         }
