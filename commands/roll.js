@@ -56,7 +56,7 @@ exports.run = (client, message, args) => {
             .setColor(colour)
             .setDescription('**__Dice Tower__**')
             .addField(`*${message.author.username} threw ${rolls}d${messageWords[1]} into the tower*`, `Result: **${dicesum}**`)
-            .setFooter(`[${rollResults.toString()}] + (${rollMod + 0}) = ${dicesum}`)
+            .setFooter(`[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
             .setTimestamp()
         message.channel.send(embed);
     } else {
