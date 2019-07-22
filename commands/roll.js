@@ -52,10 +52,9 @@ exports.run = (client, message, args) => {
         let dicesum = sum + (rollMod / 1)
         let embed = new Discord.RichEmbed()
             .setColor(colour)
-            .setTitle('Die Roller')
-            .setDescription(`**Total: ${dicesum}**`)
-            .addField(`*${messageWords[1]} result*`, `You rolled: ${rollResults.toString()} | Modifier: ${rollMod}`)
-            .setFooter('All commands have the prefix (c!).')
+            .setDescription('**__Dice Tower__**')
+            .addField(`*${message.author.username} threw ${rolls}d${messageWords[1]} into the tower*`, `Result: **${dicesum}**`)
+            .setFooter(`\`[${rollResults.toString()}] **+** \(${rollMod + 0}\) = ${dicesum}\``)
             .setTimestamp()
         message.channel.send(embed);
     } else {
@@ -64,9 +63,9 @@ exports.run = (client, message, args) => {
             let diesum = roll + (rollMod / 1)
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setTitle('**__Die Roller__**')
+                .setDescription('**__Die Roller__**')
                 .addField(`*${message.author.username}\'s ${rolls}d${messageWords[1]}*`, `Result: **${diesum}**`)
-                .setFooter(`\`[${roll}\] + ${rollMod} = ${diesum}\``)
+                .setFooter(`\`[${roll}] **+** \(${rollMod + 0}\) = ${diesum}\``)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -74,9 +73,9 @@ exports.run = (client, message, args) => {
             let diesum = roll + (rollMod / 1)
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setTitle('**__Die Roller__**')
+                .setDescription('**__Die Roller__**')
                 .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${diesum}**`)
-                .setFooter(`\`[${roll}] + ${rollMod} = ${diesum}\``)
+                .setFooter(`\`[${roll}] **+** \(${rollMod + 0}\) = ${diesum}\``)
                 .setTimestamp()
             message.channel.send(embed);
         }
