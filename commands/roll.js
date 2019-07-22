@@ -52,6 +52,9 @@ exports.run = (client, message, args) => {
         }
         const sum = rollResults.reduce((a, b) => a + b);
         let dicesum = sum + (rollMod / 1)
+            if(rollMod === 0)  {
+                rollMod = '0';
+            }
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setDescription('**__Dice Tower__**')
@@ -63,21 +66,27 @@ exports.run = (client, message, args) => {
         if (!messageWords[1].includes('d')) {
             let roll = Math.floor(Math.random() * sides) + 1
             let diesum = roll + (rollMod / 1)
+            if(rollMod === 0)  {
+                rollMod = '0';
+            }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription('**__Die Roller__**')
                 .addField(`*${message.author.username}\'s ${rolls}d${messageWords[1]}*`, `Result: **${diesum}**`)
-                .setFooter(`[${roll}] + (${(rollMod + 0)}) = ${diesum}`)
+                .setFooter(`[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
             let roll = Math.floor(Math.random() * sides) + 1
             let diesum = roll + (rollMod / 1)
+            if(rollMod === 0)  {
+                rollMod = '0';
+            }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription('**__Die Roller__**')
                 .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${diesum}**`)
-                .setFooter(`[${roll}] + (${(rollMod + 0)}) = ${diesum}`)
+                .setFooter(`[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         }
