@@ -56,7 +56,7 @@ exports.run = (client, message, args) => {
             .setColor(colour)
             .setDescription('**__Dice Tower__**')
             .addField(`*${message.author.username} threw ${rolls}d${messageWords[1]} into the tower*`, `Result: **${dicesum}**`)
-            .setFooter(`\`[${rollResults.toString()}] **+** \(${rollMod + 0}\) = ${dicesum}\``)
+            .setFooter(`[${rollResults.toString()}] + (${rollMod + 0}) = ${dicesum}`)
             .setTimestamp()
         message.channel.send(embed);
     } else {
@@ -67,7 +67,7 @@ exports.run = (client, message, args) => {
                 .setColor(colour)
                 .setDescription('**__Die Roller__**')
                 .addField(`*${message.author.username}\'s ${rolls}d${messageWords[1]}*`, `Result: **${diesum}**`)
-                .setFooter(`\`[${roll}] **+** \(${rollMod + 0}\) = ${diesum}\``)
+                .setFooter(`[${roll}] + (${rollMod + 0}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -77,7 +77,7 @@ exports.run = (client, message, args) => {
                 .setColor(colour)
                 .setDescription('**__Die Roller__**')
                 .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${diesum}**`)
-                .setFooter(`\`[${roll}] **+** \(${rollMod + 0}\) = ${diesum}\``)
+                .setFooter(`[${roll}] + (${rollMod + 0}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         }
