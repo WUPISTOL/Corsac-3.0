@@ -58,7 +58,7 @@ exports.run = (client, message, args) => {
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setDescription('**__Dice Tower__**')
-            .addField(`*${message.author.username} threw ${rolls}d${messageWords[1]} into the tower*`, `Result: **${dicesum}**`)
+            .addField(`*${message.author.username} threw ${messageWords[1]} into the tower*`, `Result: **${dicesum}**`)
             .setFooter(`[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
             .setTimestamp()
         message.channel.send(embed);
