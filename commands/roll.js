@@ -80,7 +80,6 @@ exports.run = (client, message, args) => {
             .setTimestamp()
         message.channel.send(embed);
     }
-}
 };
 
 module.exports.help = {
