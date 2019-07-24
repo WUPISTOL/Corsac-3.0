@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
         sides = messageWords[1].split('d')[1];
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
         if (rolls > 23) return message.reply("You rolled a.... hold up, we don't have that many dice!");
-    } else if (messageWords[1][0] == 'd') {
+    } else if (messageWords[1][0] === 'd') {
         // !roll d20
         sides = sides.slice(1);
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
     }
 
     if (!messageWords[1].includes('d')) {
-        description = `**${message.author.username}\'s ${rolls}d${messageWords[1]}**`
+        description = `**${message.author.username}\'s ${rolls}d${messageWords[1]}**`;
     }
     if (messageWords[1].includes('20')) {
         colour = '#FFAA00';
