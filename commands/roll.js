@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    var messageWords = message.content.split(' ');
+    const messageWords = message.content.split(' ');
     const rollMod = messageWords.slice(2).join(' ');
     if (isNaN(rollMod) || !rollMod) {
         rollMod = 0
     }
     var colour = '#FFAA00';
-    var description = `**${message.author.username}\'s ${messageWords[1]}**`;
+    var description === `**${message.author.username}\'s ${messageWords[1]}**`;
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
     }
@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
     }
 
     if (!messageWords[1].includes('d')) {
-        description = `**${message.author.username}\'s ${rolls}d${messageWords[1]}**`;
+        description === `**${message.author.username}\'s ${rolls}d${messageWords[1]}**`;
     }
     if (messageWords[1].includes('20')) {
         colour = '#FFAA00';
