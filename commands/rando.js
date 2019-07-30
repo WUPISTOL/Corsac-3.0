@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     let countIndex = (Math.round(Math.random() * count) - 1);
     let victim = people[countIndex];
     //"victim" bc they're gonna get pinged lma0
-    message.channel.send(`${victim.username}`);
+    message.channel.send(`${victim}`);
 }
 
 module.exports.help = {
