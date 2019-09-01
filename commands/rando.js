@@ -57,7 +57,7 @@ exports.run = (client, message, args) => {
             }
         let embed = new Discord.RichEmbed()
             .setColor(colour)
-            .setDescription('This is a test command. arg 3:${resultText} arg 2:${rollMod}')
+            .setDescription('This is a test command. arg 3:hol up im workin on it, arg 2:${rollMod}')
             .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${dicesum}**`)
             .setFooter(`[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
             .setTimestamp()
@@ -71,7 +71,7 @@ exports.run = (client, message, args) => {
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`This is a test command. arg 3:${resultText} arg 2:${rollMod}`)
+                .setDescription(`This is a test command. arg 3:hol up im workin on it, arg 2:${rollMod}`)
                 .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
@@ -83,7 +83,7 @@ exports.run = (client, message, args) => {
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`This is a test command. arg 3:${resultText} arg 2:${rollMod}`)
+                .setDescription(`This is a test command. arg 3:hol up im workin on it, arg 2:${rollMod}`)
                 .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
