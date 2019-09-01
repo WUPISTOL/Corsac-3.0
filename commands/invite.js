@@ -7,5 +7,5 @@ let embed = new Discord.RichEmbed()
   message.channel.send(embed);
 }
 module.exports.help = {
-  name: "link"
+  name: "invite"
 }
