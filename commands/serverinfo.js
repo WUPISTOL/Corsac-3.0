@@ -8,7 +8,6 @@ exports.run = (client, message, args) => {
   .setDescription(`This server was made on ${message.guild.createdAt}`)
   .addField("*Number of Members:*", `**${message.guild.memberCount}**`, true)
   .addField("*Server Owner:*", `${message.guild.owner.displayName}`, true)
-  .addBlankField()
   .addField("*Verification Level:*", `**${message.guild.verificationLevel}**`, true)
   .addField("*Region:*", `**${message.guild.region}**`, true)
     message.channel.send(embed)
