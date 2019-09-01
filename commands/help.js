@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
     .addField('**invite**', 'Gives you the link to invite Corsac.')
     .addField('**userinfo**', 'Tells you info about someone. \(Example: c!userinfo @user\) | \`Deprecated\`')
     .addField('**serverinfo**', 'Tells you info about the server.')
-    .addField('**creatorinfo**', 'Some people don\'t believe I made this bot, so here you go.')
+    .addField('~~**creatorinfo**', 'Some people don\'t believe I made this bot, so here you go.~~')
     .addField('**foo**', 'Just responds \'bar\' xc.')
     .addField('**kirbyjam**', '<a:KirbyJam:583773264401137696>!!')
     .setFooter('All commands have the prefix \(c!\). For Admin commands, use c!adminhelp.')
