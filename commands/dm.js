@@ -18,3 +18,4 @@ exports.run = (client, message, args) => {
 module.exports.help = {
   name: "dm"
 }
+//swage tried to copy this one :josephHmm:
