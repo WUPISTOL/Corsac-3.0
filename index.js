@@ -4,7 +4,7 @@ const fs = require("fs");
 const client = new Discord.Client({disableEveryone: true});
 const cooldown = new Set();
 client.commands = new Discord.Collection();
-
+// h
 fs.readdir("./commands/", (err, files) => {
 
   if(err) console.log(err);
@@ -14,7 +14,7 @@ fs.readdir("./commands/", (err, files) => {
     console.log("Couldn't find commands.");
     return;
   }
-
+//Js is c o n f u s i n g
   jsfile.forEach((f, i) =>{
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
@@ -71,5 +71,5 @@ setTimeout(() => {
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
 });
-
+//kirbyjam, it works
 client.login(process.env.BOT_TOKEN);
