@@ -1,3 +1,4 @@
+//this command is basically just a test command so I can test my pitiful attempt to recreate something cool I saw on Discord
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
