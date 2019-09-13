@@ -1,8 +1,7 @@
-//this command is basically just a test command so I can test my pitiful attempt to recreate something cool I saw on Discord
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
-    const rollMod = messageWords.slice(2).join(' ').substr(0, messageWords.slice(3).join(' '));
+    const rollMod = messageWords.substr(messageWords.slice(2), messageWords.slice(3));
     if(isNaN(rollMod) || !rollMod) {
         rollMod == 0
     }
