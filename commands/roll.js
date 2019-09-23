@@ -26,7 +26,7 @@ exports.run = (client, message, args) => {
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
     }
     sides = sides / 1; //Darn isNaN messing up meh commands
-    if (isNaN(sides)) || isNaN(rolls)) {
+    if (isNaN(sides) || isNaN(rolls)) {
         return;
     }
     if(messageWords[1].includes('20')) {
