@@ -16,5 +16,5 @@ if (!message.member.hasPermission("ADMINISTRATOR"))
 }
 
 module.exports.help = {
-  name: "testpurge"
+  name: "purge"
 }
