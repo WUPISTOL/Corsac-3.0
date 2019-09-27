@@ -27,7 +27,7 @@ fs.readdir("./commands/", (err, files) => {
 client.on("ready", async () => {
   console.log(`${client.user.username} is online on ${client.guilds.size} servers!`);
   var testo = "This is a test".split(' ');
-  console.log(`${testo[2]}`);
+  console.log(`${testo[3]}`);
 });
 process.on("unhandledRejection", console.error);
 
