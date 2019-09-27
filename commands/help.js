@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     .setTitle('COMMAND LIST')
     .setDescription('*More commands coming soon. Current commands are:*')
     .addField('**avatar**', 'Displays a user\'s avatar. \(Example: c!avatar @user\)')
-    .addField('**servericon**', 'Displays the server\'s icon.')
+    .addField('**icon**', 'Displays the server\'s icon.')
     .addField('**roll**', 'Rolls dice w/ modifiers.\(Example: c!roll 1d20 + 4\)')
     .addField('**flip**', 'Flips a coin.')
     .addField('**ping**', 'Bot\'s current ping.')
