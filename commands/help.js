@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
     .addField('~~**creatorinfo**~~', '~~Some people don\'t believe I made this bot, so here you go.~~')
     .addField('**foo**', 'Just responds \'bar\' xc.')
     .addField('**kirbyjam**', '[>](https://www.youtube.com/watch?v=U1l6ca2Q3YU)<a:KirbyJam:583773264401137696> !!')
-    .setFooter('All commands have the prefix \(c!\). For Admin commands, use c!adminhelp.')
+    .setFooter('Some commands have shortened versions\(ie. c!p # = c!purge\). For Admin commands, use c!adminhelp.')
     .setTimestamp()
         message.channel.send(embed);
 }
