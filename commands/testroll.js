@@ -3,6 +3,9 @@ exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords[2];
     var cresult = messageWords[3];
+    if(!cresult) {
+        cresult = "Result";
+    }
     if(isNaN(rollMod) || !rollMod) {
         rollMod == 0
     }
@@ -59,7 +62,7 @@ exports.run = (client, message, args) => {
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setDescription('*Dice Tower*')
-            .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${dicesum}**`)
+            .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `${cresult}: **${dicesum}**`)
             .setFooter(`[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
             .setTimestamp()
         message.channel.send(embed);
@@ -73,7 +76,7 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${rolls}d${messageWords[1]}**`)
-                .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`${cresult}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -85,7 +88,7 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${messageWords[1]}**`)
-                .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`${cresult}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         }
