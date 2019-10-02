@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords[2];
+    var cresult = messageWords[3];
     if(isNaN(rollMod) || !rollMod) {
         rollMod == 0
     }
