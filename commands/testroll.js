@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords[2];
-    var cresult = messageWords[3];
+    var cresult = messageWords.slice(3).join(' ');
     if(!cresult) {
         cresult = "Result";
     }
