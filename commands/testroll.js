@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     const rollMod = messageWords[2];
-    var cresult = messageWords[3];
-    console.log(`${rollMod}, ${cresult});
     if(isNaN(rollMod) || !rollMod) {
         rollMod == 0
     }
@@ -94,5 +92,5 @@ exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: "tr"
+    name: "testroll"
 }
