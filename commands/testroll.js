@@ -9,9 +9,11 @@ exports.run = (client, message, args) => {
     if(!rollMod) {
         rollMod = 0;
     }
-    if(isNaN(rollMod.substr(1))) {
-        cresult = messageWords.slice(2).join(' ');
-    }
+    var modstring = "error"
+    if(!isNaN(rollMod)){
+        modstring = rollMod.toString();
+    } else { modstring = rollMod;
+           }
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
@@ -67,20 +69,17 @@ exports.run = (client, message, args) => {
             .setColor(colour)
             .setDescription('*Dice Tower*')
             .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `${cresult}: **${dicesum}**`)
-            .setFooter(`[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
+            .setFooter(`[${rollResults.toString()}] + (${modstring}) = ${dicesum}`)
             .setTimestamp()
         message.channel.send(embed);
     } else {
         if (!messageWords[1].includes('d')) {
             let roll = Math.floor(Math.random() * sides) + 1
             let diesum = roll + (rollMod / 1)
-            if(rollMod === 0)  {
-                rollMod = '0';
-            }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${rolls}d${messageWords[1]}**`)
-                .addField(`${cresult}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`${cresult}: **__${diesum}__**`, `[${roll}] + (${modstring}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -92,7 +91,7 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${messageWords[1]}**`)
-                .addField(`${cresult}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`${cresult}: **__${diesum}__**`, `[${roll}] + (${modstring}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         }
