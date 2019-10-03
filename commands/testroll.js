@@ -9,10 +9,6 @@ exports.run = (client, message, args) => {
     if(!rollMod) {
         rollMod = 0;
     }
-    if(isNaN(rollMod.charAt(1)) {
-       rollMod = 0;
-       cresult = messageWords.slice(2).join(' ');
-       }
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
@@ -21,7 +17,10 @@ exports.run = (client, message, args) => {
     let sides = messageWords[1];
     let rolls = 1;
     if (sides > 100) return message.reply("The maximum number of sides is 100.")
-        
+       if (isNaN(rollMod.charAt(1)){
+       rollMod = 0;
+           }
+
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
         // !roll 4d20
         rolls = messageWords[1].split('d')[0] / 1;
