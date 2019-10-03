@@ -14,7 +14,8 @@ exports.run = (client, message, args) => {
         modstring = rollMod.toString();
         modstring.substr(1);
         if(isNaN(modstring)) {
-            modstring = "0"
+            modstring = "0";
+            rollMod = 0;
             cresult = messageWords.slice(2).join(' ');
         }
     } else { modstring = rollMod;
