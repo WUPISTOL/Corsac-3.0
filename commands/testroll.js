@@ -6,9 +6,13 @@ exports.run = (client, message, args) => {
     if(!cresult) {
         cresult = "Result";
     }
-    if(isNaN(rollMod) || !rollMod) {
-        rollMod == 0
+    if(!rollMod) {
+        rollMod = 0;
     }
+    if(isNaN(rollMod.charAt(1)) {
+       rollMod = 0;
+       cresult = messageWords.slice(2).join(' ');
+       }
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
