@@ -17,9 +17,7 @@ exports.run = (client, message, args) => {
     let sides = messageWords[1];
     let rolls = 1;
     if (sides > 100) return message.reply("The maximum number of sides is 100.")
-       if (isNaN(rollMod.charAt(1)){
-       rollMod = 0;
-           }
+
 
     if (!isNaN(messageWords[1][0] / 1) && messageWords[1].includes('d')) {
         // !roll 4d20
