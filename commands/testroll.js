@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    const messageWords = message.content.split(' ');
-    const rollMod = messageWords[2];
+    var messageWords = message.content.split(' ');
+    var rollMod = messageWords[2];
     var cresult = messageWords.slice(3).join(' ');
     if(!cresult) {
         cresult = "Result";
@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
         sides = messageWords[1].split('d')[1];
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
         if (rolls > 23) return message.reply("You rolled a.... hold up, we don't have that many dice!");
-    } else if (messageWords[1][0] == 'd') {
+    } else if (messageWords[1][0] ==='d') {
         // !roll d20
         sides = sides.slice(1);
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
