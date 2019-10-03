@@ -12,6 +12,11 @@ exports.run = (client, message, args) => {
     var modstring = "error"
     if(!isNaN(rollMod)){
         modstring = rollMod.toString();
+        modstring.substr(1);
+        if(isNaN(modstring)) {
+            modstring = "0"
+            cresult = messageWords.slice(2).join(' ');
+        }
     } else { modstring = rollMod;
            }
     var colour = '#FFAA00';
