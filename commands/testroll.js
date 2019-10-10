@@ -1,23 +1,25 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     var messageWords = message.content.split(' ');
+    var hmm = 3;
     var rollMod = messageWords[2];
-    var cresult = messageWords.slice(3).join(' ');
-    if(!cresult) {
-        cresult = "Result";
-    }
-    if(!rollMod) {
-        rollMod = 0;
-    }
-    var modstring = "error"
+    var modstring = "error";
     if(!isNaN(rollMod)){
         modstring = rollMod.toString();
-        modstring.substr(1);
+        modstring = modstring.substr(1);
         if(isNaN(modstring)) {
             modstring = "0";
             rollMod = 0;
-            cresult = messageWords.slice(2).join(' ');
+            hmm--;
         }
+    var cresult = messageWords.slice(hmm).join(' ');
+    if(!cresult) {
+        cresult = "Result";
+    }
+
+    if(!rollMod) {
+        rollMod = 0;
+    }
     } else { modstring = rollMod;
            }
     var colour = '#FFAA00';
