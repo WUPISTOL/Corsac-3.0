@@ -1,23 +1,19 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
         var messageWords = message.content.split(' ');
-        var hmm = 3;
+        var word = 3;
         var rollMod = messageWords[2];
+        var modstring = "error";
         if (!rollMod) {
             rollMod = 0;
-            hmm--;
-        }
-        var modstring = "error";
-        if (!isNaN(rollMod)) {
-            modstring = rollMod.toString();
-            modstring = modstring.substr(1);
-            if (isNaN(modstring)) {
+            word--;
+        } else if (!isNaN(rollMod)) {
                 modstring = 0;
                 rollMod = 0;
-                hmm--;
-            }
-           }
-            var cresult = messageWords.slice(hmm).join(' ');
+                word--;
+        }
+ 
+            var cresult = messageWords.slice(word).join(' ');
             if (!cresult) {
                 cresult = "Result";
             }
