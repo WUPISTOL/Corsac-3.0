@@ -3,6 +3,10 @@ exports.run = (client, message, args) => {
     var messageWords = message.content.split(' ');
     var hmm = 3;
     var rollMod = messageWords[2];
+    if(!rollMod) {
+        rollMod = 0;
+        hmm--;
+    }
     var modstring = "error";
     if(!isNaN(rollMod)){
         modstring = rollMod.toString();
@@ -17,9 +21,7 @@ exports.run = (client, message, args) => {
         cresult = "Result";
     }
 
-    if(!rollMod) {
-        rollMod = 0;
-    }
+
     } else { modstring = rollMod;
            }
     var colour = '#FFAA00';
