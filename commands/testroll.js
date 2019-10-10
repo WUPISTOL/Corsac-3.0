@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
         modstring = rollMod.toString();
         modstring = modstring.substr(1);
         if(isNaN(modstring)) {
-            modstring = "0";
+            modstring = 0;
             rollMod = 0;
             hmm--;
         }
@@ -20,10 +20,6 @@ exports.run = (client, message, args) => {
     if(!cresult) {
         cresult = "Result";
     }
-
-
-    } else { modstring = rollMod;
-           }
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
         return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
