@@ -30,6 +30,7 @@ setTimeout(() => {
 setTimeout(() => {
     e.delete();
 }, 2000);
+  }
 }
 
 module.exports.help = {
