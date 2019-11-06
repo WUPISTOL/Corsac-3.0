@@ -35,5 +35,5 @@ if (snipechannel[0] === "No snipes") {
 }
 
 module.exports.help = {
-  name: "expose"
+  name: "exposes"
 }
