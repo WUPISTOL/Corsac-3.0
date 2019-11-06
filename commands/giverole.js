@@ -15,7 +15,10 @@ module.exports.run = async (bot, message, args) => {
 
   if(rMember.roles.has(gRole.id)) return message.channel.send("This user already has that role.");
   rMember.addRole(gRole.id);
-    message.channel.send(":ok_hand:");
+    const e = await message.channel.send(":ok_hand:");
+setTimeout(() => {
+    e.delete();
+}, 1500);;
 }
 
 module.exports.help = {
