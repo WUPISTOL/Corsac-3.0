@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
       return message.reply("Nice try.");
     
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!rMember) return message.reply("Couldn't find user.");
+  if(!rMember) return message.reply("Mention a user to give a role.");
   let role = args.join(" ").slice(22);
   if(!role) return message.channel.send("You must provide a role to give.");
   let gRole = message.guild.roles.find(`name`, role);
