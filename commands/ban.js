@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     
     let member = message.mentions.members.first();
     if(!member)
-      return message.reply("Please mention a user to ban.");
+      return message.reply("please mention a user to ban.");
     if(!member.bannable) 
       return message.reply("I can't ban this user.");
 
