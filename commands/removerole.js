@@ -10,11 +10,14 @@ module.exports.run = async (bot, message, args) => {
   let role = args.join(" ").slice(22);
   if(!role) return message.reply("You must provide a role to give.");
   let gRole = message.guild.roles.find(`name`, role);
-  if(!gRole) return message.reply("Couldn't find role.");
+  if(!gRole) return message.channel.send("That role doesn't exist.");
 
   if(!rMember.roles.has(gRole.id)) return message.reply("This user does not have that role.");
   rMember.removeRole(gRole.id);
-    message.reply("User's role has been removed.");
+  const e = await message.channel.send(":ok_hand:");
+setTimeout(() => {
+    e.delete();
+}, 2000);;
 }
 
 module.exports.help = {
