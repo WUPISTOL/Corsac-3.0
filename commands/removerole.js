@@ -6,9 +6,9 @@ module.exports.run = async (bot, message, args) => {
       return message.reply("Nice try.");
     
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!rMember) return message.reply("Couldn't find user.");
+  if(!rMember) return message.reply("Mention a user to remove a role.");
   let role = args.join(" ").slice(22);
-  if(!role) return message.reply("You must provide a role to give.");
+  if(!role) return message.reply("You must provide a role to remove.");
   let gRole = message.guild.roles.find(`name`, role);
   if(!gRole) return message.reply("that role doesn't exist.");
 
