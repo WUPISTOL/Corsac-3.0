@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     const e = await message.channel.send(":ok_hand:");
 setTimeout(() => {
     e.delete();
-}, 2000);;
+}, 2000);
 }
 
 module.exports.help = {
