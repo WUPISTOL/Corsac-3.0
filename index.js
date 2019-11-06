@@ -58,5 +58,19 @@ client.on("message", async message => {
     if (!cmd) return message.channel.send("Please use an actual command.")
 
 });
+client.on("messageDelete", (message) => {
+  if (message.author.bot) return;
+
+  var snipes = require("./snipe.json");
+  snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`];
+
+  var fileName = './snipe.json';
+
+  fs.writeFile(fileName, JSON.stringify(snipes, null, 2), function(error) {
+    if (error) {
+      return console.log(error)
+    }
+  });
+});
 //kirbyjam, it works
 client.login(process.env.BOT_TOKEN);
