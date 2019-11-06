@@ -15,7 +15,7 @@ if (!snipechannel[1]) {
     },
     "fields": [{
       "name": `\"${snipechannel[0]}\"`,
-      "value": `lmao`
+      "value": `<a:KirbyJam:583773264401137696>`
     }]
   };
   await message.channel.send({
