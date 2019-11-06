@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
 var snipes = require("./snipe.json"); // file containing snipes
 let chn = `${message.channel.id}`;
 var snipechannel = snipes[chn]; // to call an specific deleted message I guess
