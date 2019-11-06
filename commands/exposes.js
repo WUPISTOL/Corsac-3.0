@@ -5,17 +5,17 @@ var snipes = JSON.parse(fs.readFileSync("./snipe.json", "utf8")); // file contai
 let chn = `${message.channel.id}`;
 var snipechannel = snipes[chn]; // to call an specific deleted message I guess
 
-if (snipechannel[0] === "No snipes") {
-  message.channel.send("What? There are no deleted messages atm");
+if (!snipechannel[1]) {
+  message.channel.send("There seems to be nobody to expose.");
 } else {
   const embed = {
     "color": 5608903,
     "footer": {
-      "text": `Sniped by: ${message.author.tag}`
+      "text": `Exposed by ${message.author.tag}`
     },
     "fields": [{
-      "name": `${snipechannel[1]} said...`,
-      "value": `${snipechannel[0]}`
+      "name": `\"${snipechannel[0]}\"`,
+      "value": `lmao`
     }]
   };
   await message.channel.send({
