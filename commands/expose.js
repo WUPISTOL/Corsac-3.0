@@ -11,7 +11,7 @@ if (!snipechannel[1]) {
   const embed = {
     "color": 5608903,
     "footer": {
-      "text": `Exposed by ${message.author.tag}`
+      "text": `${snipechannel[1]} has been exposed`
     },
     "fields": [{
       "name": `\"${snipechannel[0]}\"`,
