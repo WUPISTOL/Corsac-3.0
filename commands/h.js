@@ -60,8 +60,8 @@ exports.run = (client, message, args) => {
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setDescription('*Dice Tower*')
-            .addField(`*${message.author.username}\'s ${messageWords[1]}*`, `Result: **${dicesum}**`)
-            .setFooter(`[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
+            .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
+            .addField(`${reason}: **${dicesum}**`, `[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
             .setTimestamp()
         message.channel.send(embed);
     } else {
@@ -74,7 +74,7 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${rolls}d${messageWords[1]}**`)
-                .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         } else {
@@ -86,7 +86,7 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${messageWords[1]}**`)
-                .addField(`Result: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
                 .setTimestamp()
             message.channel.send(embed);
         }
