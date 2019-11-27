@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
         let embed = new Discord.RichEmbed()
         .setColor('#00ED24')
         .setDescription(`[Here you are.](${link})`)
-        message.channel.send(embed));
+        message.channel.send(embed);
 }
 module.exports.help = {
   name: "invite"
