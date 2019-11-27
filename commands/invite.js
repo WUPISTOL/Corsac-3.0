@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-        let link = client.generateInvite('ADMINISTRATOR', 'SEND_MESSAGES', 'MANAGE_GUILD'])
+        let link = client.generateInvite('ADMINISTRATOR'])
         let embed = new Discord.RichEmbed()
         .setColor('#00ED24')
         .setDescription(`[Here you are.](${link})`)
