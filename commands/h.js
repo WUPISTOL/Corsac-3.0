@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
-    const rollMod = messageWords[2];
+    var rollMod = messageWords[2];
     var reason = messageWords[3];
 //I'll have to test this at home
     if(isNaN(rollMod) || !rollMod) {
-        rollMod == 0
+        rollMod = 0
     }
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
@@ -21,8 +21,8 @@ exports.run = (client, message, args) => {
         rolls = messageWords[1].split('d')[0] / 1;
         sides = messageWords[1].split('d')[1];
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
-        if (rolls > 23) return message.reply("You rolled a.... hold up, we don't have that many dice!");
-    } else if (messageWords[1][0] == 'd') {
+        if (rolls > 25) return message.reply("You rolled a.... hold up, we don't have that many dice!");
+    } else if (messageWords[1][0] === 'd') {
         // !roll d20
         sides = sides.slice(1);
         if (sides > 100) return message.reply("The maximum number of sides is 100.");
