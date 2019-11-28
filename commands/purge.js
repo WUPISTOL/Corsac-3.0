@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
 if (!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.reply("You don't have the necessary permissions.");
-    message.delete().catch(O_o=>{}); 
     const messageString = message.content.split(' ');
     const Num = messageString.slice(1).join(' ');
     if(!isNaN(Num)) {
