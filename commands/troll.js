@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
         rollMod = 0;
     } else if (isNaN(rollMod)) {
         rollMod = 0;
-        reason = messageWords[2];
+        reason = messageWords.slice(2).join(' ');
     };
   if(!reason) {
       reason = "Result";
