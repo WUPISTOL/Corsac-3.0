@@ -43,7 +43,7 @@ exports.run = (client, message, args) => {
     if (messageWords[1].includes('20')) {
         colour = '#FFAA00';
     } else if (sides === 12) {
-        colour = '##ff2600';
+        colour = '##FF2600';
     } else if (sides === 10) {
         colour = '#003CFF';
     } else if (sides === 8) {
