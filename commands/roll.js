@@ -82,7 +82,7 @@ exports.run = (client, message, args) => {
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author.username}\'s ${rolls}d${messageWords[1]}**`)
+                .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
         } else {
@@ -93,7 +93,7 @@ exports.run = (client, message, args) => {
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author.username}\'s ${messageWords[1]}**`)
+                .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
         }
