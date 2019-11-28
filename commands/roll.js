@@ -71,7 +71,6 @@ exports.run = (client, message, args) => {
             .setDescription('*Dice Tower*')
             .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
             .addField(`${reason}: **${dicesum}**`, `[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
-            .setTimestamp()
         message.channel.send(embed);
     } else {
         if (!messageWords[1].includes('d')) {
@@ -84,7 +83,6 @@ exports.run = (client, message, args) => {
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${rolls}d${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
-                .setTimestamp()
             message.channel.send(embed);
         } else {
             let roll = Math.floor(Math.random() * sides) + 1
@@ -96,7 +94,6 @@ exports.run = (client, message, args) => {
                 .setColor(colour)
                 .setDescription(`**${message.author.username}\'s ${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
-                .setTimestamp()
             message.channel.send(embed);
         }
     }
