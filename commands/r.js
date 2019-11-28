@@ -55,6 +55,7 @@ exports.run = (client, message, args) => {
     } else {
         colour = '#C2C2C2';
     }
+        message.delete().catch(O_o=>{}); 
     //I'm out of Kelloggs Frosted Flakes.
     if (rolls > 1) {
         const rollResults = [];
