@@ -5,7 +5,6 @@ exports.run = (client, message, args) => {
     var reason = messageWords[3];
     console.log(rollMod);
     console.log(reason);
-    //I'll have to test this at home
     
     if (!rollMod) {
         rollMod = 0;
