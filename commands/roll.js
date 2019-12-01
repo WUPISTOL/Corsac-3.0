@@ -85,21 +85,13 @@ exports.run = (client, message, args) => {
                 .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            if(roll === sides) {
+                message.channel.send("**Critical Success!**");
+            } else if (roll === 1) {
+                message.channel.send("**Critical Failure!**");
+            }
         } else {
             let roll = Math.floor(Math.random() * sides) + 1;
-            console.log(`${sides}`);
-            console.log(roll);
-            console.log(roll.toString());
-            if(roll.toString() === sides) {
-                console.log("nib");
-            } else {
-                console.log("bba");
-            }
-            if(roll === sides) {
-                console.log("nib");
-            } else {
-                console.log("bba");
-            }
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
@@ -110,6 +102,11 @@ exports.run = (client, message, args) => {
                 .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            if(roll === sides) {
+                message.channel.send("**Critical Success!**");
+            } else if (roll === 1) {
+                message.channel.send("**Critical Failure!**");
+            }
         }
     }
 };
