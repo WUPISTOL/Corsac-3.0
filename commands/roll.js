@@ -88,6 +88,8 @@ exports.run = (client, message, args) => {
         } else {
             let roll = Math.floor(Math.random() * sides) + 1;
             console.log(`${sides}`);
+            console.log(roll);
+            console.log(roll.toString());
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
