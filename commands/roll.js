@@ -87,8 +87,7 @@ exports.run = (client, message, args) => {
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            }
-            if(roll === sides) {
+            } else if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
@@ -107,8 +106,7 @@ exports.run = (client, message, args) => {
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            }
-            if(roll === sides) {
+            } else if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
