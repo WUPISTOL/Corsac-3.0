@@ -3,8 +3,6 @@ exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     var rollMod = messageWords[2];
     var reason = messageWords.slice(3).join(' ');
-    console.log(rollMod);
-    console.log(reason);
     
     if (!rollMod) {
         rollMod = 0;
@@ -75,27 +73,46 @@ exports.run = (client, message, args) => {
         message.channel.send(embed);
     } else {
         if (!messageWords[1].includes('d')) {
-            let roll = Math.floor(Math.random() * sides) + 1
+            let roll = Math.floor(Math.random() * sides) + 1;
+            console.log(`${sides}`);
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
             }
+            
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            if(sides === 1) {
+                message.channel.send("Bruh");
+            }
+            if(roll === sides) {
+                message.channel.send("**Critical Success!**");
+            } else if (roll === 1) {
+                message.channel.send("**Critical Failure!**");
+            }
         } else {
-            let roll = Math.floor(Math.random() * sides) + 1
+            let roll = Math.floor(Math.random() * sides) + 1;
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
             }
+            
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            if(sides === 1) {
+                message.channel.send("Bruh");
+            }
+            if(roll === sides) {
+                message.channel.send("**Critical Success!**");
+            } else if (roll === 1) {
+                message.channel.send("**Critical Failure!**");
+            }
         }
     }
 };
