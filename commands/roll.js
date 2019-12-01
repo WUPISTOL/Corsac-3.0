@@ -90,6 +90,16 @@ exports.run = (client, message, args) => {
             console.log(`${sides}`);
             console.log(roll);
             console.log(roll.toString());
+            if(roll.toString() === sides) {
+                console.log("nib");
+            } else {
+                console.log("bba");
+            }
+            if(roll === sides) {
+                console.log("nib");
+            } else {
+                console.log("bba");
+            }
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
