@@ -91,9 +91,7 @@ exports.run = (client, message, args) => {
             message.channel.send(embed);
         } else {
             let roll = Math.floor(Math.random() * sides) + 1;
-            if (roll.toString() === sides) {
-                console.log("Crit");
-            }
+            console.log(sides)
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
