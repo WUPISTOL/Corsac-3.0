@@ -75,28 +75,30 @@ exports.run = (client, message, args) => {
         message.channel.send(embed);
     } else {
         if (!messageWords[1].includes('d')) {
-            let roll = Math.floor(Math.random() * sides) + 1
+            let roll = Math.floor(Math.random() * sides) + 1;
+            if (roll.toString() === sides) {
+                console.log("Crit");
+            }
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
             }
-            if (roll === sides) {
-                console.log("Crit");
-            }
+            
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
         } else {
-            let roll = Math.floor(Math.random() * sides) + 1
+            let roll = Math.floor(Math.random() * sides) + 1;
+            if (roll.toString() === sides) {
+                console.log("Crit");
+            }
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
             }
-            if (roll === sides) {
-                console.log("Crit");
-            }
+            
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
