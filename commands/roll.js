@@ -85,6 +85,9 @@ exports.run = (client, message, args) => {
                 .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            if(sides === 1) {
+                message.channel.send("Bruh");
+            }
             if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
@@ -102,6 +105,9 @@ exports.run = (client, message, args) => {
                 .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            if(sides === 1) {
+                message.channel.send("Bruh");
+            }
             if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
