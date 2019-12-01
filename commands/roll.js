@@ -80,6 +80,9 @@ exports.run = (client, message, args) => {
             if (rollMod === 0) {
                 rollMod = '0';
             }
+            if (roll === sides) {
+                console.log("Crit");
+            }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
@@ -90,6 +93,9 @@ exports.run = (client, message, args) => {
             let diesum = roll + (rollMod / 1)
             if (rollMod === 0) {
                 rollMod = '0';
+            }
+            if (roll === sides) {
+                console.log("Crit");
             }
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
