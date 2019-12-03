@@ -96,10 +96,12 @@ exports.run = (client, message, args) => {
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            } else if(roll === sides) {
+            } else if(sides === 20) {
+                if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
+            }
             }
         } else {
             let roll = Math.floor(Math.random() * sides) + 1;
@@ -115,10 +117,12 @@ exports.run = (client, message, args) => {
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            } else if(roll === sides) {
-                message.channel.send("**Critical Success!**");
+            } else if(sides === 20) {
+                if(roll === sides) {
+                message.channel.send("<:CRITICALSUCCESS:651250814551064598>");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
+            }
             }
         }
     }
