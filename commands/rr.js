@@ -21,5 +21,5 @@ setTimeout(() => {
 }
 
 module.exports.help = {
-  name: "rrole"
+  name: "rr"
 }
