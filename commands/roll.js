@@ -111,7 +111,7 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${messageWords[1]}** ${emoji}`)
-                .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`\`${reason}:\` **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
