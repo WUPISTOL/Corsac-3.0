@@ -119,7 +119,7 @@ exports.run = (client, message, args) => {
                 message.channel.send("Bruh");
             } else if(sides === 20) {
                 if(roll === sides) {
-                message.channel.send("<:CRITICALSUCCESS:651250814551064598>");
+                message.channel.send("<a:congrats_me_boi:651254683054112790> **Critical Success!** <a:its_a_critical_hit:651254647394140190>");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
             }
