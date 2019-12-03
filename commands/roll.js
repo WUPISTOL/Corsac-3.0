@@ -56,7 +56,7 @@ exports.run = (client, message, args) => {
     } else if (sides === 4) {
         colour = '#12C934';
         emoji = "<:d4:651241982378901521>";
-    } else if (sides === 100 {
+    } else if (sides === 100) {
         colour = '#F2F2F2';
         emoji = ":100:";
     } else {
