@@ -56,8 +56,11 @@ exports.run = (client, message, args) => {
     } else if (sides === 4) {
         colour = '#12C934';
         emoji = "<:d4:651241982378901521>";
+    } else if (sides === 100 {
+        colour = '#F2F2F2';
+        emoji = ":100:";
     } else {
-        colour = '#C2C2C2';
+        colour = '#808080';
     }
         message.delete().catch(O_o=>{}); 
     //I'm out of Kelloggs Frosted Flakes.
@@ -74,7 +77,7 @@ exports.run = (client, message, args) => {
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setDescription('*Dice Tower*')
-            .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
+            .setDescription(`**${message.author}\'s ${messageWords[1]}** ${emoji}`)
             .addField(`${reason}: **${dicesum}**`, `[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
         message.channel.send(embed);
     } else {
@@ -88,7 +91,7 @@ exports.run = (client, message, args) => {
             
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
+                .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}** ${emoji}`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
             if(sides === 1) {
