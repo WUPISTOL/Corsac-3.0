@@ -96,10 +96,12 @@ exports.run = (client, message, args) => {
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            } else if(roll === sides) {
+            } else if(sides === 20) {
+                if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
+            }
             }
         } else {
             let roll = Math.floor(Math.random() * sides) + 1;
@@ -111,14 +113,16 @@ exports.run = (client, message, args) => {
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
                 .setDescription(`**${message.author}\'s ${messageWords[1]}** ${emoji}`)
-                .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
+                .addField(`\`${reason}:\` **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            } else if(roll === sides) {
-                message.channel.send("**Critical Success!**");
+            } else if(sides === 20) {
+                if(roll === sides) {
+                message.channel.send("<a:congrats_me_boi:651254683054112790> **Critical Success!** <a:its_a_critical_hit:651254647394140190>");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
+            }
             }
         }
     }
