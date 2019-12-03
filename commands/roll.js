@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     var rollMod = messageWords[2];
     var reason = messageWords.slice(3).join(' ');
-    
+    var emoji = ":game_die:";
     if (!rollMod) {
         rollMod = 0;
     } else if (isNaN(rollMod)) {
@@ -40,6 +40,7 @@ exports.run = (client, message, args) => {
     }
     if (messageWords[1].includes('20')) {
         colour = '#FFAA00';
+        emoji = "<:d20:651242071557931008>"
     } else if (sides === 12) {
         colour = '#FF2600';
     } else if (sides === 10) {
@@ -104,6 +105,7 @@ exports.run = (client, message, args) => {
                 .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
+            message.channel.send(emoji);
             if(sides === 1) {
                 message.channel.send("Bruh");
             } else if(roll === sides) {
