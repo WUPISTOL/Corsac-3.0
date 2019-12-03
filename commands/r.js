@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     var rollMod = messageWords[2];
     var reason = messageWords.slice(3).join(' ');
-    
+    var emoji = ":game_die:";
     if (!rollMod) {
         rollMod = 0;
     } else if (isNaN(rollMod)) {
@@ -39,19 +39,28 @@ exports.run = (client, message, args) => {
         return;
     }
     if (messageWords[1].includes('20')) {
-        colour = '#FFAA00';
+        colour = '#FF7700';
+        emoji = "<:d20:651242071557931008>";
     } else if (sides === 12) {
-        colour = '#FF2600';
+        colour = '#FFE600';
+        emoji = "<:d12:651242056060108800>";
     } else if (sides === 10) {
-        colour = '#003CFF';
+        colour = '#000000';
+        emoji = "<:d10:651242032160964608>";
     } else if (sides === 8) {
-        colour = '#AA00FF';
+        colour = '#387CC9';
+        emoji = "<:d8:651242016554090527>";
     } else if (sides === 6) {
-        colour = '#FFEE00';
+        colour = '#FF4D00';
+        emoji = "<:d6:651241999806103562>";
     } else if (sides === 4) {
-        colour = '#0DFF00';
+        colour = '#12C934';
+        emoji = "<:d4:651241982378901521>";
+    } else if (sides === 100 {
+        colour = '#F2F2F2';
+        emoji = ":100:";
     } else {
-        colour = '#C2C2C2';
+        colour = '#808080';
     }
         message.delete().catch(O_o=>{}); 
     //I'm out of Kelloggs Frosted Flakes.
@@ -68,7 +77,7 @@ exports.run = (client, message, args) => {
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setDescription('*Dice Tower*')
-            .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
+            .setDescription(`**${message.author}\'s ${messageWords[1]}** ${emoji}`)
             .addField(`${reason}: **${dicesum}**`, `[${rollResults.toString()}] + (${rollMod}) = ${dicesum}`)
         message.channel.send(embed);
     } else {
@@ -82,13 +91,12 @@ exports.run = (client, message, args) => {
             
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}**`)
+                .setDescription(`**${message.author}\'s ${rolls}d${messageWords[1]}** ${emoji}`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            }
-            if(roll === sides) {
+            } else if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
@@ -102,13 +110,12 @@ exports.run = (client, message, args) => {
             
             let embed = new Discord.RichEmbed()
                 .setColor(colour)
-                .setDescription(`**${message.author}\'s ${messageWords[1]}**`)
+                .setDescription(`**${message.author}\'s ${messageWords[1]}** ${emoji}`)
                 .addField(`${reason}: **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
             message.channel.send(embed);
             if(sides === 1) {
                 message.channel.send("Bruh");
-            }
-            if(roll === sides) {
+            } else if(roll === sides) {
                 message.channel.send("**Critical Success!**");
             } else if (roll === 1) {
                 message.channel.send("**Critical Failure!**");
