@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.reply("Nice try.");
       let member = message.mentions.members.first();
