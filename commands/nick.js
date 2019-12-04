@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
       let reason = args.slice(1).join(' ');
     if(!member) {
     if(!reason) return "You must provide something to give yourself a nickname.";
-    message.author.setNickname(reason);
+    message.author.setNickname(reason)
       .catch(error => message.channel.send(`Error: ${error}`));
       } else {
     if(!reason) return "You must provide something to give them a nickname.";
