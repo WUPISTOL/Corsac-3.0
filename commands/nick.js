@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       .catch(error => message.channel.send(`Error: ${error}`));
       } else {
     if(!reason) return "You must provide something to give them a nickname.";
-    member.setNickname(reason);
+    member.setNickname(reason)
       .catch(error => message.channel.send(`Error: ${error}`));
       }
     const e = await message.channel.send(":ok_hand:");
