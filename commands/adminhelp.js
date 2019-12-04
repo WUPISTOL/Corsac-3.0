@@ -6,6 +6,7 @@ exports.run = (client, message, args) => {
     .setDescription('*More commands coming soon. Current commands are:*')
     .addField('**ban & kick**', 'Simple. Bans or kicks heretics.')
     .addField('**giverole & removerole**', 'Gives or removes roles accordingly.(c!grole, c!rrole)')
+    .addField('**nick**', 'Changes a user's nickname.')
     .addField('**purge**', 'deletes up to 100 messages.')
     .addField('**dm**', 'DMs a user with a message.')
     .addField('**warn**', 'Warns a user (W.I.P)')
