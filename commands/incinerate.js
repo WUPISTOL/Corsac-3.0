@@ -32,8 +32,7 @@ exports.run = async (client, message, args) => {
                         message.channel.bulkDelete(fetched)
                         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
                         }, 1500);
-                        }
-                      }
+                    }
                 } else return;
             } else {
                 message.delete().catch(O_o => {});
