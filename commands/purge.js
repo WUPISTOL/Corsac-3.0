@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
             let lastMessage = messages.first();
             lastMessage.delete().catch(O_o => {});
             amount++;
-            }
+            });
         }
         message.channel.send(`Deleted ${amount} messages.`);  
     } else return;
