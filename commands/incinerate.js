@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
     const fetched = await message.channel.fetchMessages({
-    limit: 100
+        limit: 100
     });
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
         return message.reply("You don't have the necessary permissions.");
@@ -13,13 +13,13 @@ exports.run = async (client, message, args) => {
 
     message.awaitReactions(filter, {
             max: 1,
-            time: 60000,
+            time: 30000,
             errors: ['time']
         })
         .then(collected => {
             const reaction = collected.first();
 
-            if (reaction.emoji.name === '👍')  {
+            if (reaction.emoji.name === '👍') {
                 message.delete().catch(O_o => {});
                 var messageString = message.content.split(' ');
                 var Num = messageString.slice(1).join(' ');
@@ -27,9 +27,9 @@ exports.run = async (client, message, args) => {
                     if (!Num || Num < 1 || Num > 10)
                         return message.reply("Please choose a number between 1-10 to incinerate.");
 
-                    for(var i=0; i < fetched; i++){
+                    for (var i = 0; i < fetched; i++) {
                         message.channel.bulkDelete(fetched)
-                        .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+                            .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
                     }
                 } else return;
             } else {
@@ -37,7 +37,7 @@ exports.run = async (client, message, args) => {
             }
         })
         .catch(collected => {
-            console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+            console.log(`After 30 seconds, only ${collected.size} out of 4 reacted.`);
             message.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
         });
 }
