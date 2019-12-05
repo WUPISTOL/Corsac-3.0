@@ -1,5 +1,8 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
+    const fetched = await message.channel.fetchMessages({
+    limit: 100
+    });
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
         return message.reply("You don't have the necessary permissions.");
     message.react('👍').then(() => message.react('👎'));
@@ -16,7 +19,7 @@ exports.run = async (client, message, args) => {
         .then(collected => {
             const reaction = collected.first();
 
-            async if (reaction.emoji.name === '👍')  {
+            if (reaction.emoji.name === '👍')  {
                 message.delete().catch(O_o => {});
                 var messageString = message.content.split(' ');
                 var Num = messageString.slice(1).join(' ');
@@ -25,9 +28,6 @@ exports.run = async (client, message, args) => {
                         return message.reply("Please choose a number between 1-10 to incinerate.");
 
                     for(var i=0; i < fetched; i++){
-                        var fetched = await message.channel.fetchMessages({
-                        limit: 100
-                        });
                         setTimeout(() => {
                         message.channel.bulkDelete(fetched).catch(error => return message.reply(`Couldn't delete messages because of: ${error}`));
                         }, 1500);
