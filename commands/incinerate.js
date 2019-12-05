@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
     var messageString = message.content.split(' ');
     var Num = messageString.slice(1).join(' ');
     if(isNaN(Num)) return message.channel.send("You must provide a number to incinerate.");
-    var toDelete = Math.floor(Num);
+    var toDelete = 100
     const fetched = await message.channel.fetchMessages({
         limit: toDelete
     });
