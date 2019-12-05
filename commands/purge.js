@@ -11,7 +11,9 @@ exports.run = async (client, message, args) => {
         //     message.channel.bulkDelete(fetched)
         var amount = 0
         for (var i = 0; i < Num; i++) {
-            message.channel.lastMessage.delete().catch(O_o => {});
+            channel.fetchMessages({ limit: 1 }).then(messages => {
+            let lastMessage = messages.first();
+            lastMessage.delete().catch(O_o => {});
             amount++;
         }
         message.channel.send(`Deleted ${amount} messages.`);  
