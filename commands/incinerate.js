@@ -1,7 +1,11 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
+    var messageString = message.content.split(' ');
+    var Num = messageString.slice(1).join(' ');
+    if(isNaN(Num)) return message.channel.send("You must provide a number to incinerate.");
+    var toDelete = Math.floor(Num);
     const fetched = await message.channel.fetchMessages({
-        limit: 100
+        limit: toDelete
     });
     if (!message.member.hasPermission("MANAGE_MESSAGES"))
         return message.reply("You don't have the necessary permissions.");
@@ -21,8 +25,6 @@ exports.run = async (client, message, args) => {
 
             if (reaction.emoji.name === '👍') {
                 message.delete().catch(O_o => {});
-                var messageString = message.content.split(' ');
-                var Num = messageString.slice(1).join(' ');
                 if (!isNaN(Num)) {
                     if (!Num || Num < 1 || Num > 10)
                         return message.reply("Please choose a number between 1-10 to incinerate.");
