@@ -28,10 +28,8 @@ exports.run = async (client, message, args) => {
                         return message.reply("Please choose a number between 1-10 to incinerate.");
 
                     for(var i=0; i < fetched; i++){
-                        setTimeout(() => {
                         message.channel.bulkDelete(fetched)
                         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
-                        }, 1500);
                     }
                 } else return;
             } else {
