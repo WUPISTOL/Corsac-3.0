@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
                         var fetched = await message.channel.fetchMessages({
                         limit: 100
                         });
-                        setTimeout(() => {
+                        setTimeout(async () => {
                         message.channel.bulkDelete(fetched).catch(error => return message.reply(`Couldn't delete messages because of: ${error}`));
                         }, 1500);
                         }
