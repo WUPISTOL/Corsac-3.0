@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
         .then(collected => {
             const reaction = collected.first();
 
-            if (reaction.emoji.name === '👍') {
+            async if (reaction.emoji.name === '👍')  {
                 message.delete().catch(O_o => {});
                 var messageString = message.content.split(' ');
                 var Num = messageString.slice(1).join(' ');
@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
                         var fetched = await message.channel.fetchMessages({
                         limit: 100
                         });
-                        setTimeout(async () => {
+                        setTimeout(() => {
                         message.channel.bulkDelete(fetched).catch(error => return message.reply(`Couldn't delete messages because of: ${error}`));
                         }, 1500);
                         }
