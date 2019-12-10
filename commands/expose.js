@@ -3,7 +3,7 @@ const fs = require("fs");
 const cooldown = new Set();
 exports.run = async (client, message, args) => {
   if (cooldown.has(message.author.id))
-        return message.reply("You can only expose once a minute!");
+        return message.reply("You can only expose once every 30 seconds!");
 
     cooldown.add(message.author.id);
     setTimeout(() => {
