@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
     
     var colour = '#FFAA00';
     if (messageWords.length === 1) {
-        return message.reply("Please specify the die and number of dice you want to roll. Modifiers go after the die. *\(Example: c!roll 1d20 +5\)*");
+        return message.reply("Please specify the die you wish to roll. Modifiers go after the die. *\(Example: c!adv 1d20 +5\)*");
     }
 
     let sides = messageWords[1];
@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
     if (isNaN(sides) || isNaN(rolls)) {
         return;
     }
-        colour = '#FF7700';
+        colour = '#CB1BF2';
         message.delete().catch(O_o=>{}); 
     //I'm out of Kelloggs Frosted Flakes.
         const rollResults = [];
@@ -60,14 +60,13 @@ exports.run = (client, message, args) => {
         if (rollMod === 0) {
             rollMod = '0';
         }
-        const highersum = `[${higherVal}] + (${rollMod}) = ${hsum}`;
+        const highersum = `[${higherVal}] + (${rollMod}) = **${hsum}**`;
         const lowersum = `[${lowerVal}] + (${rollMod}) = ${lsum}`;
         let embed = new Discord.RichEmbed()
             .setColor(colour)
-            .setTitle(`**${message.author} rolls with advantage!**`)
+            .setTitle(`**${message.author.username} rolls with advantage!**`)
             .setDescription(highersum)
             .addField(lowersum, "<a:KirbyJam:583773264401137696>")
-            .setFooter(`${reason}`)
         message.channel.send(embed);
 };
 
