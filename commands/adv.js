@@ -69,7 +69,6 @@ exports.run = (client, message, args) => {
             .addField(lowersum, "<a:KirbyJam:583773264401137696>")
             .setFooter(`${reason}`)
         message.channel.send(embed);
-         }
 };
 
 module.exports.help = {
