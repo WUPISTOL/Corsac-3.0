@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
     const messageWords = message.content.split(' ');
     var rollMod = messageWords[2];
     var reason = messageWords.slice(3).join(' ');
-    var emoji = ":game_die:";
+    var emoji = "<:d20:651242071557931008>";
     if (!rollMod) {
         rollMod = 0;
     } else if (isNaN(rollMod)) {
@@ -41,25 +41,34 @@ exports.run = (client, message, args) => {
         colour = '#FF7700';
         message.delete().catch(O_o=>{}); 
     //I'm out of Kelloggs Frosted Flakes.
-            let roll = Math.floor(Math.random() * sides) + 1;
-            let diesum = roll + (rollMod / 1)
-            if (rollMod === 0) {
-                rollMod = '0';
-            }
-            
-            let embed = new Discord.RichEmbed()
-                .setColor(colour)
-                .setDescription(`**${message.author}\'s ${messageWords[1]}** ${emoji}`)
-                .addField(`\`${reason}:\` **__${diesum}__**`, `[${roll}] + (${rollMod}) = ${diesum}`)
-            message.channel.send(embed);
-            if(sides === 1) {
-                message.channel.send("Bruh");
-            } else if(sides === 20) {
-                if(roll === sides) {
-                message.channel.send("<a:congrats_me_boi:651254683054112790> **Critical Success!** <a:its_a_critical_hit:651254647394140190>");
-            } else if (roll === 1) {
-                message.channel.send("**Critical Failure!**");
-                }
+        const rollResults = [];
+        for (let i = 0; i < 2; i++) {
+            rollResults.push(Math.floor(Math.random() * sides) + 1);
+        }
+        var higherVal = "bruh"
+        var lowerVal = "bruh2"
+        if(rollResults[0] > rollResults[1]) {
+            higherVal = rollResults[0];
+            lowerVal = rollResults[1];
+        } else {
+            higherVal = rollResults[1];
+            lowerVal = rollResults[0];
+        }
+    
+        let hsum = higherVal + (rollMod / 1);
+        let lsum = lowerVal + (rollMod / 1);
+        if (rollMod === 0) {
+            rollMod = '0';
+        }
+        const highersum = `[${higherVal}] + (${rollMod}) = ${hsum}`;
+        const lowersum = `[${lowerVal}] + (${rollMod}) = ${lsum}`;
+        let embed = new Discord.RichEmbed()
+            .setColor(colour)
+            .setTitle(`**${message.author} rolls with advantage!**`)
+            .setDescription(highersum)
+            .addField(lowersum, "<a:KirbyJam:583773264401137696>")
+            .setFooter(`${reason}`)
+        message.channel.send(embed);
          }
 };
 
