@@ -66,7 +66,7 @@ exports.run = (client, message, args) => {
             .setColor(colour)
             .setTitle(`**${message.author.username} rolls with advantage!**`)
             .setDescription(highersum)
-            .addField(`lowersum`, "<a:KirbyJam:583773264401137696>")
+            .addField(`${lowersum}`, "<a:KirbyJam:583773264401137696>")
         message.channel.send(embed);
 };
 
