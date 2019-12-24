@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
   if(!logchannel) return message.reply("Create a \`log\` channel so that I can actually log something.");
   logchannel.send(`\`\`\`${reason}\`\`\``);
   message.delete().catch(O_o=>{}); 
-  const e = await message.channel.send(":ok_hand:");
+  const e = await message.channel.send(":white_check_mark:");
    setTimeout(() => { e.delete(); }, 2000);
 }
 
