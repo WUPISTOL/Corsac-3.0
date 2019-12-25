@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
 //     .setFooter(`Reason: ${reason}`)
 //     .setTimestamp()
 //     warnchannel.send(wembed);
-  message.channel.send("User has been successfully warned.");
+//   message.channel.send("User has been successfully warned.");
 }
 
 module.exports.help = {
