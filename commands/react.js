@@ -1,7 +1,7 @@
 
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-    message.react('583773264401137696');
+    message.react('664246257404870656');
 }
 
 module.exports.help = {
