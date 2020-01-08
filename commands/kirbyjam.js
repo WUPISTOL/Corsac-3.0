@@ -2,7 +2,7 @@ exports.run = async (client, message, args) => {
   let roll = Math.floor(Math.random() * 100) + 1;
   if(roll === 99) {
     message.delete().catch(O_o=>{}); 
-    message.channel.send("<:haha:664246257404870656>")
+    message.channel.send("<:haha:664246257404870656> You found Craig, the unfindable haha. Time will now begin to collapse.")
   } else {
   message.channel.send("Poyo!");
   message.channel.send("<a:KirbyJam:583773264401137696>");
