@@ -23,7 +23,7 @@ if (snipechannel[0] === "No snipes") {
     },
     "fields": [{
       "name": `\"${snipechannel[0]}\"`,
-      "value": `<a:KirbyJam:583773264401137696>`
+      "value": `Exposed by ${message.author}`
     }]
   };
   await message.channel.send({
