@@ -64,7 +64,7 @@ exports.run = (client, message, args) => {
         const highersum = `\`[${higherVal}] + (${rollMod}) = ${hsum}\``;
         let embed = new Discord.RichEmbed()
             .setColor(colour)
-            .setTitle(`**${message.author.username} rolls with advantage!**`)
+            .setTitle(`**${message.author.username} rolls with disadvantage!**`)
             .setDescription(lowersum)
             .addField(`${highersum}`, "<a:KirbyJam:583773264401137696>")
         message.channel.send(embed);
