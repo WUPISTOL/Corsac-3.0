@@ -60,13 +60,13 @@ exports.run = (client, message, args) => {
         if (rollMod === 0) {
             rollMod = '0';
         }
-        const highersum = `**[${higherVal}] + (${rollMod}) = __${hsum}__**`;
-        const lowersum = `\`[${lowerVal}] + (${rollMod}) = ${lsum}\``;
+        const lowersum = `**[${lowerVal}] + (${rollMod}) = __${lsum}__**`;
+        const highersum = `\`[${higherVal}] + (${rollMod}) = ${hsum}\``;
         let embed = new Discord.RichEmbed()
             .setColor(colour)
             .setTitle(`**${message.author.username} rolls with advantage!**`)
-            .setDescription(highersum)
-            .addField(`${lowersum}`, "<a:KirbyJam:583773264401137696>")
+            .setDescription(lowersum)
+            .addField(`${highersum}`, "<a:KirbyJam:583773264401137696>")
         message.channel.send(embed);
 };
 
