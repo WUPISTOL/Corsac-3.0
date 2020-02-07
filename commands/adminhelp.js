@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
     .addField('**purge**', 'deletes up to 100 messages.')
     .addField('**dm**', 'DMs a user with a message.')
     .addField('**warn**', 'Warns a user (W.I.P)')
-    .setFooter('All commands have the prefix (c!).')
+    .setFooter('You can silently kick or ban by putting an \'\s\'\ before it \(ie. c!skick\ won\'t send a message to the victim.)')
     .setTimestamp()
         message.channel.send(embed);
 }
