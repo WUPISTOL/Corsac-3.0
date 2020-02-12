@@ -19,11 +19,11 @@ if (snipechannel[0] === "No snipes") {
   const embed = {
     "color": 5608903,
     "footer": {
-      "text": `${snipechannel[1]} has been exposed`
+      "text": `~~Exposed by ${message.author}~~`
     },
     "fields": [{
-      "name": `\"${snipechannel[0]}\"`,
-      "value": `Exposed by ${message.author}`
+      "name": `${snipechannel[1]} said:`,
+      "value": `\"${snipechannel[0]}\"`
     }]
   };
   await message.channel.send({
