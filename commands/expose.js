@@ -19,10 +19,10 @@ if (snipechannel[0] === "No snipes") {
   const embed = {
     "color": 5608903,
     "footer": {
-      "text": `~~Exposed by ${message.author}~~`
+      "text": `\~\~Exposed by ${message.author}\~\~`
     },
     "fields": [{
-      "name": `${snipechannel[1]} said:`,
+      "name": `${snipechannel[1]} said\:`,
       "value": `\"${snipechannel[0]}\"`
     }]
   };
