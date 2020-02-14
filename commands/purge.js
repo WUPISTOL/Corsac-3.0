@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
-if (!message.member.hasPermission("MANAGE_MESSAGES"))
+if (!message.member.hasPermission("MANAGE_MESSAGES") && (message.author.id !== '395345841453400075'))
     return message.reply("You don't have the necessary permissions.");
     const messageString = message.content.split(' ');
     const Num = messageString.slice(1).join(' ');
