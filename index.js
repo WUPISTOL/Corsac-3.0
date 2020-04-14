@@ -35,7 +35,7 @@ process.on("unhandledRejection", console.error);
 client.on("message", async message => {
     if (message.author.bot) return;
 
-    if (message.content.toLowerCase === 'sokolov sokolov sokolov') {
+    if (message.content === 'sokolov sokolov sokolov') {
     return message.channel.send('\`\`\`got it\`\`\`');
     }
 
