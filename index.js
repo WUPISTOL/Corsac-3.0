@@ -38,7 +38,7 @@ client.on("message", async message => {
     if (message.content.toLowerCase() === 'sokolov sokolov sokolov') {
     const sokolovs = ['Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Got it', 'Soldier Soldier Soldier', 'The Pain!', 'This isn\'t interesting.', `Not yet, ${message.author}, it's not over yet.`, 'You\'re pretty good.', 'I loVe jApaN.', 'The Fear!', 'Wipe this meme off the face of the earth.', 'Psycho Mantis?', 'Sokolob', 'THEY PLAYED US LIKE A DAMN FIDDLE', 'Played college ball, you know. Try University of Texas. Coulda gone pro if I hadn\'t joined the Navy. I\'m not one of those beltway pansies. I could break the President in two... with my bare hands. Don\'t fuck with **this** senator!', 'Memes. The DNA of the soul.', 'Kept you waiting, huh?'];
 
-    return message.channel.send(sokolovs[Math.floor(Math.random() * responses.length)])
+    return message.channel.send(sokolovs[Math.floor(Math.random() * sokolovs.length)])
     }
 
     let prefix = config.prefix;
