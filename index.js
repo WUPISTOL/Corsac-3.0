@@ -35,6 +35,10 @@ process.on("unhandledRejection", console.error);
 client.on("message", async message => {
     if (message.author.bot) return;
 
+    if (message.content === 'sokolov sokolov sokolov') {
+    return message.channel.send('\`\`\`got it\`\`\`');
+    }
+
     let prefix = config.prefix;
 
     if (message.content.indexOf(prefix) !== 0) return;
