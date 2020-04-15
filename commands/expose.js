@@ -16,25 +16,14 @@ var snipechannel = snipes[chn]; // to call an specific deleted message I guess
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
 } else {
-  const embedder = new MessageEmbed()
+  const embed = new Discord.RichEmbed()
   .setAuthor(`Exposed by ${message.author.tag}`)
   .setDescription(`\"${snipechannel[0]}\"`);
   
-  if (snipechannel[0].image) embedder.setImage(snipechannel[0].image);
+  if (snipechannel[0].image) embed.setImage(snipechannel[0].image);
   
-  const embed = {
-    "color": 5608903,
-    "footer": {
-      "text": `${snipechannel[1]} has been exposed`
-    },
-    "fields": [{
-      "name": `\"${snipechannel[0]}\"`,
-      "value": `<a:KirbyJam:583773264401137696>`
-    }]
-  };
-  await message.channel.send({
-    embed
-  });
+  await message.channel.send({embedder});
+  
   snipechannel[0] = "No snipes";
 
   var fileName = './snipe.json';
