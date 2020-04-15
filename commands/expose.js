@@ -22,7 +22,7 @@ if (snipechannel[0] === "No snipes") {
   
   if (snipechannel[0].image) embed.setImage(snipechannel[0].image);
   
-  await message.channel.send({embedder});
+  await message.channel.send(embed);
   
   snipechannel[0] = "No snipes";
 
