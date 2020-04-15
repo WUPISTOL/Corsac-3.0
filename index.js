@@ -66,9 +66,9 @@ client.on("message", async message => {
 });
 client.on("messageDelete", (message) => {
   if (message.author.bot) return;
-
+  var imageo = message.attachments.first() ? message.attachments.first().proxyURL : null
   var snipes = require("./snipe.json");
-  snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${message.image}`];
+  snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${imageo}`];
 
   var fileName = './snipe.json';
 
