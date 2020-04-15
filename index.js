@@ -68,7 +68,7 @@ client.on("messageDelete", (message) => {
   if (message.author.bot) return;
 
   var snipes = require("./snipe.json");
-  snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`];
+  snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${message.image}`];
 
   var fileName = './snipe.json';
 
