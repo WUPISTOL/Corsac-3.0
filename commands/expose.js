@@ -17,7 +17,7 @@ if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
 } else {
   const embed = new Discord.RichEmbed()
-  .setAuthor(`Exposed by ${message.author.tag}`)
+  .setAuthor(`${snipechannel[1]} was exposed by ${message.author.tag}`)
   .setDescription(`\"${snipechannel[0]}\"`);
   
   if (snipechannel[0].image) embed.setImage(snipechannel[0].image);
