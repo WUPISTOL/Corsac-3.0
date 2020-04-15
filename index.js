@@ -61,12 +61,15 @@ client.on("message", async message => {
     if (!cmd) return message.channel.send("...?");
 
     if (message.content.indexOf(prefix) !== 0) return;
-    if (!cmd) return message.channel.send("Please use an actual command.")
+    if (!cmd) return;
 
 });
 client.on("messageDelete", (message) => {
   if (message.author.bot) return;
-  var imageo = message.attachments.first() ? message.attachments.first().proxyURL : null
+  if (message.attachments.first()) {
+      var imageo = message.attachments.first().proxyURL
+  } else {
+       var imageo = null;
   var snipes = require("./snipe.json");
   snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${imageo}`];
 
