@@ -70,6 +70,7 @@ client.on("messageDelete", (message) => {
       var imageo = message.attachments.first().proxyURL
   } else {
        var imageo = null;
+  }
   var snipes = require("./snipe.json");
   snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${imageo}`];
 
