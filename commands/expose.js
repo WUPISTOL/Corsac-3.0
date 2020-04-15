@@ -16,6 +16,12 @@ var snipechannel = snipes[chn]; // to call an specific deleted message I guess
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
 } else {
+  const embedder = new MessageEmbed()
+  .setAuthor(`Exposed by ${message.author.tag}`)
+  .setDescription(`\"${snipechannel[0]}\"`);
+  
+  if (snipechannel[0].image) embedder.setImage(snipechannel[0].image);
+  
   const embed = {
     "color": 5608903,
     "footer": {
