@@ -20,7 +20,7 @@ if (snipechannel[0] === "No snipes") {
   .setAuthor(`${snipechannel[1]} was exposed by ${message.author.tag}`)
   .setDescription(`\"${snipechannel[0]}\"`);
   
-  if (snipechannel[0].image) embed.setImage(snipechannel[2]);
+  if (snipechannel[2]) embed.setImage(snipechannel[2]);
   
   await message.channel.send(embed);
   
