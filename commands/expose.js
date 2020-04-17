@@ -21,7 +21,9 @@ if (snipechannel[0] === "No snipes") {
   
   if (snipechannel[0]) embed.setDescription(`\"${snipechannel[0]}\"`);
   
-  if (snipechannel[2]) embed.setImage(snipechannel[2]);
+  if (snipechannel[2]) {
+    embed.setImage(snipechannel[2]);
+  }
   
   await message.channel.send(embed);
   
