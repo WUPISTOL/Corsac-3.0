@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
     
     let dmessage = args.slice(1).join(' ');
     if(!dmessage) return message.reply("You must supply a message!");
-    dmember.send(`**A user from from ${dmember.guild.name} sent you a message:** ${dmessage}`)
+    dmember.send(`${dmessage}`)
     dauthor.send(`You've sent your message to ${dmember}.`)
     message.delete().catch(O_o=>{}); 
 }
