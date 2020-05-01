@@ -4,12 +4,12 @@ const fs = require("fs");
 const cooldown = new Set();
 exports.run = async (client, message, args) => {
   if (cooldown.has(message.author.id))
-        return message.reply("You can only expose once every 30 seconds!");
+        return message.reply("You're using this command too fast.");
 
     cooldown.add(message.author.id);
     setTimeout(() => {
         cooldown.delete(message.author.id);
-    }, 30000);
+    }, 50000);
 var snipes = JSON.parse(fs.readFileSync("./snipe.json", "utf8")); // file containing snipes
 let chn = `${message.channel.id}`;
 var snipechannel = snipes[chn]; // to call an specific deleted message I guess
