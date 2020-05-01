@@ -1,15 +1,14 @@
-  
 const Discord = require("discord.js");
 const fs = require("fs");
 const cooldown = new Set();
 exports.run = async (client, message, args) => {
   if (cooldown.has(message.author.id))
-        return message.reply("You're using this command too fast.");
+        return message.reply("You can only expose once every 30 seconds!");
 
     cooldown.add(message.author.id);
     setTimeout(() => {
         cooldown.delete(message.author.id);
-    }, 5000);
+    }, 1000);
 var snipes = JSON.parse(fs.readFileSync("./snipe.json", "utf8")); // file containing snipes
 let chn = `${message.channel.id}`;
 var snipechannel = snipes[chn]; // to call an specific deleted message I guess
@@ -22,7 +21,9 @@ if (snipechannel[0] === "No snipes") {
   
   if (snipechannel[0]) embed.setDescription(`\"${snipechannel[0]}\"`);
   
-  if (snipechannel[2]) embed.setImage(snipechannel[2]);
+  if (!snipechannel[2] === null) {
+    embed.setImage(snipechannel[2]);
+  }
   
   await message.channel.send(embed);
   
