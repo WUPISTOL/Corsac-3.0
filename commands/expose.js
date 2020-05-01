@@ -4,7 +4,7 @@ const cooldown = new Set();
 exports.run = async (client, message, args) => {
   if (cooldown.has(message.author.id))
         return message.reply("You can only expose once every 30 seconds!");
-
+//e
     cooldown.add(message.author.id);
     setTimeout(() => {
         cooldown.delete(message.author.id);
