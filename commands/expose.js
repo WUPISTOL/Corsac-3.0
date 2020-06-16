@@ -1,3 +1,6 @@
+//i was reading stephen king while next to my PC and said "ay lmao" and logged into github to revert to an old c!expose
+//mfw you wouldn't even check this
+//:peepoWIDE:
 const Discord = require("discord.js");
 const fs = require("fs");
 const cooldown = new Set();
