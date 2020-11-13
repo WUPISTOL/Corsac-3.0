@@ -94,6 +94,8 @@ client.on("messageDelete", (message) => {
     const starChannel = message.guild.channels.cache.find(channel => channel.name == starboardChannel)
     //gotta rename that quotes channel to starboardChannel now.
     if (!starChannel) return message.channel.send(`In order to use this command, you will need a channel named \`${starboardChannel}\`.`); 
+     //All praise an Idiot's Guide.
+     //I'm going to be editing this and actually making it my own in the future, and then teach Corsac to keep count of every Reddit Gold. For now it will be using star emojis.
   }
 //june cast, moon fast.
 //please work.
