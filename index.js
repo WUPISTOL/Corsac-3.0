@@ -85,5 +85,6 @@ client.on("messageDelete", (message) => {
 //kirbyjam, it works
 //Try 3 failed, unexpected identifier on async run
 //Yep, gonna have to rewrite a lot
+//good news is, making a starboard will actually be way easier now. I've been enlightened after listening TF2 spy theme again.
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
