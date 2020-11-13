@@ -93,5 +93,6 @@ client.on("messageDelete", (message) => {
 // by the way, you should definitely learn some code lmao JS is easy as shiet
 //except for when it isnt, but still
 //ye could have infinite access to Borsac n be able to make ye own secret shiets
+//Hell, you could make your own shiet. I would help if possible
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
