@@ -86,5 +86,9 @@ client.on("messageDelete", (message) => {
 //Try 3 failed, unexpected identifier on async run
 //Yep, gonna have to rewrite a lot
 //good news is, making a starboard will actually be way easier now. I've been enlightened after listening TF2 spy theme again.
+//you know what? I might be able to finish this today. 
+//mainly have to figure out how to get Corsac to read reactions. Sounds simple enough.
+
+//lmao, imagine being swage, actually clicking these links, and thinking that I'm coding here. Get cucked, I'm just commenting. My work is on a text editor.
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
