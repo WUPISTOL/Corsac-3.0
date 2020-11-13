@@ -83,21 +83,7 @@ client.on("messageDelete", (message) => {
   });
 });
 //kirbyjam, it works
-//try 3 for starboard. at this point, I'm just going to find something that works, steal the frik out of it, and then slap the Juan seal of Originality on it by changing minor things.
- async run(reaction, user) {
-     //reaction better be working this time, Discord JS. I will slap you.
-    const message = reaction.message;
-    if (reaction.emoji.name !== '⭐') return;
-    if (message.author.id === user.id) return message.channel.send(`${message.author}, you cannot star your own messages.`);
-    if (message.author.bot) return message.channel.send(`${message.author}, you cannot star bot messages.`);
-    const { starboard } = this.client.settings.get(message.guild.id); 
-    const starChannel = message.guild.channels.cache.find(channel => channel.name == starboard)
-    //gotta rename that quotes channel to starboardChannel now.
-    //might have to rewrite this if it's not compatible with Corsac.
-    if (!starChannel) return message.channel.send(`In order to use this command, you will need a channel named \`${starboard}\`.`); 
-     //I'm going to be editing this and actually making it my own in the future, and then teach Corsac to keep count of every Reddit Gold. For now it will be using star emojis.
-  }
-//june cast, moon fast.
-//please work.
+//Try 3 failed, unexpected identifier on async run
+//Yep, gonna have to rewrite a lot
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
