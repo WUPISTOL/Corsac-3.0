@@ -83,4 +83,18 @@ client.on("messageDelete", (message) => {
   });
 });
 //kirbyjam, it works
+//try 3 for starboard. at this point, I'm just going to find something that works, steal the frik out of it, and then slap the Juan seal of Originality on it by changing minor things.
+ async run(reaction, user) {
+     //reaction better be working this time, Discord JS. I will slap you.
+    const message = reaction.message;
+    if (reaction.emoji.name !== '⭐') return;
+    if (message.author.id === user.id) return message.channel.send(`${message.author}, you cannot star your own messages.`);
+    if (message.author.bot) return message.channel.send(`${message.author}, you cannot star bot messages.`);
+    const { starboardChannel } = this.client.settings.get(message.guild.id); 
+    const starChannel = message.guild.channels.cache.find(channel => channel.name == starboardChannel)
+    //gotta rename that quotes channel to starboardChannel now.
+    if (!starChannel) return message.channel.send(`In order to use this command, you will need a channel named \`${starboardChannel}\`.`); 
+  }
+//june cast, moon fast.
+//please work.
 client.login(process.env.BOT_TOKEN);
