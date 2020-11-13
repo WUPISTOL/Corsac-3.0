@@ -90,5 +90,8 @@ client.on("messageDelete", (message) => {
 //mainly have to figure out how to get Corsac to read reactions. Sounds simple enough.
 
 //lmao, imagine being swage, actually clicking these links, and thinking that I'm coding here. Get cucked, I'm just commenting. My work is on a text editor.
+// by the way, you should definitely learn some code lmao JS is easy as shiet
+//except for when it isnt, but still
+//ye could have infinite access to Borsac n be able to make ye own secret shiets
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
