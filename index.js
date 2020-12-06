@@ -32,6 +32,13 @@ client.on("ready", async () => {
 });
 process.on("unhandledRejection", console.error);
 
+client.on("messageReactionAdd", async (reaction, user) => {
+    console.log(reaction.message.content);
+    console.log(reaction.emoji.name);
+    console.log(user.username);
+    console.log("Success!");
+});
+
 client.on("message", async message => {
     if (message.author.bot) return;
 
@@ -95,11 +102,6 @@ client.on("messageDelete", (message) => {
 //ye could have infinite access to Borsac n be able to make ye own secret shiets
 //Hell, you could make your own shiet. I would help if possible
 //Testing on current Discord below.
-client.on("messageReactionAdd", async (reaction, user) => {
-    console.log(reaction.message.content);
-    console.log(reaction.emoji.name);
-    console.log(user.username);
-    console.log("Success!");
-});
+
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
