@@ -34,15 +34,21 @@ process.on("unhandledRejection", console.error);
 
 client.on("messageReactionAdd", async (reaction, user) => {
     let rMessage = reaction.message
-    console.log(rMessage.content);
-    console.log(reaction.emoji.name);
-    console.log(user.username);
+    console.log("____________________");
+    console.log('Message reaction detected.')
+    console.log("____________________");
+    console.log(`Message: ${rMessage.content}`);
+    console.log(`Emoji: ${reaction.emoji.name}`);
+    console.log(`User: ${user.username}`);
     console.log("____________________");
     if(reaction.emoji.name !== "RedditGold") return;
     let starredMessage = rMessage.guild.id;
     let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
-    if (!starChannel) return console.log("Reddit Gold awarded, but no starChannel found.");
-    console.log("starChannel found.");
+    if (!starChannel) return console.log("Reddit Gold detected, but no starChannel found.");
+    console.log("Reddit gold detected, starChannel found. Counting Reddit Gold awards...");
+    console.log(`Total number of awards given: ${reaction.count}`)
+    console.log("____________________");
+    
     
 });
 
