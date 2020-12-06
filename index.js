@@ -96,6 +96,7 @@ client.on("messageDelete", (message) => {
 //Hell, you could make your own shiet. I would help if possible
 //Testing on current Discord below.
 client.on("messageReactionAdd", async (reaction, user) => {
+    console.log(reaction.message);
     console.log(reaction.emoji.name);
     console.log(user.username);
     console.log("Success!");
