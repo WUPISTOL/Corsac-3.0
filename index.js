@@ -95,8 +95,8 @@ client.on("messageDelete", (message) => {
 //ye could have infinite access to Borsac n be able to make ye own secret shiets
 //Hell, you could make your own shiet. I would help if possible
 //Testing on current Discord below.
-client.on("messageReaction", async reaction => {
-    console.log("${reaction.message}");
+client.on("messageReactionAdd", async (reaction, user) => {
+    console.log("reaction message ${reaction.message}, reaction user ${user}");
 });
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
