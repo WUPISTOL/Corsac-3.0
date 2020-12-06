@@ -39,7 +39,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log("____________________");
     console.log(`Message: ${rMessage.content}`);
     console.log(`Emoji: ${reaction.emoji.name}`);
-    console.log(`User: ${user.username}`);
+    console.log(`Reaction recipient: ${rMessage.author.username}`)
+    console.log(`Reaction sender: ${user.username}`);
     console.log("____________________");
     if(reaction.emoji.name !== "RedditGold") return;
     let starredMessage = rMessage.guild.id;
