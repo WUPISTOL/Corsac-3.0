@@ -96,7 +96,9 @@ client.on("messageDelete", (message) => {
 //Hell, you could make your own shiet. I would help if possible
 //Testing on current Discord below.
 client.on("messageReactionAdd", async (reaction, user) => {
-    console.log("reaction message ${reaction.message}, reaction user ${user}");
+    console.log(reaction);
+    console.log(user);
+    console.log("Success!");
 });
 client.login(process.env.BOT_TOKEN);
 //All praise an Idiot's Guide.
