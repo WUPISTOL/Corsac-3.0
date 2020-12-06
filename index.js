@@ -39,7 +39,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log(user.username);
     console.log("Success!");
     if(reaction.emoji.name !== "RedditGold") return;
-    let starredMessage = ;
+    let starredMessage = "bruh";
     let starChannel = rMessage.guild.channels.cache.find(channel => channel.name == 'starboard');
     
 });
