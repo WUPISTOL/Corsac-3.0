@@ -42,24 +42,32 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log(`Reaction recipient: ${rMessage.author.username}`)
     console.log(`Reaction sender: ${user.username}`);
     console.log("____________________");
-    if(reaction.emoji.name !== "RedditGold") return;
-    let starredMessage = rMessage.guild.id;
-    let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
-    if (!starChannel) return console.log("Reddit Gold detected, but no starChannel found.");
-    console.log("Reddit gold detected, starChannel found. Counting Reddit Gold awards...");
-    console.log(`Total number of awards given: ${reaction.count}`)
+        if (reaction.emoji.name !== "RedditGold") return;
+            let starredMessage = rMessage.guild.id;
+            let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
+            if (!starChannel) return console.log("Reddit Gold detected, but no starChannel found.");
+            console.log("Reddit gold detected, starChannel found. Counting Reddit Gold awards...");
+            console.log(`Total number of awards given: ${reaction.count}`)
     console.log("____________________");
-    
-    
+            let starredimage = rMessage.attachments.size > 0 ? await this.extension(reaction, rMessage.attachments.array()[0].url) : '';
+            if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Did I just catch you trying to star an empty message? We don\'t do that here.');
+            let embed = new MessageEmbed()
+                .setColor('#FF00FF')
+                .setDescription(rMessage.cleanContent)
+                .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
+                .setTimestamp(new Date())
+                .setFooter(`⭐ | ${rMessage.id}`)
+                .setImage(starredimage);
+            await starChannel.send(embed);
 });
 
 client.on("message", async message => {
     if (message.author.bot) return;
 
     if (message.content.toLowerCase() === 'sokolov sokolov sokolov') {
-    const sokolovs = ['\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`Soldier Soldier Soldier\`', '\`The Pain!\`', '\`This isn\'t interesting.\`', `***Not yet, ${message.author}, it's not over yet.***`, '\`You\'re pretty good.\`', '\`I loVe jApaN.\`', '\`The Fear!\`', '\`Wipe this meme off the face of the earth.\`', '\`Psycho Mantis?\`', '\`Sokolob\`', '\`THEY PLAYED US LIKE A DAMN FIDDLE\`', '\`Played college ball, you know. Try University of Texas. Coulda gone pro if I hadn\'t joined the Navy. I\'m not one of those beltway pansies. I could break the President in two... with my bare hands. Don\'t fuck with **this** senator!\`', '\`Memes. The DNA of the soul.\`', '\`Kept you waiting, huh?\`', '\`La-Li-Lu-Le-Lo\`', '\`Never liked kids. Especially ones with guns.\`', '\`Nanomachines, son.\`', '\`Rise n\' shine, old-timer. It is complete! I had our best and brightest working overtime, fine-tuning the greatest burger the world has ever known!\`', '\`Curse the gods for they have forsaken me with the ability to code\`', '\`You\'re pretty bad.\`', '\`One hundred billion dollars!\`', '\`WHICH ONE OF YA WANNA \[REDACTED\]\`', ];
+        const sokolovs = ['\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`Soldier Soldier Soldier\`', '\`The Pain!\`', '\`This isn\'t interesting.\`', `***Not yet, ${message.author}, it's not over yet.***`, '\`You\'re pretty good.\`', '\`I loVe jApaN.\`', '\`The Fear!\`', '\`Wipe this meme off the face of the earth.\`', '\`Psycho Mantis?\`', '\`Sokolob\`', '\`THEY PLAYED US LIKE A DAMN FIDDLE\`', '\`Played college ball, you know. Try University of Texas. Coulda gone pro if I hadn\'t joined the Navy. I\'m not one of those beltway pansies. I could break the President in two... with my bare hands. Don\'t fuck with **this** senator!\`', '\`Memes. The DNA of the soul.\`', '\`Kept you waiting, huh?\`', '\`La-Li-Lu-Le-Lo\`', '\`Never liked kids. Especially ones with guns.\`', '\`Nanomachines, son.\`', '\`Rise n\' shine, old-timer. It is complete! I had our best and brightest working overtime, fine-tuning the greatest burger the world has ever known!\`', '\`Curse the gods for they have forsaken me with the ability to code\`', '\`You\'re pretty bad.\`', '\`One hundred billion dollars!\`', '\`WHICH ONE OF YA WANNA \[REDACTED\]\`', ];
 
-    return message.channel.send(sokolovs[Math.floor(Math.random() * sokolovs.length)])
+        return message.channel.send(sokolovs[Math.floor(Math.random() * sokolovs.length)])
     }
 
     let prefix = config.prefix;
@@ -86,22 +94,22 @@ client.on("message", async message => {
 
 });
 client.on("messageDelete", (message) => {
-  if (message.author.bot) return;
-  if (message.attachments.first()) {
-      var imageo = message.attachments.first().proxyURL
-  } else {
-       var imageo = null;
-  }
-  var snipes = require("./snipe.json");
-  snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${imageo}`];
-
-  var fileName = './snipe.json';
-
-  fs.writeFile(fileName, JSON.stringify(snipes, null, 2), function(error) {
-    if (error) {
-      return console.log(error)
+    if (message.author.bot) return;
+    if (message.attachments.first()) {
+        var imageo = message.attachments.first().proxyURL
+    } else {
+        var imageo = null;
     }
-  });
+    var snipes = require("./snipe.json");
+    snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${imageo}`];
+
+    var fileName = './snipe.json';
+
+    fs.writeFile(fileName, JSON.stringify(snipes, null, 2), function(error) {
+        if (error) {
+            return console.log(error)
+        }
+    });
 });
 //kirbyjam, it works
 //Try 3 failed, unexpected identifier on async run
