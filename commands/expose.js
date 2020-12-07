@@ -1,6 +1,7 @@
 //i was reading stephen king while next to my PC and said "ay lmao" and logged into github to revert to an old c!expose
 //mfw you wouldn't even check this
 //:peepoWIDE:
+// NEW EXPOSE 2.0, IMAGE TESTING
 const Discord = require("discord.js");
 const fs = require("fs");
 const cooldown = new Set();
@@ -15,6 +16,7 @@ exports.run = async (client, message, args) => {
 var snipes = JSON.parse(fs.readFileSync("./snipe.json", "utf8")); // file containing snipes
 let chn = `${message.channel.id}`;
 var snipechannel = snipes[chn]; // to call an specific deleted message I guess
+let snipedimage = snipechannel[0].image.attachments.size > 0 ? message.attachments.array()[0].url : '';
 
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
@@ -26,8 +28,11 @@ if (snipechannel[0] === "No snipes") {
     },
     "fields": [{
       "name": `\"${snipechannel[0]}\"`,
-      "value": `<a:KirbyJam:583773264401137696>`
-    }]
+      "value": `<a:KirbyJam:583773264401137696>` 
+    }],
+    "image": {
+      url: `${snipedimage}`
+    }
   };
   await message.channel.send({
     embed
