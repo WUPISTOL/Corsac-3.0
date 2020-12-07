@@ -51,7 +51,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log("____________________");
             let starredimage = rMessage.attachments.size > 0 ? await this.extension(reaction, rMessage.attachments.array()[0].url) : '';
             if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Did I just catch you trying to star an empty message? We don\'t do that here.');
-            let embed = new MessageEmbed()
+            let embed = new Discord.RichEmbed()
                 .setColor('#FF00FF')
                 .setDescription(rMessage.cleanContent)
                 .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
