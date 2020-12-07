@@ -102,7 +102,7 @@ client.on("messageDelete", (message) => {
 
     var fileName = './snipe.json';
 
-    fs.writeFile(fileName, JSON.stringify(snipes, null, 2), function(error) {
+    fs.writeFile(fileName, JSON.stringify(snipes, null, 3), function(error) {
         if (error) {
             return console.log(error)
         }
