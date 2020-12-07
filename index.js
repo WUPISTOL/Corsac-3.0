@@ -96,12 +96,9 @@ client.on("message", async message => {
 client.on("messageDelete", (message) => {
     if (message.author.bot) return;
     if (message.attachments.first()) {
-        var imageo = message.attachments.first().proxyURL
-    } else {
-        var imageo = null;
-    }
+    let deletedimage = message.attachments.size > 0 ? message.attachments.array()[0].url : '';
     var snipes = require("./snipe.json");
-    snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${imageo}`];
+    snipes[`${message.channel.id}`] = [`${message}`, `${message.author.tag}`, `${deletedimage}`];
 
     var fileName = './snipe.json';
 
