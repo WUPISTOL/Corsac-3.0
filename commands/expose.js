@@ -30,7 +30,7 @@ if (snipechannel[0] === "No snipes") {
       "value": `<a:KirbyJam:583773264401137696>` 
     }],
     "image": {
-      url: `${snipechannel[2]}`
+      "url": `${snipechannel[2]}`
     }
   };
   await message.channel.send({
