@@ -107,7 +107,7 @@ client.on("messageDelete", (message) => {
             return console.log(error)
         }
     });
-};
+});
 //kirbyjam, it works
 //Try 3 failed, unexpected identifier on async run
 //Yep, gonna have to rewrite a lot
