@@ -15,8 +15,7 @@ exports.run = async (client, message, args) => {
     }, 30000);
 var snipes = JSON.parse(fs.readFileSync("./snipe.json", "utf8")); // file containing snipes
 let chn = `${message.channel.id}`;
-var snipechannel = snipes[chn]; // to call an specific deleted message I guess
-console.log(snipechannel[0].name)
+var snipechannel = snipes[chn]; // calls specific deleted message
 
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
@@ -31,7 +30,7 @@ if (snipechannel[0] === "No snipes") {
       "value": `<a:KirbyJam:583773264401137696>` 
     }],
     "image": {
-      url: `${snipedimage}`
+      url: `${snipechannel[2]}`
     }
   };
   await message.channel.send({
