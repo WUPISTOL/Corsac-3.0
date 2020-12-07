@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
 var snipes = JSON.parse(fs.readFileSync("./snipe.json", "utf8")); // file containing snipes
 let chn = `${message.channel.id}`;
 var snipechannel = snipes[chn]; // to call an specific deleted message I guess
-let snipedimage = snipechannel[0].image.attachments.size > 0 ? message.attachments.array()[0].url : '';
+let snipedimage = snipechannel[0].attachments.size > 0 ? snipechannel[0].attachments.array()[0].url : '';
 
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
