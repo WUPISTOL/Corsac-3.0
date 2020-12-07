@@ -49,7 +49,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             console.log("Reddit gold detected, starChannel found. Counting Reddit Gold awards...");
             console.log(`Total number of awards given: ${reaction.count}`)
     console.log("____________________");
-            let starredimage = rMessage.attachments.size > 0 ? await this.extension(reaction, rMessage.attachments.array()[0].url) : '';
+            let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url) : '';
             if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Did I just catch you trying to star an empty message? We don\'t do that here.');
             let embed = new Discord.RichEmbed()
                 .setColor('#FF00FF')
