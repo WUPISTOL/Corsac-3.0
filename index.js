@@ -28,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("ready", async () => {
     console.log(`${client.user.username} is online on ${client.guilds.size} guilds!`);
-    client.user.setActivity(`c!help`);
+    client.user.setActivity(`Cyberpunk 2077`);
 });
 process.on("unhandledRejection", console.error);
 
