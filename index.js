@@ -42,16 +42,16 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log(`Reaction recipient: ${rMessage.author.username}`)
     console.log(`Reaction sender: ${user.username}`);
     console.log("____________________");
-        if (reaction.emoji.name !== "RedditGold") return;
+        if (reaction.emoji.name !== "star") return;
             let starredMessage = rMessage.guild.id;
             let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
-            if (!starChannel) return console.log("Reddit Gold detected, but no starChannel found.");
-            console.log("Reddit gold detected, starChannel found. Counting Reddit Gold awards...");
+            if (!starChannel) return console.log("Star detected, but no starboard channel found.");
+            console.log("Star detected, starChannel found. Counting star awards...");
             console.log(`Total number of awards given: ${reaction.count}`)
     console.log("____________________");
             if(reaction.count !== 2) return;
             let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
-            if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Did I just catch you trying to star an empty message? We don\'t do that here. Who do you take me for, a vitamin D deficient rodeo clown? You think you can trick me? I\'ll have you kno-');
+            if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Did I just catch you trying to star an empty message? We don\'t do that here. Who do you take me for, a vitamin D deficient rodeo clown? You think you can trick me? I\'ll have you kno[SESSION TERMINATED]');
             let embed = new Discord.RichEmbed()
                 .setColor('#FF00FF')
                 .setDescription(rMessage.cleanContent)
