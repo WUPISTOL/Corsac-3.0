@@ -82,6 +82,6 @@
 		
 // 	}
 // };
-// module.exports.help = {
-//   name: "play"
-// }
+module.exports.help = {
+  name: "play"
+}
