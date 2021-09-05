@@ -57,7 +57,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .setDescription(rMessage.cleanContent)
                 .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
                 .setTimestamp(new Date())
-                .setFooter(`⭐ | ${rMessage.id} | [Jump!](${rMessage.url})`)
+                .setFooter(`⭐ | ${rMessage.id}`)
+                .addField("\ u200B", `[Jump!](${rMessage.url})`)
                 .setImage(starredimage);
             await starChannel.send(embed);
 });
