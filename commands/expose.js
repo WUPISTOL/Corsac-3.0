@@ -14,22 +14,28 @@ var snipechannel = snipes[chn]; // calls specific deleted message
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
 } else {
-  const embed = {
-    "color": 5608903,
-    "footer": {
-      "text": `${snipechannel[1]} has been exposed`
-    },
-    "fields": [{
-      "name": `\"${snipechannel[0]}\"`,
-      "value": `<a:KirbyJam:583773264401137696>` 
-    }],
-    "image": {
-      "url": `${snipechannel[2]}`
-    }
-  };
-  await message.channel.send({
-    embed
-  });
+  let embed = new Discord.RichEmbed()
+      .setColor('#3300FF')
+      .setFooter(`${snipechannel[1]} has been exposed`)
+      .addField(`\"${snipechannel[0]}\"`, `<a:KirbyJam:583773264401137696>`)
+      .setImage(snipechannel[2])
+  message.channel.send(embed);
+//   const embed = {
+//     "color": 5608903,
+//     "footer": {
+//       "text": `${snipechannel[1]} has been exposed`
+//     },
+//     "fields": [{
+//       "name": `\"${snipechannel[0]}\"`,
+//       "value": `<a:KirbyJam:583773264401137696>` 
+//     }],
+//     "image": {
+//       "url": `${snipechannel[2]}`
+//     }
+//   };
+//   await message.channel.send({
+//     embed
+//   });
   snipechannel[0] = "No snipes";
 
   var fileName = './snipe.json';
