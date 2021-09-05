@@ -1,5 +1,5 @@
 module.exports.help = {
-  name: "play"
+  name: "playgame"
 }
 
 exports.run = (client, message, args) => {
