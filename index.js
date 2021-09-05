@@ -34,7 +34,8 @@ client.on("ready", async () => {
 process.on("unhandledRejection", console.error);
 
 client.on("messageReactionAdd", async (reaction, user) => {
-    let rMessage = reaction.message
+    if (reaction.emoji.name !== "⭐") return;
+    let rMessage = reaction.message;
     console.log("____________________");
     console.log('Message reaction detected.')
     console.log("____________________");
@@ -43,7 +44,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log(`Reaction recipient: ${rMessage.author.username}`)
     console.log(`Reaction sender: ${user.username}`);
     console.log("____________________");
-        if (reaction.emoji.name !== "⭐") return console.log('wrong emoji name.EAFJIEOJG');
             let starredMessage = rMessage.guild.id;
             let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
             if (!starChannel) return console.log("Star detected, but no starboard channel found.");
