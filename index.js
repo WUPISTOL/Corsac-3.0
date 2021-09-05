@@ -1,9 +1,10 @@
 const config = require("./config.json");
+const MusicClient = require('./struct/Client');
 const Discord = require("discord.js");
+const client = new MusicClient({ token: process.env.DISCORD_TOKEN, prefix: process.env.DISCORD_PREFIX });
+const { join } = require('path');
 const fs = require("fs");
-const client = new Discord.Client({
-    disableEveryone: true
-});
+
 const cooldown = new Set();
 client.commands = new Discord.Collection();
 // h
