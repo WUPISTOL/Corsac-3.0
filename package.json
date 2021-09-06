@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2"
+    "ytdl-core": "^4.9.1"
   },
   "devDependencies": {},
   "description": "Jari's first bot",
