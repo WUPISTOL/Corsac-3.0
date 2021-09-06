@@ -1,19 +1,36 @@
+
 {
-  "name": "corsac",
-  "version": "3.5.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "discord-ytdl-core": "^5.0.4",
-    "discord.js": "^13.1.0",
-    "node": "^16.6.1",
-    "youtube-search": "^1.1.6",
-    "ytdl-core": "^4.9.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "W.U. PISTOL",
-  "license": "ISC"
+	"name": "corsac",
+	"version": "3.5.0",
+	"description": "crappy discord bot",
+	"main": "index.js",
+	"author": "MrSmooK <mrsmook.dev@gmail.com>",
+	"license": "ISC",
+	"private": true,
+	"scripts": {
+		"start": "node ."
+	},
+	"dependencies": {
+		"discord.js": "^12.3.1",
+		"dotenv": "^8.2.0",
+		"youtube-search": "^1.1.4",
+		"ytdl-core": "^4.4.0"
+	},
+	"devDependencies": {
+		"eslint": "^7.10.0",
+		"eslint-config-aqua": "^7.3.0"
+	},
+	"optionalDependencies": {
+		"@discordjs/opus": "^0.3.2",
+		"erlpack": "github:discord/erlpack",
+		"zlib-sync": "^0.1.7"
+	},
+	"eslintConfig": {
+		"extends": "aqua/node"
+	},
+	"renovate": {
+		"extends": [
+			"teal"
+		]
+	}
 }
