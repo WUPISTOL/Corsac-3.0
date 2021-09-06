@@ -1,3 +1,4 @@
+exports.run = (client, message, args) => {
 module.exports = {
 	name: 'play',
 	async execute(message, args) {
@@ -69,6 +70,7 @@ module.exports = {
 		});
 		
 	}
+}
 };
 module.exports.help = {
   name: "play"
