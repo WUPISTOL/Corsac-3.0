@@ -1,6 +1,14 @@
+const { Util } = require('discord.js');
+const ytdl = require('ytdl-core');
+let search = require('youtube-search');
+let opts = {
+  maxResults: 1,
+  key: process.env.BOT_YOUTUBE_TOKEN,
+  type: 'video'
+};
 exports.run = async (client, message, args) => {
-		const { channel } = message.member.voice;
-		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
+		const channel = message.member.voice.channel;
+		if (!voice.channelID) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
 		const permissions = channel.permissionsFor(message.client.user);
 		if (!permissions.has('CONNECT')) return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
 		if (!permissions.has('SPEAK')) return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
@@ -27,7 +35,7 @@ exports.run = async (client, message, args) => {
 
 		const queueConstruct = {
 			textChannel: message.channel,
-			voiceChannel: channel,
+			voiceChannel: voice.channelID,
 			connection: null,
 			songs: [],
 			volume: 2,
