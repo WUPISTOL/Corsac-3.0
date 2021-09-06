@@ -6,7 +6,7 @@ let opts = {
     key: process.env.BOT_YOUTUBE_TOKEN,
     type: 'video'
 };
-exports.run = (client, message, args) => {
+exports.run {
     name: 'play',
     description: 'Play command.',
     usage: '[command name]',
