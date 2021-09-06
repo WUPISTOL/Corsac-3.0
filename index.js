@@ -8,7 +8,8 @@ const client = new Discord.Client({
         "GUILD_MESSAGE_REACTIONS",
         "DIRECT_MESSAGES",
         "DIRECT_MESSAGE_REACTIONS",
-        "DIRECT_MESSAGE_REACTIONS"
+        "DIRECT_MESSAGE_REACTIONS",
+        "GUILD_PRESENCES"
     ]
 })
 const {
