@@ -6,13 +6,7 @@ let opts = {
     key: process.env.BOT_YOUTUBE_TOKEN,
     type: 'video'
 };
-exports.run {
-    name: 'play',
-    description: 'Play command.',
-    usage: '[command name]',
-    args: true,
-    cooldown: 5,
-    async execute(message, args) {
+exports.run (message, args) {
         const {
             channel
         } = message.member.voice;
@@ -82,8 +76,7 @@ exports.run {
             }
         });
 
-    }
-};
+    };
 module.exports.help = {
   name: "play"
 }
