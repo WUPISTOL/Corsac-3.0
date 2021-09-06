@@ -1,8 +1,7 @@
 const config = require("./config.json");
-const MusicClient = require('./struct/Client');
 const Discord = require("discord.js");
-const client = new MusicClient({
-    token: process.env.BOT_TOKEN
+const client = new Discord.Client({
+    disableEveryone: true
 });
 const {
     join
