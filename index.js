@@ -46,6 +46,12 @@ client.on("ready", async () => {
 process.on("unhandledRejection", console.error);
 
 client.on("messageReactionAdd", async (reaction, user) => {
+    if (reaction.emoji.name !== "bear") return;
+    let rMember = message.author;
+    let gRole = message.guild.roles.find(`name`, "Dawg");
+    if(!gRole) return console.log("That role doesn't exist.");
+    if(rMember.roles.has(gRole.id)) return console.log("This user already has that role.");
+    rMember.addRole(gRole.id);
     if (reaction.emoji.name !== "⭐") return;
     let rMessage = reaction.message;
     console.log("____________________");
