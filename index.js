@@ -46,11 +46,6 @@ client.on("ready", async () => {
 process.on("unhandledRejection", console.error);
 
 client.on("messageReactionAdd", async (reaction, user) => {
-    if (reaction.emoji.name !== "🐻") return console.log("emoji not found lmao");
-    let rMember = reaction.message.author;
-    let gRole = reaction.message.guild.roles.find(`name`, "Dawg");
-    if(!gRole) return console.log("That role doesn't exist.");
-    rMember.addRole(gRole.id);
     if (reaction.emoji.name !== "⭐") return;
     let rMessage = reaction.message;
     console.log("____________________");
@@ -69,7 +64,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     console.log("____________________");
     if (reaction.count !== 1) return;
     let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
-    if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Did I just catch you trying to star an empty message? We don\'t do that here. Who do you take me for, a vitamin D deficient rodeo clown? You think you can trick me? I\'ll have you kno-');
+    if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Unfortunately Guam can\'t figure out how to star embeds.');
     let embed = new Discord.RichEmbed()
         .setColor('#FF00FF')
         .setDescription(rMessage.cleanContent)
