@@ -50,7 +50,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
     let rMember = reaction.message.author;
     let gRole = reaction.message.guild.roles.find(`name`, "Dawg");
     if(!gRole) return console.log("That role doesn't exist.");
-    if(rMember.roles.has(gRole.id)) return console.log("This user already has that role.");
     rMember.addRole(gRole.id);
     if (reaction.emoji.name !== "⭐") return;
     let rMessage = reaction.message;
