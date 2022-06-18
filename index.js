@@ -88,7 +88,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         console.log(`Reaction sender: ${user.username}`);
         console.log("____________________");
         let starredMessage = rMessage.guild.id;
-        let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
+        let starChannel = rMessage.guild.channels.cache.find(ch => ch.name === 'starboard');
         if (!starChannel) return console.log("Star detected, but no starboard channel found.");
         console.log("Star detected, starChannel found. Counting star awards...");
         console.log(`Total number of awards given: ${reaction.count}`)
