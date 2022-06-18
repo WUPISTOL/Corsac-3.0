@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "discord.js": "^11.4.2",
-    "ytdl-core": "^4.4.0"
+    "ytdl-core": "^4.4.0",
+    "discord-buttons": "^4.4.0",
+    "discord-button-pages": "^1.1.9"
   },
   "description": "Jari's first bot",
   "repository": {
