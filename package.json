@@ -11,7 +11,7 @@
     "node": "16.x"
   },
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
     "ytdl-core": "^4.4.0"
   },
   "description": "Jari's first bot",
