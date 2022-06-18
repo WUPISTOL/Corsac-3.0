@@ -15,7 +15,8 @@
     "ytdl-core": "^4.4.0",
     "youtube-search": "^1.1.6",
     "discord-buttons": "^4.0.0",
-    "discord-button-pages": "^1.1.9"
+    "discord-button-pages": "^1.1.9",
+    "@discordjs/voice": "^0.10.0"
   },
   "description": "Jari's first bot",
   "repository": {
