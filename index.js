@@ -119,7 +119,7 @@ client.on("message", async message => {
     let prefix = config.prefix;
 
     if (message.content.indexOf(prefix) !== 0) return;
-
+    
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
