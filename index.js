@@ -47,6 +47,16 @@ fs.readdir("./commands/", (err, files) => {
 client.on("ready", async () => {
     console.log(`${client.user.username} is online on ${client.guilds.size} guilds!`);
     client.user.setActivity(`Yakuza Ishin!`);
+  const channel = client.channels.get("884267307143139399");
+  if (!channel) return console.error("The channel does not exist!");
+  channel.join().then(connection => {
+    // Yay, it worked!
+    console.log("Successfully connected.");
+  }).catch(e => {
+    // Oh no, it errored! Let's log it to console :)
+    console.error(e);
+  });
+});
 });
 
 client.on('clickButton', (button) => {
