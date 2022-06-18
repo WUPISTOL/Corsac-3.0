@@ -13,6 +13,7 @@
   "dependencies": {
     "discord.js": "^12.5.3",
     "ytdl-core": "^4.4.0",
+    "youtube-search": "^1.1.6"
     "discord-buttons": "^4.0.0",
     "discord-button-pages": "^1.1.9"
   },
