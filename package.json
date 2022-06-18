@@ -11,7 +11,7 @@
     "node": "16.x"
   },
   "dependencies": {
-    "discord.js": "^11.4.2",
+    "discord.js": "^12.5.3",
     "ytdl-core": "^4.4.0",
     "discord-buttons": "^4.0.0",
     "discord-button-pages": "^1.1.9"
