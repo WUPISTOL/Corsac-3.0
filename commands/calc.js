@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 exports.run = (client, message, args) => {
-  message.channel.post({
+  message.channel.send({
     data: {
         //adds the embed here, so the button and embed will be sent together
         embeds: {
