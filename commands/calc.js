@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+client.interaction = {};
 const DiscordButtons = require('discord-buttons'); //Requiring Discord-BUttons module.
 const ButtonPages = require('discord-button-pages'); //Requiring Discord-Button-Pages module.
 DiscordButtons(client);
