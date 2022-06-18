@@ -9,7 +9,7 @@
   "license": "ISC",
   "engines": {
     "node": "16.x"
-  }
+  },
   "devDependencies": {},
   "description": "Jari's first bot",
   "repository": {
