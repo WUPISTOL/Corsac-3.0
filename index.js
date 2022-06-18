@@ -63,33 +63,33 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if (reaction.emoji.name !== "⭐") return;
     console.log(reaction.message)
     console.log(reaction.client)
-    //     let rMessage = reaction.message;
-    //     console.log("____________________");
-    //     console.log('Message reaction detected.')
-    //     console.log("____________________");
-    //     console.log(`Message: ${rMessage.content}`);
-    //     console.log(`Emoji: ${reaction.emoji.name}`);
-    //     console.log(`Reaction recipient: ${rMessage.author.username}`)
-    //     console.log(`Reaction sender: ${user.username}`);
-    //     console.log("____________________");
-    //     let starredMessage = rMessage.guild.id;
-    //     let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
-    //     if (!starChannel) return console.log("Star detected, but no starboard channel found.");
-    //     console.log("Star detected, starChannel found. Counting star awards...");
-    //     console.log(`Total number of awards given: ${reaction.count}`)
-    //     console.log("____________________");
-    //     if (reaction.count !== 1) return;
-    //     let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
-    //     if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Unfortunately Guam can\'t figure out how to star embeds.');
-    //     let embed = new Discord.RichEmbed()
-    //         .setColor('#FF00FF')
-    //         .setDescription(rMessage.cleanContent)
-    //         .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
-    //         .setTimestamp(new Date())
-    //         .setFooter(`⭐`)
-    //         .addField("⠀", `[Jump!](${rMessage.url})`)
-    //         .setImage(starredimage);
-    //     await starChannel.send(embed);
+        let rMessage = reaction.message;
+        console.log("____________________");
+        console.log('Message reaction detected.')
+        console.log("____________________");
+        console.log(`Message: ${rMessage.content}`);
+        console.log(`Emoji: ${reaction.emoji.name}`);
+        console.log(`Reaction recipient: ${rMessage.author.username}`)
+        console.log(`Reaction sender: ${user.username}`);
+        console.log("____________________");
+        let starredMessage = rMessage.guild.id;
+        let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
+        if (!starChannel) return console.log("Star detected, but no starboard channel found.");
+        console.log("Star detected, starChannel found. Counting star awards...");
+        console.log(`Total number of awards given: ${reaction.count}`)
+        console.log("____________________");
+        if (reaction.count !== 1) return;
+        let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
+        if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Unfortunately Guam can\'t figure out how to star embeds.');
+        let embed = new Discord.RichEmbed()
+            .setColor('#FF00FF')
+            .setDescription(rMessage.cleanContent)
+            .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
+            .setTimestamp(new Date())
+            .setFooter(`⭐`)
+            .addField("⠀", `[Jump!](${rMessage.url})`)
+            .setImage(starredimage);
+        await starChannel.send(embed);
 });
 
 client.on("message", async message => {
@@ -123,23 +123,23 @@ client.on("message", async message => {
     if (message.content.indexOf(prefix) !== 0) return;
     if (!cmd) return;
     
-    if (message.content.toLowerCase() === 'c!calc') {
-        if((message.author.id !== '395345841453400075') && (message.author.id !== '854739864784601159')) return;
-        const embed1 = new Discord.MessageEmbed()
-            .setTitle('I can')
-            .setColor('RED');
+//     if (message.content.toLowerCase() === 'c!calc') {
+//         if((message.author.id !== '395345841453400075') && (message.author.id !== '854739864784601159')) return;
+//         const embed1 = new Discord.MessageEmbed()
+//             .setTitle('I can')
+//             .setColor('RED');
 
-        const embed2 = new Discord.MessageEmbed()
-            .setTitle('Do this')
-            .setColor('YELLOW');
+//         const embed2 = new Discord.MessageEmbed()
+//             .setTitle('Do this')
+//             .setColor('YELLOW');
 
-        const embed3 = new Discord.MessageEmbed()
-            .setTitle('too nigga')
-            .setColor('BLUE');
+//         const embed3 = new Discord.MessageEmbed()
+//             .setTitle('too nigga')
+//             .setColor('BLUE');
 
-        const embedPages = [embed1, embed2, embed3];
-        ButtonPages.createPages(client.interaction, message, embedPages, 60 * 1000, "red", "➡️", "⬅️", "❌");
-    }
+//         const embedPages = [embed1, embed2, embed3];
+//         ButtonPages.createPages(client.interaction, message, embedPages, 60 * 1000, "red", "➡️", "⬅️", "❌");
+//     }
 });
 client.on("messageDelete", (message) => {
     if (message.author.bot) return;
