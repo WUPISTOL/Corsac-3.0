@@ -294,8 +294,6 @@ function play(guild, song) {
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   serverQueue.textChannel.send(`Start playing: **${song.title}**`);
 }
-
-client.login(token);
 //kirbyjam, it works
 //Try 3 failed, unexpected identifier on async run
 //Yep, gonna have to rewrite a lot
