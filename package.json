@@ -16,7 +16,8 @@
     "youtube-search": "^1.1.6",
     "discord-buttons": "^4.0.0",
     "discord-button-pages": "^1.1.9",
-    "@discordjs/voice": "^0.10.0"
+    "@discordjs/voice": "^0.10.0",
+    "ffmpeg": "^0.0.4"
   },
   "description": "Jari's first bot",
   "repository": {
