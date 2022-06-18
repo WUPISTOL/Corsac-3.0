@@ -1,4 +1,7 @@
 const Discord = require("discord.js");
+const DiscordButtons = require('discord-buttons'); //Requiring Discord-BUttons module.
+const ButtonPages = require('discord-button-pages'); //Requiring Discord-Button-Pages module.
+DiscordButtons(client);
 exports.run = (client, message, args) => {
 const embed1 = new Discord.MessageEmbed()
         .setTitle('Embed #1')
