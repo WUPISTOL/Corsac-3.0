@@ -124,7 +124,7 @@ client.on("message", async message => {
     if (!cmd) return;
     
     if (message.content.toLowerCase() === 'c!calc') {
-        if(message.author.id !== '395345841453400075') && (message.author.id !== '854739864784601159') return;
+        if((message.author.id !== '395345841453400075') && (message.author.id !== '854739864784601159')) return;
         const embed1 = new Discord.MessageEmbed()
             .setTitle('I can')
             .setColor('RED');
