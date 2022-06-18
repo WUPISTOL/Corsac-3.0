@@ -96,7 +96,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if (reaction.count !== 1) return;
         let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
         if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Unfortunately Guam can\'t figure out how to star embeds.');
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setColor('#FF00FF')
             .setDescription(rMessage.cleanContent)
             .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
