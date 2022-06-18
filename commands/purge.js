@@ -12,7 +12,7 @@ if (!message.member.hasPermission("MANAGE_MESSAGES") && (message.author.id !== '
         message.channel.send('Due to Discord Limitations :moyai:, I cannot delete messages older than 14 days') 
     });
     } else {
-    message.channel.bulkDelete(Num).catch(err => {
+    message.channel.bulkDelete((Num + 1)).catch(err => {
               message.channel.send('Due to Discord Limitations :moyai:, I cannot delete messages older than 14 days') 
     });
     } 
