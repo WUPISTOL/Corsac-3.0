@@ -58,6 +58,14 @@ client.on("ready", async () => {
   });
 });
 
+client.once("reconnecting", () => {
+  console.log("Reconnecting!");
+});
+
+client.once("disconnect", () => {
+  console.log("Disconnect!");
+});
+
 client.on('clickButton', (button) => {
     ButtonPages.buttonInteractions(button, client.interaction);
 });
