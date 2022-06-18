@@ -57,7 +57,6 @@ client.on("ready", async () => {
     console.error(e);
   });
 });
-});
 
 client.on('clickButton', (button) => {
     ButtonPages.buttonInteractions(button, client.interaction);
