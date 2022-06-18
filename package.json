@@ -1,39 +1,22 @@
-
 {
-	"name": "corsac",
-	"version": "3.5.0",
-	"description": "crappy discord bot",
-	"main": "index.js",
-	"author": "W.U. PISTOL",
-	"license": "ISC",
-	"private": true,
-	"engines": {
- 	  "node": "16.x"
-  	},
-	"scripts": {
-		"start": "node ."
-	},
-	"dependencies": {
-		"discord.js": "^11.4.2",
-		"dotenv": "^8.2.0",
-		"youtube-search": "^1.1.4",
-		"ytdl-core": "^4.4.0"
-	},
-	"devDependencies": {
-		"eslint": "^7.10.0",
-		"eslint-config-aqua": "^7.3.0"
-	},
-	"optionalDependencies": {
-		"@discordjs/opus": "^0.3.2",
-		"erlpack": "github:discord/erlpack",
-		"zlib-sync": "^0.1.7"
-	},
-	"eslintConfig": {
-		"extends": "aqua/node"
-	},
-	"renovate": {
-		"extends": [
-			"teal"
-		]
-	}
+  "name": "corsac",
+  "version": "3.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "W.U. PISTOL",
+  "license": "ISC",
+  "engines": {
+    "node": "16.x"
+  }
+  "devDependencies": {},
+  "description": "Jari's first bot",
+  "repository": {
+    "type": "git",
+    "url": "E"
+  },
+  "keywords": [
+    "Corsac"
+  ]
 }
