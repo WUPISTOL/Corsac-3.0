@@ -17,7 +17,9 @@
     "discord-buttons": "^4.0.0",
     "discord-button-pages": "^1.1.9",
     "@discordjs/voice": "^0.10.0",
-    "ffmpeg": "^0.0.4"
+    "@discordjs/opus": "^0.7.0",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2"
   },
   "description": "Jari's first bot",
   "repository": {
