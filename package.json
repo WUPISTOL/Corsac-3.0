@@ -12,14 +12,15 @@
   },
   "dependencies": {
     "discord.js": "^12.5.3",
+    "ffmpeg-static": "^5.0.0",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "@discordjs/voice": "^0.10.0",
+    "@discordjs/opus": "^0.7.0",
     "ytdl-core": "^4.4.0",
     "youtube-search": "^1.1.6",
     "discord-buttons": "^4.0.0",
-    "discord-button-pages": "^1.1.9",
-    "@discordjs/voice": "^0.10.0",
-    "@discordjs/opus": "^0.7.0",
-    "ffmpeg": "^0.0.4",
-    "fluent-ffmpeg": "^2.1.2"
+    "discord-button-pages": "^1.1.9"
   },
   "description": "Jari's first bot",
   "repository": {
