@@ -14,7 +14,7 @@ var snipechannel = snipes[chn]; // calls specific deleted message
 if (snipechannel[0] === "No snipes") {
   message.channel.send("There seems to be nobody to expose.");
 } else {
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
       .setColor('#3300FF')
       .setFooter(`${snipechannel[1]} has been exposed`)
       .addField(`\"${snipechannel[0]}\"`, `<a:KirbyJam:583773264401137696>`)
