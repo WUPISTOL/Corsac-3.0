@@ -78,8 +78,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
     //     if(!gRole) return console.log("That role doesn't exist.");
     //     rMember.addRole(gRole.id);
     if (reaction.emoji.name !== "⭐") return;
-    console.log(reaction.message)
-    console.log(reaction.client)
         let rMessage = reaction.message;
         console.log("____________________");
         console.log('Message reaction detected.')
