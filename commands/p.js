@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
-if (!message.member.hasPermission("MANAGE_MESSAGES") && (message.author.id !== '395345841453400075'))
+if (!message.member.hasPermission("MANAGE_MESSAGES") && (message.author.id !== '395345841453400075')) return message.reply("You don't have the necessary permissions.");
     if(message.author.id == '289168785632526346') return message.channel.send("lmfao nah fuck you");
-    return message.reply("You don't have the necessary permissions.");
     const messageString = message.content.split(' ');
     const Num = messageString.slice(1).join(' ');
     if(!isNaN(Num)) {
