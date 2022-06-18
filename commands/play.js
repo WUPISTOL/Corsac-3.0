@@ -1,4 +1,4 @@
-// const { Util } = require('discord.js');
+const { Util } = require('discord.js');
 // const ytdl = require('ytdl-core');
 // let search = require('youtube-search');
 // let opts = {
@@ -75,6 +75,6 @@
 // 		});
 		
 // 	};
-// module.exports.help = {
-//   name: "play"
-// }
+module.exports.help = {
+  name: "play"
+}
