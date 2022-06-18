@@ -10,7 +10,9 @@
   "engines": {
     "node": "16.x"
   },
-  "devDependencies": {},
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
   "description": "Jari's first bot",
   "repository": {
     "type": "git",
