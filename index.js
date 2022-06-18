@@ -1,6 +1,5 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
-
 const client = new Discord.Client({
     intents: ["GUILDS",
         "GUILD_MESSAGES",
@@ -13,8 +12,11 @@ const client = new Discord.Client({
         "GUILD_PRESENCES"
     ]
 })
-const DiscordButtons = require('discord-buttons');
+client.interaction = {}; //Creating interaction object
+const DiscordButtons = require('discord-buttons'); //Requiring Discord-BUttons module.
+const ButtonPages = require('discord-button-pages'); //Requiring Discord-Button-Pages module.
 DiscordButtons(client);
+
 const {
     join
 } = require('path');
@@ -44,51 +46,70 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("ready", async () => {
     console.log(`${client.user.username} is online on ${client.guilds.size} guilds!`);
-    client.user.setActivity(`Dark Souls 3`);
+    client.user.setActivity(`Yakuza Ishin!`);
+});
+
+client.on('clickButton', (button) => {
+    ButtonPages.buttonInteractions(button, client.interaction);
 });
 process.on("unhandledRejection", console.error);
 
 client.on("messageReactionAdd", async (reaction, user) => {
-//     if (reaction.emoji.name !== "🐻") console.log("emoji not found lmao");
-//     let rMember = reaction.message.author;
-//     let gRole = reaction.message.guild.roles.find(`name`, "Dawg");
-//     if(!gRole) return console.log("That role doesn't exist.");
-//     rMember.addRole(gRole.id);
+    //     if (reaction.emoji.name !== "🐻") console.log("emoji not found lmao");
+    //     let rMember = reaction.message.author;
+    //     let gRole = reaction.message.guild.roles.find(`name`, "Dawg");
+    //     if(!gRole) return console.log("That role doesn't exist.");
+    //     rMember.addRole(gRole.id);
     if (reaction.emoji.name !== "⭐") return;
     console.log(reaction.message)
     console.log(reaction.client)
-//     let rMessage = reaction.message;
-//     console.log("____________________");
-//     console.log('Message reaction detected.')
-//     console.log("____________________");
-//     console.log(`Message: ${rMessage.content}`);
-//     console.log(`Emoji: ${reaction.emoji.name}`);
-//     console.log(`Reaction recipient: ${rMessage.author.username}`)
-//     console.log(`Reaction sender: ${user.username}`);
-//     console.log("____________________");
-//     let starredMessage = rMessage.guild.id;
-//     let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
-//     if (!starChannel) return console.log("Star detected, but no starboard channel found.");
-//     console.log("Star detected, starChannel found. Counting star awards...");
-//     console.log(`Total number of awards given: ${reaction.count}`)
-//     console.log("____________________");
-//     if (reaction.count !== 1) return;
-//     let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
-//     if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Unfortunately Guam can\'t figure out how to star embeds.');
-//     let embed = new Discord.RichEmbed()
-//         .setColor('#FF00FF')
-//         .setDescription(rMessage.cleanContent)
-//         .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
-//         .setTimestamp(new Date())
-//         .setFooter(`⭐`)
-//         .addField("⠀", `[Jump!](${rMessage.url})`)
-//         .setImage(starredimage);
-//     await starChannel.send(embed);
+    //     let rMessage = reaction.message;
+    //     console.log("____________________");
+    //     console.log('Message reaction detected.')
+    //     console.log("____________________");
+    //     console.log(`Message: ${rMessage.content}`);
+    //     console.log(`Emoji: ${reaction.emoji.name}`);
+    //     console.log(`Reaction recipient: ${rMessage.author.username}`)
+    //     console.log(`Reaction sender: ${user.username}`);
+    //     console.log("____________________");
+    //     let starredMessage = rMessage.guild.id;
+    //     let starChannel = rMessage.guild.channels.find(ch => ch.name === 'starboard');
+    //     if (!starChannel) return console.log("Star detected, but no starboard channel found.");
+    //     console.log("Star detected, starChannel found. Counting star awards...");
+    //     console.log(`Total number of awards given: ${reaction.count}`)
+    //     console.log("____________________");
+    //     if (reaction.count !== 1) return;
+    //     let starredimage = rMessage.attachments.size > 0 ? rMessage.attachments.array()[0].url : '';
+    //     if (starredimage === '' && rMessage.cleanContent.length < 1) return rMessage.channel.send('Unfortunately Guam can\'t figure out how to star embeds.');
+    //     let embed = new Discord.RichEmbed()
+    //         .setColor('#FF00FF')
+    //         .setDescription(rMessage.cleanContent)
+    //         .setAuthor(rMessage.author.tag, rMessage.author.displayAvatarURL)
+    //         .setTimestamp(new Date())
+    //         .setFooter(`⭐`)
+    //         .addField("⠀", `[Jump!](${rMessage.url})`)
+    //         .setImage(starredimage);
+    //     await starChannel.send(embed);
 });
 
 client.on("message", async message => {
     if (message.author.bot) return;
+    if (message.content.toLowerCase() === 'c!calc') {
+        const embed1 = new Discord.MessageEmbed()
+            .setTitle('Embed #1')
+            .setColor('RED');
 
+        const embed2 = new Discord.MessageEmbed()
+            .setTitle('Embed #2')
+            .setColor('YELLOW');
+
+        const embed3 = new Discord.MessageEmbed()
+            .setTitle('Embed #3')
+            .setColor('BLUE');
+
+        const embedPages = [embed1, embed2, embed3];
+        ButtonPages.createPages(client.interaction, msg, embedPages, 60 * 1000, "red", "👉", "👈", "❌");
+    }
     if (message.content.toLowerCase() === 'sokolov sokolov sokolov') {
         const sokolovs = ['\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`Soldier Soldier Soldier\`', '\`The Pain!\`', '\`This isn\'t interesting.\`', `***Not yet, ${message.author}, it's not over yet.***`, '\`You\'re pretty good.\`', '\`I loVe jApaN.\`', '\`The Fear!\`', '\`Wipe this meme off the face of the earth.\`', '\`Psycho Mantis?\`', '\`Sokolob\`', '\`THEY PLAYED US LIKE A DAMN FIDDLE\`', '\`Played college ball, you know. Try University of Texas. Coulda gone pro if I hadn\'t joined the Navy. I\'m not one of those beltway pansies. I could break the President in two... with my bare hands. Don\'t fuck with **this** senator!\`', '\`Memes. The DNA of the soul.\`', '\`Kept you waiting, huh?\`', '\`La-Li-Lu-Le-Lo\`', '\`Never liked kids. Especially ones with guns.\`', '\`Nanomachines, son.\`', '\`Rise n\' shine, old-timer. It is complete! I had our best and brightest working overtime, fine-tuning the greatest burger the world has ever known!\`', '\`Curse the gods for they have forsaken me with the ability to code\`', '\`You\'re pretty bad.\`', '\`One hundred billion dollars!\`', '\`WHICH ONE OF YA WANNA \[REDACTED\]\`', 'Liquidus blocks of dried up crusty... things.', 'LMFAO', 'lmfao~', 'Bueno', 'Will you stop spamming Sokolov?', 'We\'ve managed to avoid drowning!', 'I got fired and blacklisted from Dennys for dropping a live rat into the deep fryer.', 'Harder daddy', 'BUENISSIMO', 'I don\'t speak japanese.', 'I\'m finished!', 'There are seven billion people on this earth, and not one of them asked you to spam Sokolov.', 'Don\'t hate me \'cause I\'m beautiful.', 'there is a pipe bomb in your mailbox', 'a mog ass', 'amogus', 'mongus', 'I\'ve written like 50 possible responses and I\'m out of ideas', 'Sunao ni I LOVE YOU! Todokeyou kitto YOU LOVE ME! Tsutawaru sa kimi ni Niau garasu no, Kutsu wo sagasou! Futari de STEP & GO! Itsu made mo, Shinya juuni-ji wo! Sugitatte kimi wa boku no itoshii Nijuuyo-jikan Shindereraaaa~', 'https://www.youtube.com/watch?v=Ntu_6ROG8EM', 'You\'re a cool person. :\)'];
 
@@ -131,6 +152,15 @@ client.on("messageDelete", (message) => {
             return console.log(error)
         }
     });
+});
+client.interaction = {}; //Creating interaction object
+const DiscordButtons = require('discord-buttons'); //Requiring Discord-BUttons module.
+const ButtonPages = require('discord-button-pages'); //Requiring Discord-Button-Pages module.
+DiscordButtons(client);
+
+
+client.on('clickButton', (button) => {
+    ButtonPages.buttonInteractions(button, client.interaction);
 });
 //kirbyjam, it works
 //Try 3 failed, unexpected identifier on async run
