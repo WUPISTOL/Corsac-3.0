@@ -138,7 +138,7 @@ client.on("message", async message => {
             .setColor('BLUE');
 
         const embedPages = [embed1, embed2, embed3];
-        ButtonPages.createPages(client.interaction, message, embedPages, 60 * 1000, "red", "➡️", "👈", "❌");
+        ButtonPages.createPages(client.interaction, message, embedPages, 60 * 1000, "red", "➡️", "⬅️", "❌");
     }
 });
 client.on("messageDelete", (message) => {
