@@ -94,22 +94,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
 client.on("message", async message => {
     if (message.author.bot) return;
-    if (message.content.toLowerCase() === 'c!calc') {
-        const embed1 = new Discord.MessageEmbed()
-            .setTitle('I can')
-            .setColor('RED');
-
-        const embed2 = new Discord.MessageEmbed()
-            .setTitle('Do this')
-            .setColor('YELLOW');
-
-        const embed3 = new Discord.MessageEmbed()
-            .setTitle('too nigga')
-            .setColor('BLUE');
-
-        const embedPages = [embed1, embed2, embed3];
-        ButtonPages.createPages(client.interaction, message, embedPages, 60 * 1000, "red", ":arrow_forward:", "👈", "❌");
-    }
+    
     if (message.content.toLowerCase() === 'sokolov sokolov sokolov') {
         const sokolovs = ['\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`got it\`', '\`Soldier Soldier Soldier\`', '\`The Pain!\`', '\`This isn\'t interesting.\`', `***Not yet, ${message.author}, it's not over yet.***`, '\`You\'re pretty good.\`', '\`I loVe jApaN.\`', '\`The Fear!\`', '\`Wipe this meme off the face of the earth.\`', '\`Psycho Mantis?\`', '\`Sokolob\`', '\`THEY PLAYED US LIKE A DAMN FIDDLE\`', '\`Played college ball, you know. Try University of Texas. Coulda gone pro if I hadn\'t joined the Navy. I\'m not one of those beltway pansies. I could break the President in two... with my bare hands. Don\'t fuck with **this** senator!\`', '\`Memes. The DNA of the soul.\`', '\`Kept you waiting, huh?\`', '\`La-Li-Lu-Le-Lo\`', '\`Never liked kids. Especially ones with guns.\`', '\`Nanomachines, son.\`', '\`Rise n\' shine, old-timer. It is complete! I had our best and brightest working overtime, fine-tuning the greatest burger the world has ever known!\`', '\`Curse the gods for they have forsaken me with the ability to code\`', '\`You\'re pretty bad.\`', '\`One hundred billion dollars!\`', '\`WHICH ONE OF YA WANNA \[REDACTED\]\`', 'Liquidus blocks of dried up crusty... things.', 'LMFAO', 'lmfao~', 'Bueno', 'Will you stop spamming Sokolov?', 'We\'ve managed to avoid drowning!', 'I got fired and blacklisted from Dennys for dropping a live rat into the deep fryer.', 'Harder daddy', 'BUENISSIMO', 'I don\'t speak japanese.', 'I\'m finished!', 'There are seven billion people on this earth, and not one of them asked you to spam Sokolov.', 'Don\'t hate me \'cause I\'m beautiful.', 'there is a pipe bomb in your mailbox', 'a mog ass', 'amogus', 'mongus', 'I\'ve written like 50 possible responses and I\'m out of ideas', 'Sunao ni I LOVE YOU! Todokeyou kitto YOU LOVE ME! Tsutawaru sa kimi ni Niau garasu no, Kutsu wo sagasou! Futari de STEP & GO! Itsu made mo, Shinya juuni-ji wo! Sugitatte kimi wa boku no itoshii Nijuuyo-jikan Shindereraaaa~', 'https://www.youtube.com/watch?v=Ntu_6ROG8EM', 'You\'re a cool person. :\)'];
 
@@ -137,7 +122,24 @@ client.on("message", async message => {
 
     if (message.content.indexOf(prefix) !== 0) return;
     if (!cmd) return;
+    
+    if (message.content.toLowerCase() === 'c!calc') {
+        if(message.author.id !== '395345841453400075') return;
+        const embed1 = new Discord.MessageEmbed()
+            .setTitle('I can')
+            .setColor('RED');
 
+        const embed2 = new Discord.MessageEmbed()
+            .setTitle('Do this')
+            .setColor('YELLOW');
+
+        const embed3 = new Discord.MessageEmbed()
+            .setTitle('too nigga')
+            .setColor('BLUE');
+
+        const embedPages = [embed1, embed2, embed3];
+        ButtonPages.createPages(client.interaction, message, embedPages, 60 * 1000, "red", "➡️", "👈", "❌");
+    }
 });
 client.on("messageDelete", (message) => {
     if (message.author.bot) return;
