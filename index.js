@@ -153,15 +153,6 @@ client.on("messageDelete", (message) => {
         }
     });
 });
-client.interaction = {}; //Creating interaction object
-const DiscordButtons = require('discord-buttons'); //Requiring Discord-BUttons module.
-const ButtonPages = require('discord-button-pages'); //Requiring Discord-Button-Pages module.
-DiscordButtons(client);
-
-
-client.on('clickButton', (button) => {
-    ButtonPages.buttonInteractions(button, client.interaction);
-});
 //kirbyjam, it works
 //Try 3 failed, unexpected identifier on async run
 //Yep, gonna have to rewrite a lot
