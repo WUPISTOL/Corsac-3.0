@@ -6,7 +6,7 @@ if (!message.member.hasPermission("MANAGE_MESSAGES") && (message.author.id !== '
     const Num = messageString.slice(1).join(' ');
     if(!isNaN(Num)) {
     if(!Num || Num < 2 || Num > 99)  return message.reply("please choose a number between 2 and 99 to purge.");
-    message.channel.bulkDelete(`${Num + 1}`).catch(err => {
+    message.channel.bulkDelete(`${Num}`).catch(err => {
               message.channel.send('Due to Discord Limitations :moyai:, I cannot delete messages older than 14 days') 
     });
     } else return;
