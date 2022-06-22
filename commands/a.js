@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
   var amember = message.mentions.users.first();
     if(!amember){
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
   .setImage(message.author.avatarURL)
   .setColor('#3300FF')
     message.channel.send(embed)
