@@ -8,7 +8,7 @@
   "author": "W.U. PISTOL",
   "license": "ISC",
   "engines": {
-    "node": "16.x"
+    "node": "^16.x"
   },
   "dependencies": {
     "discord.js": "^12.5.3",
